@@ -1,0 +1,426 @@
+[
+  {
+    "Code": "Logo_Full",
+    "Description": "Hình ảnh cửa hàng"
+  },
+  {
+    "Code": "Logo_Full_Check",
+    "Description": "Hiển thị hình ảnh cửa hàng nếu có"
+  },
+  {
+    "Code": "Ten_Cua_Hang",
+    "Description": "Tên của cửa hàng"
+  },
+  {
+    "Code": "Dia_Chi_Cua_Hang",
+    "Description": "Địa chỉ của cửa hàng"
+  },
+  {
+    "Code": "Dien_Thoai_Cua_Hang",
+    "Description": "Số điện thoại của cửa hàng"
+  },
+  {
+    "Code": "Loai_Hoa_Don",
+    "Description": "Loại hóa đơn - Hóa đơn bán hàng"
+  },
+  {
+    "Code": "Ma_Chung_Tu_Check",
+    "Description": "Hiển thị mã chứng từ nếu có"
+  },
+  {
+    "Code": "Ma_Chung_Tu",
+    "Description": "Mã chứng từ"
+  },
+  {
+    "Code": "Ma_Vach_Chung_Tu",
+    "Description": "Mã vạch (Barcode128) của mã chứng từ"
+  },
+  {
+    "Code": "Ma_Qr_Chung_Tu",
+    "Description": "Mã Qr của mã chứng từ"
+  },
+  {
+    "Code": "Ngay_Tao_Karaoke",
+    "Description": "Ngày tạo karaoke"
+  },
+  {
+    "Code": "{Ngay}/{Thang}/{Nam}-{Gio}:{Phut}-Vao",
+    "Description": "Giờ vào - Thời gian bắt đầu sử dụng dịch vụ"
+  },
+  {
+    "Code": "{Ngay}/{Thang}/{Nam}-{Gio}:{Phut}-Ra",
+    "Description": "Giờ ra - Thời gian kết thúc sử dụng dịch vụ"
+  },
+  {
+    "Code": "Ten_Phong_Ban",
+    "Description": "Tên phòng bàn - Tên phòng bàn và vị trí của phòng bàn sử dụng"
+  },
+  {
+    "Code": "Ten_Khach_Hang",
+    "Description": "Tên của khách hàng hoặc khách lẻ"
+  },
+  {
+    "Code": "Dien_Thoai_Khach_Hang",
+    "Description": "Số điện thoại của khách hàng, có thể để trống"
+  },
+  {
+    "Code": "Dia_Chi_Khach_Hang",
+    "Description": "Địa chỉ của khách hàng hoặc để trống"
+  },
+  {
+    "Code": "Nhan_Vien",
+    "Description": "Tên của nhân viên bán hàng"
+  },
+  {
+    "Code": "Tong_Truoc_Chiet_Khau",
+    "Description": "Tổng số tiền trước chiết khấu"
+  },
+  {
+    "Code": "Chiet_Khau_Check",
+    "Description": "Hiển thị chiết khấu nếu chiết khấu > 0"
+  },
+  {
+    "Code": "Chiet_Khau%",
+    "Description": "Chiết khấu (%)"
+  },
+  {
+    "Code": "Chiet_Khau",
+    "Description": "Chiết khấu, giảm giá"
+  },
+  {
+    "Code": "VAT_Check",
+    "Description": "Hiển thị thuế VAT nếu có"
+  },
+  {
+    "Code": "VAT%",
+    "Description": "Thuế VAT (%)"
+  },
+  {
+    "Code": "VAT",
+    "Description": "Thuế VAT (giá trị)"
+  },
+  {
+    "Code": "Tong_Cong",
+    "Description": "Tổng cộng - tổng số tiền"
+  },
+  {
+    "Code": "Tong_Cong_Bang_Chu",
+    "Description": "Tổng cộng bằng chữ (Đồng)"
+  },
+  {
+    "Code": "Excess_Cash_Check",
+    "Description": "Hiển thị tiền khách đưa và tiền thừa trả khách nếu có"
+  },
+  {
+    "Code": "Tien_Khach_Dua",
+    "Description": "Tiền khách đưa - Tổng số tiền khách đưa khi thanh toán"
+  },
+  {
+    "Code": "Tien_Thua_Tra_Khach",
+    "Description": "Tiền thừa trả lại khách sau khi thanh toán"
+  },
+  {
+    "Code": "Ghi_Chu_Check",
+    "Description": "Hiển thị ghi chú nếu có"
+  },
+  {
+    "Code": "Ghi_Chu",
+    "Description": "Ghi chú"
+  },
+  {
+    "Code": "Chan_Trang",
+    "Description": "Chân trang"
+  },
+  {
+    "Code": "Default_Footer_Pos365",
+    "Description": "Chân trang Pos365 mặc định"
+  },
+  {
+    "Code": "Diem_thuong_check",
+    "Description": "Hiển thị điêm thưởng nếu điểm thưởng > 0"
+  },
+  {
+    "Code": "Diem_Thuong_Su_Dung",
+    "Description": "Điểm thưởng sử dụng - Số điểm thưởng được sử dụng khi thanh toán hóa đơn"
+  },
+  {
+    "Code": "Tien_Thuong_Su_Dung",
+    "Description": "Tiền thưởng sử dụng - Số tiền quy đổi từ điểm thưởng sử dụng"
+  },
+  {
+    "Code": "Diem_Thuong_Cu",
+    "Description": "Điểm thưởng cũ - Điểm thưởng của khách hàng trước khi thanh toán hóa đơn"
+  },
+  {
+    "Code": "Diem_Thuong_Moi",
+    "Description": "Điểm thưởng mới - Tổng điểm thưởng của khách hàng sau khi thanh toán hóa đơn"
+  },
+  {
+    "Code": "Diem_Thuong_Phat_Sinh",
+    "Description": "Điểm thưởng phát sinh - Số điểm thưởng phát sinh khi thanh toán hóa đơn"
+  },
+  {
+    "Code": "Phuong_Thuc_Thanh_Toan",
+    "Description": "Tên phương thức thanh toán"
+  },
+  {
+    "Code": "So_The_Cung_Check",
+    "Description": "Hiển thị số thẻ cứng nếu có"
+  },
+  {
+    "Code": "So_The_Cung",
+    "Description": "Số thẻ cứng"
+  },
+  {
+    "Code": "Ten_Hang_Hoa",
+    "Description": "Tên hàng hóa, tên sản phẩm"
+  },
+  {
+    "Code": "Ghi_Chu_Hang_Hoa",
+    "Description": "Ghi chú của hàng hóa"
+  },
+  {
+    "Code": "Don_Gia",
+    "Description": "Đơn giá của hàng hóa"
+  },
+  {
+    "Code": "Don_Gia_Goc_Hien_Thi_Check",
+    "Description": "Hiển thị đơn giá gốc nếu đơn giá gốc > đơn giá sản phẩm"
+  },
+  {
+    "Code": "Don_Gia_Goc_Hien_Thi",
+    "Description": "Tổng đơn giá của hàng hóa và sản phẩm topping"
+  },
+  {
+    "Code": "So_Luong",
+    "Description": "Số lượng hàng hóa đã mua hoặc sử dụng"
+  },
+  {
+    "Code": "Tong_So_Luong",
+    "Description": "Tổng số lượng hàng hóa đã mua hoặc sử dụng"
+  },
+  {
+    "Code": "Thanh_Tien_Hang_Hoa",
+    "Description": "Tổng thành tiền của hàng hóa"
+  },
+  {
+    "Code": "DVT_Hang_Hoa",
+    "Description": "Đơn vị tính của hàng hóa"
+  },
+  {
+    "Code": "Topping_Check",
+    "Description": "Hiển thị topping nếu có"
+  },
+  {
+    "Code": "Don_Gia_Tru_Topping",
+    "Description": "Đơn giá trừ topping - Đơn giá của hàng hóa sau khi trừ giá sản phẩm topping"
+  },
+  {
+    "Code": "Chiet_Khau_Hang_Hoa%",
+    "Description": "Chiết khấu hàng hóa (%)"
+  },
+  {
+    "Code": "Chiet_Khau_Hang_Hoa_Check",
+    "Description": "Hiển thị chiết khấu nếu tỉ lệ chiết khấu > 0"
+  },
+  {
+    "Code": "STT_Hang_Hoa",
+    "Description": "Số thứ tự hàng hóa"
+  },
+  {
+    "Code": "Ma_Hoa_Don_Check",
+    "Description": "Hiển thị mã hóa đơn nếu có"
+  },
+  {
+    "Code": "Ma_Hoa_Don",
+    "Description": "Mã hóa đơn"
+  },
+  {
+    "Code": "Ma_Don_Hang_Check",
+    "Description": "Hiển thị mã đơn hàng nếu có"
+  },
+  {
+    "Code": "Ma_Don_Hang",
+    "Description": "Mã đơn hàng"
+  },
+  {
+    "Code": "Gio_Hien_Tai",
+    "Description": "Thời gian hiện tại"
+  },
+  {
+    "Code": "STT_Don_Hang",
+    "Description": "Số thứ tự đơn hàng"
+  },
+  {
+    "Code": "Lien_Check",
+    "Description": "Hiển thị liên hóa đơn nếu có"
+  },
+  {
+    "Code": "Lien",
+    "Description": "Liên hóa đơn"
+  },
+  {
+    "Code": "So_Luong_Check",
+    "Description": "Xác định đường gạch bên trên số thứ tự hàng hóa, tên hàng hóa và ghi chú hàng hóa khi tất cả số lượng sản phẩm đã được xử lý"
+  },
+  {
+    "Code": "Text_Size",
+    "Description": "Cỡ chữ"
+  },
+  {
+    "Code": "Product_Name",
+    "Description": "Tên sản phẩm"
+  },
+  {
+    "Code": "Product_Name_Downline",
+    "Description": "Product_Name_Downline"
+  },
+  {
+    "Code": "Product_Topping",
+    "Description": "Sản phẩm topping"
+  },
+  {
+    "Code": "Height_FOOTER_60",
+    "Description": "Chân trang_60"
+  },
+  {
+    "Code": "Height_FOOTER_35",
+    "Description": "Chân trang_35"
+  },
+  {
+    "Code": "FOOTER_POS_365",
+    "Description": "Chân trang mặc định"
+  },
+  {
+    "Code": "Product_Price",
+    "Description": "Giá bán của sản phẩm"
+  },
+  {
+    "Code": "Table_Infor",
+    "Description": "Tên phòng bàn"
+  },
+  {
+    "Code": "Card_Number",
+    "Description": "Số thẻ"
+  },
+  {
+    "Code": "Number_Invoice_Old",
+    "Description": "Số hóa đơn cũ"
+  },
+  {
+    "Code": "Number_Invoice",
+    "Description": "Số hóa đơn"
+  },
+  {
+    "Code": "Current_Time",
+    "Description": "Thời gian hiện tại"
+  },
+  {
+    "Code": "Product_Base_Price",
+    "Description": "Giá cơ sở sản phẩm"
+  },
+  {
+    "Code": "Ten_Thuc_Don",
+    "Description": "Tên hàng hóa, tên sản phẩm"
+  },
+  {
+    "Code": "Ghi_Chu_Thuc_Don",
+    "Description": "Ghi chú của hàng hóa"
+  },
+  {
+    "Code": "Don_Gia_Goc",
+    "Description": "Giá cơ sở sản phẩm"
+  },
+  {
+    "Code": "Loai_Phieu_Thu_Chi",
+    "Description": "Loại phiếu thu chi (phiếu thu - phiếu chi)"
+  },
+  {
+    "Code": "Ngay_Giao_Dich",
+    "Description": "Ngày giao dịch thu chi; ngày tạo mẫu in nhập hàng - nhận hàng; ngày trả hàng"
+  },
+  {
+    "Code": "Ly_Do",
+    "Description": "Lý do - Mô tả phiếu thu chi"
+  },
+  {
+    "Code": "So_Tien",
+    "Description": "Tổng số tiền phiếu thu chi"
+  },
+  {
+    "Code": "Ten_Chi_Nhanh",
+    "Description": "Tên chi nhánh của cửa hàng"
+  },
+  {
+    "Code": "Ma_Khach_Hang",
+    "Description": "Mã khách hàng"
+  },
+  {
+    "Code": "IMAGE_PLACEHOLDER",
+    "Description": "PN-mã khách hàng hoặc VC-mã voucher"
+  },
+  {
+    "Code": "Ngay_Tao_Voucher",
+    "Description": "Ngày tạo voucher"
+  },
+  {
+    "Code": "Ngay_Het_Han_Voucher",
+    "Description": "Ngày hết hạn voucher"
+  },
+  {
+    "Code": "Gia_Tri_Voucher",
+    "Description": "Giá trị voucher (theo % hoặc giá trị)"
+  },
+  {
+    "Code": "VOUCHER_CODE",
+    "Description": "Mã voucher"
+  },
+  {
+    "Code": "Nha_Cung_Cap",
+    "Description": "Tên nhà cung cấp"
+  },
+  {
+    "Code": "Dien_Thoai_Nha_Cung_Cap",
+    "Description": "Số điện thoại nhà cung cấp"
+  },
+  {
+    "Code": "Dia_Chi_Nha_Cung_Cap",
+    "Description": "Địa chỉ nhà cung cấp"
+  },
+  {
+    "Code": "Da_Tra",
+    "Description": "Tổng số tiền đã thanh toán"
+  },
+  {
+    "Code": "Du_No",
+    "Description": "Dư nợ - Số tiền còn nợ"
+  },
+  {
+    "Code": "Phi_Giao_Hang_Check",
+    "Description": "Hiển thị phí giao hàng nếu có"
+  },
+  {
+    "Code": "Phi_Giao_Hang",
+    "Description": "Phí giao hàng"
+  },
+  {
+    "Code": "Tong_Phu_Thu",
+    "Description": "Tổng phụ thu"
+  },
+  {
+    "Code": "Ten_Phu_Thu",
+    "Description": "Tên phụ thu"
+  },
+  {
+    "Code": "Phu_Thu%",
+    "Description": "Phụ thu %"
+  },
+  {
+    "Code": "Thanh_Tien_Phu_Thu",
+    "Description": "Thành tiền phụ thu"
+  },
+  {
+    "Code": "Phuong_Thuc_Thanh_Toan_Chi_Tiet",
+    "Description": "Hiển thị chi tiết các phương thức thanh toán"
+  }
+]

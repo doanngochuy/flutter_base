@@ -1,0 +1,46 @@
+[
+  {
+    "Description": "Tên của hàng",
+    "Code": "{Ten_Cua_Hang}"
+  },
+  {
+    "Description": "Địa chỉ cửa hàng",
+    "Code": "{Dia_Chi_Cua_Hang}"
+  },
+  {
+    "Description": "Điện thoại của hàng",
+    "Code": "{Dien_Thoai_Cua_Hang}"
+  },
+  {
+    "Description": "Mã chứng từ",
+    "Code": "{Ma_Chung_Tu}"
+  },
+  {
+    "Description": "Phòng / Bàn",
+    "Code": "{Ten_Phong_Ban}"
+  },
+  {
+    "Description": "Thời gian",
+    "Code": "{Gio_Hien_Tai}"
+  },
+  {
+    "Description": "Tên hàng hóa",
+    "Code": "{Ten_Thuc_Don}"
+  },
+  {
+    "Description": "Ghi chú trên hàng hóa",
+    "Code": "{Ghi_Chu_Thuc_Don}"
+  },
+  {
+    "Description": "Số thứ tự",
+    "Code": "{STT_Tem}"
+  },
+  {
+    "Description": "Tổng số tem",
+    "Code": "{Tong_So_Tem}"
+  },
+  {
+    "Description": "Tổng cộng",
+    "Code": "{Tong_Cong}"
+  }
+]

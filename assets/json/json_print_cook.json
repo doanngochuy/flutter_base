@@ -1,0 +1,46 @@
+[
+  {
+    "Description": "Phòng / Bàn",
+    "Code": "{Ten_Phong_Ban}"
+  },
+  {
+    "Description": "Thời gian",
+    "Code": "{Gio_Hien_Tai}"
+  },
+  {
+    "Description": "Người bán",
+    "Code": "{Nhan_Vien}"
+  },
+  {
+    "Description": "Tên hàng hóa",
+    "Code": "{Ten_Hang_Hoa}"
+  },
+  {
+    "Description": "Ghi chú trên hàng hóa",
+    "Code": "{Ghi_Chu_Hang_Hoa}"
+  },
+  {
+    "Description": "Số lượng",
+    "Code": "{So_Luong}"
+  },
+  {
+    "Description": "Mã đơn hàng",
+    "Code": "{Ma_Don_Hang}"
+  },
+  {
+    "Description": "Mã hàng hóa",
+    "Code": "{Ma_Hang_Hoa}"
+  },
+  {
+    "Description": "Số thứ tự",
+    "Code": "{STT_Hang_Hoa}"
+  },
+  {
+    "Description": "Số lần in báo",
+    "Code": "{STT_Don_Hang}"
+  },
+  {
+    "Description": "Liên (Copy)",
+    "Code": "{Lien}"
+  }
+]

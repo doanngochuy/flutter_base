@@ -1,0 +1,70 @@
+[
+  {
+    "Description": "Tên của hàng",
+    "Code": "{Ten_Cua_Hang}"
+  },
+  {
+    "Description": "Địa chỉ cửa hàng",
+    "Code": "{Dia_Chi_Cua_Hang}"
+  },
+  {
+    "Description": "Điện thoại của hàng",
+    "Code": "{Dien_Thoai_Cua_Hang}"
+  },
+  {
+    "Description": "Mã hàng hóa",
+    "Code": "{Ma_Hang_Hoa}"
+  },
+  {
+    "Description": "Mã hàng hóa 2",
+    "Code": "{Ma_Hang_Hoa_2}"
+  },
+  {
+    "Description": "Mã hàng hóa 3",
+    "Code": "{Ma_Hang_Hoa_3}"
+  },
+  {
+    "Description": "Mã hàng hóa 4",
+    "Code": "{Ma_Hang_Hoa_4}"
+  },
+  {
+    "Description": "Mã hàng hóa 5",
+    "Code": "{Ma_Hang_Hoa_5}"
+  },
+  {
+    "Description": "Tên hàng hóa",
+    "Code": "{Ten_Hang_Hoa}"
+  },
+  {
+    "Description": "Số Lô",
+    "Code": "{So_Lo_Hang_Hoa}"
+  },
+  {
+    "Description": "Hạn sử dụng",
+    "Code": "{HSD_Hang_Hoa}"
+  },
+  {
+    "Description": "Tên thuộc tính (Mầu sắc, kích thước)",
+    "Code": "{Thuoc_Tinh_Hang_Hoa}"
+  },
+  {
+    "Description": "Ghi chú trên hàng hóa",
+    "Code": "{Ghi_Chu_Hang_Hoa}"
+  },
+  {
+    "Description": "ĐVT",
+    "Code": "{DVT_Hang_Hoa}"
+  },
+  {
+    "Description": "Tổng số tem",
+    "Code": "{Tong_So_Tem}"
+  },
+  {
+    "Description": "Giá bán",
+    "Code": "{Don_Gia}"
+  },
+  {
+    "Description": "Giá niêm yết",
+    "Code": "{Don_Gia_Goc}"
+  }
+]

@@ -1,0 +1,334 @@
+[
+  {
+    "Description": "Tên của hàng",
+    "Code": "{Ten_Cua_Hang}"
+  },
+  {
+    "Description": "Địa chỉ cửa hàng",
+    "Code": "{Dia_Chi_Cua_Hang}"
+  },
+  {
+    "Description": "Điện thoại của hàng",
+    "Code": "{Dien_Thoai_Cua_Hang}"
+  },
+  {
+    "Description": "Logo 50px",
+    "Code": "{Logo_50_50}"
+  },
+  {
+    "Description": "Logo 100px",
+    "Code": "{Logo_100_100}"
+  },
+  {
+    "Description": "Logo 200px",
+    "Code": "{Logo_200_200}"
+  },
+  {
+    "Description": "Logo 100%",
+    "Code": "{Logo_Full}"
+  },
+  {
+    "Description": "Tên chi nhánh",
+    "Code": "{Ten_Chi_Nhanh}"
+  },
+  {
+    "Description": "Địa chỉ chi nhánh",
+    "Code": "{Dia_Chi_Chi_Nhanh}"
+  },
+  {
+    "Description": "Điện thoại chi nhánh",
+    "Code": "{Dien_Thoai_Chi_Nhanh}"
+  },
+  {
+    "Description": "Ngày",
+    "Code": "{Ngay}"
+  },
+  {
+    "Description": "Tháng",
+    "Code": "{Thang}"
+  },
+  {
+    "Description": "Năm",
+    "Code": "{Nam}"
+  },
+  {
+    "Description": "Giờ",
+    "Code": "{Gio}"
+  },
+  {
+    "Description": "Phút",
+    "Code": "{Phut}"
+  },
+  {
+    "Description": "Ngày tạo",
+    "Code": "{Ngay_Tao}"
+  },
+  {
+    "Description": "Ngày tạo Karaoke",
+    "Code": "{Ngay_Tao_Karaoke}"
+  },
+  {
+    "Description": "Mã chứng từ",
+    "Code": "{Ma_Chung_Tu}"
+  },
+  {
+    "Description": "Ghi chú",
+    "Code": "{Ghi_Chu}"
+  },
+  {
+    "Description": "Người bán",
+    "Code": "{Nhan_Vien}"
+  },
+  {
+    "Description": "Mã khách hàng",
+    "Code": "{Ma_Khach_Hang}"
+  },
+  {
+    "Description": "Nhân viên quản lý",
+    "Code": "{Nguoi_Quan_Ly_Khach}"
+  },
+  {
+    "Description": "MST",
+    "Code": "{MST_Khach_Hang}"
+  },
+  {
+    "Description": "Tên khách hàng",
+    "Code": "{Ten_Khach_Hang}"
+  },
+  {
+    "Description": "Địa chỉ khách hàng",
+    "Code": "{Dia_Chi_Khach_Hang}"
+  },
+  {
+    "Description": "Địa chỉ giao hàng",
+    "Code": "{Dia_Chi_Giao_Hang}"
+  },
+  {
+    "Description": "Điện thoại khách hàng",
+    "Code": "{Dien_Thoai_Khach_Hang}"
+  },
+  {
+    "Description": "Dư nợ",
+    "Code": "{Du_No_Moi}"
+  },
+  {
+    "Description": "Dư nợ(Số tiền bằng chữ)",
+    "Code": "{Du_No_Moi_Bang_Chu}"
+  },
+  {
+    "Description": "Nợ cũ",
+    "Code": "{Du_No_Cu}"
+  },
+  {
+    "Description": "Tổng thành tiền",
+    "Code": "{Tong_Truoc_Chiet_Khau}"
+  },
+  {
+    "Description": "Tổng thành tiền",
+    "Code": "{Tong_Truoc_Chiet_Khau_Lam_Tron}"
+  },
+  {
+    "Description": "Chiết khấu",
+    "Code": "{Chiet_Khau}"
+  },
+  {
+    "Description": "Chiết khấu(Giá trị)",
+    "Code": "{Chiet_Khau_Gia_Tri}"
+  },
+  {
+    "Description": "Chiết khấu không bao gồm Voucher, Điểm",
+    "Code": "{Chiet_Khau_2}"
+  },
+  {
+    "Description": "Voucher",
+    "Code": "{Voucher}"
+  },
+  {
+    "Description": "Phụ thu dịch vụ",
+    "Code": "{Tong_Phu_Thu_Dich_Vu}"
+  },
+  {
+    "Description": "Danh sách Phụ thu dịch vụ",
+    "Code": "{Danh_Sach_Phu_Thu_Dich_Vu}"
+  },
+  {
+    "Description": "Điểm thưởng cũ",
+    "Code": "{Diem_Thuong_Cu}"
+  },
+  {
+    "Description": "Điểm thưởng mới",
+    "Code": "{Diem_Thuong_Moi}"
+  },
+  {
+    "Description": "Điểm thưởng đã sử dụng trong đơn",
+    "Code": "{Diem_Thuong_Su_Dung}"
+  },
+  {
+    "Description": "Điểm thưởng phát sinh",
+    "Code": "{Diem_Thuong_Phat_Sinh}"
+  },
+  {
+    "Description": "VAT",
+    "Code": "{VAT}"
+  },
+  {
+    "Description": "Phương thức thanh toán",
+    "Code": "{Phuong_Thuc_Thanh_Toan}"
+  },
+  {
+    "Description": "Trả hàng",
+    "Code": "{Tong_Tra_Hang}"
+  },
+  {
+    "Description": "Tổng cộng",
+    "Code": "{Tong_Cong}"
+  },
+  {
+    "Description": "Phí giao hàng",
+    "Code": "{Phi_Giao_Hang}"
+  },
+  {
+    "Description": "Tổng cộng",
+    "Code": "{Tong_Cong_Lam_Tron}"
+  },
+  {
+    "Description": "Số tiền bằng chữ",
+    "Code": "{Tong_Cong_Bang_Chu}"
+  },
+  {
+    "Description": "Tổng thanh toán",
+    "Code": "{Tong_Thanh_Toan}"
+  },
+  {
+    "Description": "Tiền khách trả",
+    "Code": "{Tien_Khach_Dua}"
+  },
+  {
+    "Description": "Tiền khách trả",
+    "Code": "{Tien_Khach_Dua_Lam_Tron}"
+  },
+  {
+    "Description": "Tiền thừa",
+    "Code": "{Tien_Thua_Tra_Khach}"
+  },
+  {
+    "Description": "Tiền thừa",
+    "Code": "{Tien_Thua_Tra_Khach_Lam_Tron}"
+  },
+  {
+    "Description": "Tiền còn lại của đơn hàng",
+    "Code": "{Tien_Thua_Don_Hang}"
+  },
+  {
+    "Description": "Tổng số lượng",
+    "Code": "{Tong_So_Luong}"
+  },
+  {
+    "Description": "Nợ đơn hàng",
+    "Code": "{No_Don_Hang}"
+  },
+  {
+    "Description": "Số thứ tự",
+    "Code": "{STT}"
+  },
+  {
+    "Description": "Mã hàng hóa",
+    "Code": "{Ma_Hang_Hoa}"
+  },
+  {
+    "Description": "Tên hàng hóa",
+    "Code": "{Ten_Hang_Hoa}"
+  },
+  {
+    "Description": "Tên thuộc tính (Mầu sắc, kích thước)",
+    "Code": "{Thuoc_Tinh_Hang_Hoa}"
+  },
+  {
+    "Description": "Số Lô",
+    "Code": "{So_Lo_Hang_Hoa}"
+  },
+  {
+    "Description": "Hạn sử dụng",
+    "Code": "{HSD_Hang_Hoa}"
+  },
+  {
+    "Description": "Ghi chú trên hàng hóa",
+    "Code": "{Ghi_Chu_Hang_Hoa}"
+  },
+  {
+    "Description": "ĐVT",
+    "Code": "{DVT_Hang_Hoa}"
+  },
+  {
+    "Description": "ĐVT(QC)",
+    "Code": "{DVT_Quy_Cach}"
+  },
+  {
+    "Description": "Số lượng",
+    "Code": "{So_Luong}"
+  },
+  {
+    "Description": "Chênh lệch",
+    "Code": "{Don_Gia_Chenh_Lech}"
+  },
+  {
+    "Description": "Chênh lệch%",
+    "Code": "{Don_Gia_Chenh_Lech_%}"
+  },
+  {
+    "Description": "Chênh lệch%",
+    "Code": "{Don_Gia_Chenh_Lech_%_NotToRound}"
+  },
+  {
+    "Description": "Tổng chênh lệch giá",
+    "Code": "{Tong_Chenh_Lech_Gia}"
+  },
+  {
+    "Description": "Tổng tiền hàng theo giá niêm yết",
+    "Code": "{Tong_Theo_Gia_Niem_Yet}"
+  },
+  {
+    "Description": "Giá bán",
+    "Code": "{Don_Gia}"
+  },
+  {
+    "Description": "Giá niêm yết",
+    "Code": "{Don_Gia_Goc}"
+  },
+  {
+    "Description": "Giá niêm yết(>=)",
+    "Code": "{Don_Gia_Goc_Hien_Thi}"
+  },
+  {
+    "Description": "Thành tiền",
+    "Code": "{Thanh_Tien_Hang_Hoa}"
+  },
+  {
+    "Description": "Thành tiền",
+    "Code": "{Thanh_Tien_Hang_Hoa_Lam_Tron}"
+  },
+  {
+    "Description": "Thành tiền hàng hóa trước CK",
+    "Code": "{Thanh_Tien_Hang_Hoa_Chua_CK}"
+  },
+  {
+    "Description": "Phòng / Bàn",
+    "Code": "{Ten_Phong_Ban}"
+  },
+  {
+    "Description": "Giá Phòng - Bàn",
+    "Code": "{Gia_Phong_Ban}"
+  },
+  {
+    "Description": "Giá Phòng - Bàn 1",
+    "Code": "{Gia_Phong_Khung_1}"
+  },
+  {
+    "Description": "Giá Phòng - Bàn 2",
+    "Code": "{Gia_Phong_Khung_2}"
+  },
+  {
+    "Description": "Số khách",
+    "Code": "{So_Khach_Ngoi}"
+  }
+]

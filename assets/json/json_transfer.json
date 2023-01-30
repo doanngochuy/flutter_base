@@ -1,0 +1,118 @@
+[
+  {
+    "Description": "Tên của hàng",
+    "Code": "{Ten_Cua_Hang}"
+  },
+  {
+    "Description": "Địa chỉ cửa hàng",
+    "Code": "{Dia_Chi_Cua_Hang}"
+  },
+  {
+    "Description": "Điện thoại của hàng",
+    "Code": "{Dien_Thoai_Cua_Hang}"
+  },
+  {
+    "Description": "Logo 50px",
+    "Code": "{Logo_50_50}"
+  },
+  {
+    "Description": "Logo 100px",
+    "Code": "{Logo_100_100}"
+  },
+  {
+    "Description": "Tên chi nhánh",
+    "Code": "{Ten_Chi_Nhanh}"
+  },
+  {
+    "Description": "Địa chỉ chi nhánh",
+    "Code": "{Dia_Chi_Chi_Nhanh}"
+  },
+  {
+    "Description": "Điện thoại chi nhánh",
+    "Code": "{Dien_Thoai_Chi_Nhanh}"
+  },
+  {
+    "Description": "Ngày",
+    "Code": "{Ngay}"
+  },
+  {
+    "Description": "Tháng",
+    "Code": "{Thang}"
+  },
+  {
+    "Description": "Năm",
+    "Code": "{Nam}"
+  },
+  {
+    "Description": "Giờ",
+    "Code": "{Gio}"
+  },
+  {
+    "Description": "Phút",
+    "Code": "{Phut}"
+  },
+  {
+    "Description": "Mã chứng từ",
+    "Code": "{Ma_Chung_Tu}"
+  },
+  {
+    "Description": "Ghi chú",
+    "Code": "{Ghi_Chu}"
+  },
+  {
+    "Description": "Chi nhánh gửi",
+    "Code": "{Kho_Chuyen}"
+  },
+  {
+    "Description": "Chi nhánh nhận",
+    "Code": "{Kho_Nhan}"
+  },
+  {
+    "Description": "Tổng số lượng",
+    "Code": "{Tong_So_Luong}"
+  },
+  {
+    "Description": "Tổng giá trị",
+    "Code": "{Tong_Gia_Tri}"
+  },
+  {
+    "Description": "Số thứ tự",
+    "Code": "{STT}"
+  },
+  {
+    "Description": "Mã hàng hóa",
+    "Code": "{Ma_Hang_Hoa}"
+  },
+  {
+    "Description": "Tên hàng hóa",
+    "Code": "{Ten_Hang_Hoa}"
+  },
+  {
+    "Description": "Số Lô",
+    "Code": "{So_Lo_Hang_Hoa}"
+  },
+  {
+    "Description": "Hạn sử dụng",
+    "Code": "{HSD_Hang_Hoa}"
+  },
+  {
+    "Description": "Ghi chú trên hàng hóa",
+    "Code": "{Ghi_Chu_Hang_Hoa}"
+  },
+  {
+    "Description": "ĐVT",
+    "Code": "{DVT_Hang_Hoa}"
+  },
+  {
+    "Description": "Số lượng",
+    "Code": "{So_Luong}"
+  },
+  {
+    "Description": "Giá bán",
+    "Code": "{Don_Gia}"
+  },
+  {
+    "Description": "Thành tiền",
+    "Code": "{Thanh_Tien_Hang_Hoa}"
+  }
+]
