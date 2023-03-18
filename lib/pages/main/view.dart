@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_base/common/router/router.dart';
 import 'package:flutter_base/common/store/store.dart';
 import 'package:flutter_base/common/styles/styles.dart';
 import 'package:flutter_base/common/utils/utils.dart';
 import 'package:flutter_base/pages/pages.dart';
+import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -23,15 +23,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final MainController controller = Get.put(MainController());
-  late final StreamSubscription streamSubscription; // listen page
   late final StreamSubscription streamSubscription2; // listen login
 
   @override
   void initState() {
     super.initState();
-    streamSubscription = AppRouter.listenBackPage.stream
-        .map((event) => event as ScreenRouter?)
-        .listen(controller.state.setCurrentPage);
     if (isMobile) {
       streamSubscription2 = UserStore.to.isLogin.listen((event) {
         if (!event) {
@@ -45,7 +41,6 @@ class _MainPageState extends State<MainPage> {
   @override
   void dispose() {
     super.dispose();
-    streamSubscription.cancel();
     if (isMobile) {
       streamSubscription2.cancel();
     }

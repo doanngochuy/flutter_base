@@ -7,6 +7,7 @@ class StoreDI {
   static Future<void> init(GetIt injector) async {
     injector.registerSingleton<ConfigStore>(ConfigStore());
     injector.registerSingleton<UserStore>(UserStoreImpl());
+    injector.registerSingleton<JobStore>(JobStoreImpl());
     injector.registerSingleton<AppConfigureStore>(AppConfigureStoreImpl());
   }
 }

@@ -3,10 +3,10 @@ class BuildValues {
 
   //Prod
   static const String $prodApiUrl =
-      'http://0.0.0.0:8000/';
+      'https://emo-server-380518.el.r.appspot.com/';
 
   //dev
   static const String $devApiUrl =
-      'http://0.0.0.0:8000/';
+      'http://192.168.1.109:8000/';
 
 }

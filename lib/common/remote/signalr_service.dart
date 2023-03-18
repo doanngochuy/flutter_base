@@ -2,12 +2,12 @@ import 'package:http/http.dart';
 import 'package:flutter_base/common/di/injector.dart';
 import 'package:flutter_base/common/store/store.dart';
 import 'package:flutter_base/common/utils/logger.dart';
-import 'package:signalr_core/signalr_core.dart';
+// import 'package:signalr_core/signalr_core.dart';
 
 abstract class SignalRService {
   static SignalRService get to => AppInjector.injector<SignalRService>();
 
-  HubConnection get connection;
+  // HubConnection get connection;
 
   SignalRService init();
 
@@ -19,13 +19,11 @@ abstract class SignalRService {
 }
 
 class SignalRServiceImpl implements SignalRService {
-  static const $methodSynchronizationOrder = "SynchronizationOrder";
-  static const $methodNotify = "notify";
 
-  late HubConnection _connection;
+  // late HubConnection _connection;
 
-  @override
-  HubConnection get connection => _connection;
+  // @override
+  // HubConnection get connection => _connection;
 
   @override
   SignalRServiceImpl init() => this;
@@ -40,41 +38,41 @@ class SignalRServiceImpl implements SignalRService {
 
     Logger.write("SignalR: header ss-id= ${httpClient.defaultHeaders.values}");
 
-    final option = HttpConnectionOptions(
-      skipNegotiation: true,
-      transport: HttpTransportType.webSockets,
-      client: httpClient,
-      logging: (level, message) => Logger.write("signalR: $level $message"),
-    );
-
-    _connection = HubConnectionBuilder().withUrl('', option).withAutomaticReconnect().build();
-
-    await _connection
-        .start()
-        ?.then((value) => Logger.write("ReceiveMessage start ok"))
-        .catchError((e) => Logger.write("ReceiveMessage start error $e"));
-
-    _connection.on('ShowNotify', (message) {
-      Logger.write("signalR: ReceiveMessage$message");
-    });
-
-    _connection.on('Update', (message) {
-      Logger.write("signalR: ReceiveMessage$message");
-    });
+    // final option = HttpConnectionOptions(
+    //   skipNegotiation: true,
+    //   transport: HttpTransportType.webSockets,
+    //   client: httpClient,
+    //   logging: (level, message) => Logger.write("signalR: $level $message"),
+    // );
+    //
+    // _connection = HubConnectionBuilder().withUrl('', option).withAutomaticReconnect().build();
+    //
+    // await _connection
+    //     .start()
+    //     ?.then((value) => Logger.write("ReceiveMessage start ok"))
+    //     .catchError((e) => Logger.write("ReceiveMessage start error $e"));
+    //
+    // _connection.on('ShowNotify', (message) {
+    //   Logger.write("signalR: ReceiveMessage$message");
+    // });
+    //
+    // _connection.on('Update', (message) {
+    //   Logger.write("signalR: ReceiveMessage$message");
+    // });
   }
 
   @override
   void sendNotify(String message) {
     Logger.write("sendNotify: $message");
-    _connection
-        .invoke($methodNotify, args: [message])
-        .then((value) => Logger.write("sendNotify done $value"))
-        .onError((error, stackTrace) => Logger.write("sendNotify error"));
+    // _connection
+    //     .invoke($methodNotify, args: [message])
+    //     .then((value) => Logger.write("sendNotify done $value"))
+    //     .onError((error, stackTrace) => Logger.write("sendNotify error"));
   }
 
   @override
   Future<void> stop() async {
-    await connection.stop();
+    // await connection.stop();
   }
 }
 

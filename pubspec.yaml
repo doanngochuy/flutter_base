@@ -8,7 +8,7 @@ version: 1.0.0+20221220
 environment:
   sdk: ">=2.18.0 <3.0.0"
 
-isar_version: &isar_version ^3.0.2 # define the version to be used
+isar_version: &isar_version "3.0.0" # define the version to be used
 isarx_url: &isarx_url https://isarx-pull:x_fUiEun59E1AadMfr1M@git.teko.vn/phong.ht1/pos365.isar.git
 excel: &excel https://pos365.excel:Kv44kkD2sckeSWgUmmx2@git.teko.vn/tien.nq/pos365.excel
 
@@ -67,7 +67,6 @@ dependencies:
   syncfusion_flutter_charts: ^20.3.60
   uni_links: ^0.5.1
   custom_pop_up_menu: ^1.2.4
-  signalr_core: ^1.1.1
   json_annotation: ^4.7.0
   freezed_annotation: ^2.2.0
   retrofit: ^3.3.1
@@ -112,12 +111,12 @@ dependencies:
   math_expressions: ^2.3.1
   connectivity_plus: ^3.0.2
   dart_ipify: ^1.1.1
-  apollo_flutter: ^0.0.1-alpha.3
   tcp_socket_flutter: ^0.0.5
   presentation_displays: ^0.2.3
   image_picker: ^0.8.6
   youtube_player_iframe: ^3.1.0
   timezone: ^0.9.1
+  flutter_inappwebview: 5.7.2+3
 
 dev_dependencies:
   integration_test:

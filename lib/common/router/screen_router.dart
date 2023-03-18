@@ -5,10 +5,11 @@ import 'package:flutter_base/common/generated/l10n.dart';
 typedef AppBarBuilder = Function(Widget, ScreenRouter);
 
 enum ScreenRouter {
-  root('/'),
   main('/'),
   // invoices('/invoices'),
   // invoicesDetail(':invoiceId'),
+  getJob('/get-job'),
+  webJob('/web-job'),
   notFound('/not-found'),
   signIn('/sign-in'),
   signUp('/sign-up'),
@@ -29,6 +30,10 @@ enum ScreenRouter {
     switch (this) {
       case main:
         return S.current.Trang_chu;
+      case getJob:
+        return "Làm nhiệm vụ";
+      case webJob:
+        return S.current.Nhan_hang;
       case setting:
         return S.current.Cai_dat;
       case notFound:
@@ -39,8 +44,6 @@ enum ScreenRouter {
         return S.current.Dang_ky;
       case test:
         return "Test";
-      case root:
-        return "Root";
     }
   }
 }

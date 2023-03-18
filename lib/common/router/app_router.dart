@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_base/common/di/injector.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../pages/pages.dart';
 import 'screen_router.dart';
 
 abstract class AppRouter {
   static AppRouter get to => AppInjector.injector<AppRouter>();
-
-  /// stream listen and handle when user click button back in web
-  static final PublishSubject listenBackPage = PublishSubject<ScreenRouter>();
 
   GoRouter get router;
 
