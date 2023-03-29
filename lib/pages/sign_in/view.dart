@@ -2,11 +2,11 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'controller.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/pages/sign_in/layouts/web.dart';
-import 'package:flutter_base/pages/sign_in/layouts/mobile.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/pages/sign_in/layouts/web.dart';
+import 'package:EMO/pages/sign_in/layouts/mobile.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);

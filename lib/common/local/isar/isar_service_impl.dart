@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:flutter_base/common/entities/entities.dart';
+import 'package:EMO/common/entities/entities.dart';
 
 import '../local_database.dart';
 import 'isar_type_path.dart';

@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_base/common/theme/loading/loading.dart';
+import 'package:EMO/common/theme/loading/loading.dart';
 
 typedef ReturnImageUrl = ValueChanged<String>;
 

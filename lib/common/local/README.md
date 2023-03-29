@@ -74,7 +74,7 @@ Example with an entity named `Category` :
 2. In this directory, create new file name `category.dart` with the following code below:
 ```dart
 import 'package:isar/isar.dart';  
-import 'package:flutter_base/common/entities/entities.dart';  
+import 'package:EMO/common/entities/entities.dart';  
   
 import '../models.dart';  
   
@@ -105,8 +105,8 @@ class CategoryIsarModel extends IsarModel {
 4. In `local/isar/isar_service_impl.dart`, add the `CategoryIsarModelSchema` in type `IsarTuple<CategoryIsarModel>` into the `Map<Type, IsarTuple> _typeToEnum`  to register Schema to Isar database.
 5. Navigate to `local/repository`, create file name `category_repository.dart` and add code to create an interface as below:
 ```dart
-import 'package:flutter_base/common/entities/entities.dart';  
-import 'package:flutter_base/common/local/repositories/base_repository.dart';  
+import 'package:EMO/common/entities/entities.dart';  
+import 'package:EMO/common/local/repositories/base_repository.dart';  
   
 abstract class CategoryRepository extends BaseRepository<Category> {  
   Future<Category> getTreeCategory(id);  // Eg: specific method (optional)
@@ -115,7 +115,7 @@ abstract class CategoryRepository extends BaseRepository<Category> {
 6. In `local/isar/repositories`, create new file name `category_repository_impl.dart` with implementation code for interface `CategoryRepository`
 ```dart
 import 'package:isar/isar.dart';  
-import 'package:flutter_base/common/entities/entities.dart';  
+import 'package:EMO/common/entities/entities.dart';  
   
 import '../../repositories/repositories.dart';  
 import '../isar_type_path.dart';  

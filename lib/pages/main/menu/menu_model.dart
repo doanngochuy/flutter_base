@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/router/router.dart';
+import 'package:EMO/common/router/router.dart';
 
 class MenuModel {
   ScreenRouter? screenRouter;

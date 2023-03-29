@@ -1,6 +1,36 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'entities.dart';
+
 part 'job.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class ResponseJob {
+  String code;
+  String message;
+  int totalMoney;
+  List<MapJob> data;
+  Metadata metadata;
+
+  ResponseJob(this.code, this.message, this.totalMoney, this.data, this.metadata);
+
+  factory ResponseJob.fromJson(Map<String, dynamic> json) => _$ResponseJobFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResponseJobToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class MapJob {
+  @JsonKey(name: 'Job')
+  Job job;
+  DateTime createdAt;
+
+  MapJob(this.job, this.createdAt);
+
+  factory MapJob.fromJson(Map<String, dynamic> json) => _$MapJobFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MapJobToJson(this);
+}
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Job {
@@ -13,6 +43,9 @@ class Job {
   final String keyPage;
   final String valuePage;
   final int time;
+  final String baseUrl;
+  final int money;
+
   // final List<UserJob> users;
   // final Current current;
 
@@ -26,6 +59,8 @@ class Job {
     this.keyPage = "",
     this.valuePage = "",
     this.time = 0,
+    this.baseUrl = "",
+    this.money = 0,
     // this.users = const [],
     // this.current = const Current(),
   });
@@ -49,7 +84,8 @@ class CurrentJobResponse {
     this.job,
   });
 
-  factory CurrentJobResponse.fromJson(Map<String, dynamic> json) => _$CurrentJobResponseFromJson(json);
+  factory CurrentJobResponse.fromJson(Map<String, dynamic> json) =>
+      _$CurrentJobResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$CurrentJobResponseToJson(this);
 }
@@ -68,3 +104,5 @@ class StartJobResponse {
 
   Map<String, dynamic> toJson() => _$StartJobResponseToJson(this);
 }
+
+enum JobStatus { none, start, error, done }

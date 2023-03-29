@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/utils/extensions/extensions.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/utils/extensions/extensions.dart';
 
 class WebDataTableController<T> extends ChangeNotifier {
   List<T> get dataSources => _dataSources;

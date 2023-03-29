@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 class Loading {
   Loading() {

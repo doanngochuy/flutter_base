@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/pages/setting/controller.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/pages/setting/controller.dart';
 
 import 'layouts/layouts.dart';
 

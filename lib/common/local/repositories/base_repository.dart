@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/entities/entities.dart';
+import 'package:EMO/common/entities/entities.dart';
 
 abstract class BaseRepository<T extends AggregateRoot> {
   /// Gets the specified identifier.

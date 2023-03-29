@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/config/build_mode.dart';
-import 'package:flutter_base/global.dart';
-import 'package:flutter_base/my_app.dart';
+import 'package:EMO/common/config/build_mode.dart';
+import 'package:EMO/global.dart';
+import 'package:EMO/my_app.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 Future<void> main() async {

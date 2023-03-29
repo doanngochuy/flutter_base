@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/styles/color.dart';
-import 'package:flutter_base/common/styles/main_styles.dart';
-import 'package:flutter_base/common/theme/buttons/custom_button.dart';
-import 'package:flutter_base/common/theme/spaces/spaces.dart';
-import 'package:flutter_base/common/utils/extensions/extensions.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/styles/color.dart';
+import 'package:EMO/common/styles/main_styles.dart';
+import 'package:EMO/common/theme/buttons/custom_button.dart';
+import 'package:EMO/common/theme/spaces/spaces.dart';
+import 'package:EMO/common/utils/extensions/extensions.dart';
 
 import 'controller.dart';
 

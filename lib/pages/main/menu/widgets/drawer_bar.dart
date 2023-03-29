@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/router/router.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/common/values/values.dart';
-import 'package:flutter_base/pages/main/index.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/common/values/values.dart';
+import 'package:EMO/pages/main/index.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +13,7 @@ class DrawerBarWidget extends StatelessWidget {
   DrawerBarWidget({Key? key}) : super(key: key);
 
   final MainController _mainController = MainController.to;
-  final MenuController _menuController = MenuController.to;
+  final MenuXController _menuController = MenuXController.to;
 
   Widget _menuItem(
     BuildContext context, {

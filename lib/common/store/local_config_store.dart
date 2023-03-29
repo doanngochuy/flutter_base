@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/local/prefs/prefs_sevice.dart';
-import 'package:flutter_base/common/values/storage.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/local/prefs/prefs_sevice.dart';
+import 'package:EMO/common/values/storage.dart';
 
 import '../entities/entities.dart';
 
@@ -34,7 +34,6 @@ class AppConfigureStoreImpl implements AppConfigureStore {
 
   AppConfigureStoreImpl() {
     final value = PrefsService.to.getString(AppStorage.$prefLocalConfigStore);
-    final val = PrefsService.to.getString(AppStorage.storageVendorSession);
     if (value.isNotEmpty) {
       _configure = {
         ...jsonDecode(value),

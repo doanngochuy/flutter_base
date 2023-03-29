@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/service/service.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/service/service.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tcp_socket_flutter/tcp_socket_flutter.dart';
 

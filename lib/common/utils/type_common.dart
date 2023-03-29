@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 typedef ValueGetterWithInput<K, V> = V Function(K input);
 typedef AsyncValueGetterWithInput<K, V> = Future<V> Function(K input);

@@ -1,5 +1,5 @@
-import 'package:flutter_base/common/entities/entities.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/entities/entities.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 import 'models.dart';
 

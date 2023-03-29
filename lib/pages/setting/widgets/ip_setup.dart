@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/pages/setting/widgets/widgets.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/pages/setting/widgets/widgets.dart';
 
 import '../ip_setup/index.dart';
 

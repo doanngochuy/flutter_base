@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/router/router.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/pages/pages.dart';
+import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/pages/pages.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
-class MenuController extends GetxController {
-  static MenuController get to => Get.find<MenuController>();
+class MenuXController extends GetxController {
+  static MenuXController get to => Get.find<MenuXController>();
 
   final GlobalKey<ScaffoldState> keyDrawer = GlobalKey();
 
@@ -18,16 +18,20 @@ class MenuController extends GetxController {
     super.onInit();
     menuModels = [
       MenuModel(
+        screenRouter: ScreenRouter.jobDone,
+        icon: Icons.home_outlined,
+      ),
+      MenuModel(
         screenRouter: ScreenRouter.getJob,
-        icon: Icons.money,
+        icon: Icons.work_outline,
+      ),
+      MenuModel(
+        screenRouter: ScreenRouter.withdraw,
+        icon: Icons.attach_money_outlined,
       ),
       MenuModel(
         screenRouter: ScreenRouter.setting,
         icon: Icons.settings_outlined,
-      ),
-      MenuModel(
-        screenRouter: ScreenRouter.test,
-        icon: Icons.transfer_within_a_station_outlined,
       ),
     ];
   }

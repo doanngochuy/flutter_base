@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/store/job_store.dart';
+import 'package:EMO/common/store/job_store.dart';
 import 'package:get/get.dart';
 
 import 'state.dart';
@@ -10,8 +10,7 @@ class GetJobController extends GetxController {
 
   GetJobController();
 
-  Future getJob() async {
-    final response = await JobStore.to.getCurrentJob();
-    state.setCurrentJob(response);
-  }
+  Future getJob() => JobStore.to.getCurrentJob().then(state.setCurrentJob);
+    // state.setCurrentJob(response);
+  // }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/styles/styles.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/styles/styles.dart';
 
 @Deprecated(
   "It will delete in the future",

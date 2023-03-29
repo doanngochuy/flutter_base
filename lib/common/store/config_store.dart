@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info/package_info.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/local/prefs/prefs_sevice.dart';
-import 'package:flutter_base/common/models/models.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/values/values.dart';
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/local/prefs/prefs_sevice.dart';
+import 'package:EMO/common/models/models.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/values/values.dart';
 
 class ConfigStore {
   static ConfigStore get to => AppInjector.injector<ConfigStore>();

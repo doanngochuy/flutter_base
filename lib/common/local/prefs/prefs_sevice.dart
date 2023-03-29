@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/di/injector.dart';
+import 'package:EMO/common/di/injector.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class PrefsService {

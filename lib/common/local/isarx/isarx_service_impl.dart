@@ -1,6 +1,6 @@
 import 'package:isarx/isarx.dart';
-import 'package:flutter_base/common/entities/entities.dart';
-import 'package:flutter_base/common/local/local.dart';
+import 'package:EMO/common/entities/entities.dart';
+import 'package:EMO/common/local/local.dart';
 
 import 'isarx_type_path.dart';
 import 'models/models.dart';

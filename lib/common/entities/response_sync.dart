@@ -19,7 +19,7 @@ class ResponseSync<T> {
       _$ResponseSyncToJson(this, fromJsonT);
 }
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Metadata {
   int currentPage;
   int pageSize;

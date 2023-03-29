@@ -1,7 +1,7 @@
 import 'package:http/http.dart';
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/utils/logger.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/utils/logger.dart';
 // import 'package:signalr_core/signalr_core.dart';
 
 abstract class SignalRService {

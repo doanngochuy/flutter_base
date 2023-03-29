@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/entities/setting_model.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
+import 'package:EMO/common/entities/setting_model.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
 
 class FormFillPaymentDialog extends StatefulWidget {
   final MerchantAttributeData merchantAttributeData;

@@ -1,4 +1,3 @@
-import 'package:flutter_base/common/theme/theme.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +14,10 @@ class WebJobMobileController extends GetxController {
 
   InAppWebViewController? _webViewController;
 
-  void setJob(Job? job) => state.job = job;
+  void initState(Job? job, int? currentId) {
+    state.job = job;
+    state.currentId = currentId;
+  }
 
   void setWebViewController(InAppWebViewController controller) => _webViewController = controller;
 
@@ -61,15 +63,13 @@ class WebJobMobileController extends GetxController {
     _webViewController?.addJavaScriptHandler(
         handlerName: Event.startJob.name,
         callback: (args) {
-          print("Start job ");
           startJob();
         });
 
     _webViewController?.addJavaScriptHandler(
-        handlerName: Event.finishJob.name,
+        handlerName: Event.timeOut.name,
         callback: (args) {
-          print("Finish job a");
-          finishJob(args[0].toString());
+          setFinishJob();
         });
 
     final js = """
@@ -104,11 +104,7 @@ class WebJobMobileController extends GetxController {
 
               if (startTime < endTime) {
                 clearInterval(interval);
-                countdownDiv.innerHTML = "Hoàn thành, vui lòng quay lại!";
-                const htmlElement = document.querySelector('${state.startJobResponse?.key ??
-        '#####'}');
-
-                window.flutter_inappwebview.callHandler('${Event.finishJob.name}', htmlElement.id);
+                window.flutter_inappwebview.callHandler('${Event.timeOut.name}');
                 return;
               }
 
@@ -119,34 +115,46 @@ class WebJobMobileController extends GetxController {
             
             window.flutter_inappwebview.callHandler('${Event.startJob.name}');
           """;
+    _webViewController?.evaluateJavascript(source: js);
+  }
+
+  void setFinishJob() {
+    if (state.startJobResponse == null) return;
+    _webViewController?.addJavaScriptHandler(
+        handlerName: Event.finishJob.name,
+        callback: (args) {
+          finishJob(args[0].toString());
+        });
+
+    final js = """
+              countdownDiv.innerHTML = "Hoàn thành, vui lòng quay lại!";
+              const htmlElement = document.querySelector('${state.startJobResponse?.key ?? '#####'}');
+              window.flutter_inappwebview.callHandler('${Event.finishJob.name}', htmlElement.id);
+          """;
 
     _webViewController?.evaluateJavascript(source: js);
   }
 
   void startJob() {
+    if (state.jobStatus != JobStatus.none) return;
+    state.setJobStatus(JobStatus.start);
     JobStore.to.startJob(state.job?.id ?? 0, state.currentId ?? 0).then(
-          (value) {
-            print("Start job ${value.key}");
-
-            state.startJobResponse = value;
+      (value) {
+        state.startJobResponse = value;
       },
     ).catchError(print);
   }
 
   void finishJob(String valuePage) {
-
-    if (state.startJobResponse == null) return;
-    print("Finish jobq  $valuePage");
     JobStore.to.finishJob(state.startJobResponse!.token, valuePage).then(
-          (value) {
-            print("Finish job ${value.key}");
-        state.setIsFinishJob(true);
+      (value) {
+        print("Finish job ${value}");
+        state.setJobStatus(JobStatus.done);
       },
-    ).catchError(
-            (e) {
-              print("Finish job e ${e}");
+    ).catchError((e) {
+      print("Finish job e ${e}");
 
-              CustomToast.error(msg: "Có lỗi xảy ra, vui lòng thử lại sau! ($e)");
-        });
+      state.setJobStatus(JobStatus.error);
+    });
   }
 }

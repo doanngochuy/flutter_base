@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
+import 'package:EMO/common/generated/l10n.dart';
 
 extension DateTimeExtension on DateTime {
   String differenceFrom(DateTime from, {bool isCompact = true}) {

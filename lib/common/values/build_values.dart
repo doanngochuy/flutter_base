@@ -7,6 +7,8 @@ class BuildValues {
 
   //dev
   static const String $devApiUrl =
-      'http://192.168.1.109:8000/';
-
+      // 'https://0.0.0.0:8000/';
+      // 'http://192.168.1.109:8000/';
+      'http://192.168.1.100:8000/';
+      // 'http://10.10.20.210:8000/';
 }

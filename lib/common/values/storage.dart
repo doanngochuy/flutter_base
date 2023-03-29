@@ -15,7 +15,7 @@ class AppStorage {
 
   static const String accessToken = 'access_token';
 
-  static const String storageVendorSession = 'vendor_session';
+  static const String storageUser = 'user';
 
   static const String storageTypeLogin = 'type_login';
 

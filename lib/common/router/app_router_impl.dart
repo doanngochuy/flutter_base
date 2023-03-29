@@ -1,7 +1,8 @@
+import 'package:EMO/pages/withdraw/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/router/router.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/pages/pages.dart';
+import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouterImpl implements AppRouter {
@@ -10,7 +11,7 @@ class AppRouterImpl implements AppRouter {
 
   final _router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: ScreenRouter.main.path,
+    initialLocation: "/job-done",
     redirect: (context, state) {
       final UserStore userStore = UserStore.to;
 
@@ -28,11 +29,15 @@ class AppRouterImpl implements AppRouter {
       return null;
     },
     routes: [
-      AppRouter.goRouteMain(ScreenRouter.main),
+      AppRouter.goRouteMain(ScreenRouter.main,
+          routes: [
+            AppRouter.goRoute(ScreenRouter.jobDone, (state) => const JobDonePage()),
+            AppRouter.goRoute(ScreenRouter.getJob, (state) => const GetJobPage()),
+            AppRouter.goRoute(ScreenRouter.withdraw, (state) => const WithdrawPage()),
+            AppRouter.goRoute(ScreenRouter.setting, (state) => const SettingPage()),
+          ],
+      ),
       AppRouter.goRoute(ScreenRouter.signIn, (state) => const SignInPage()),
-      AppRouter.goRoute(ScreenRouter.getJob, (state) => const GetJobPage()),
-
-      AppRouter.goRouteMain(ScreenRouter.setting),
     ],
     errorPageBuilder: (context, state) =>
         MaterialPage(key: state.pageKey, child: const PageNotFound()),

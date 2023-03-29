@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/values/keys.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/values/keys.dart';
 
 import '../controller.dart';
 
@@ -27,7 +27,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
       leading: IconButton(
         key: Key(AppKey.$showDrawerKey),
         icon: const Icon(Icons.menu),
-        onPressed: MenuController.to.keyDrawer.currentState?.openDrawer,
+        onPressed: MenuXController.to.keyDrawer.currentState?.openDrawer,
       ),
       titleSpacing: 0,
       backgroundColor: AppColor.white,

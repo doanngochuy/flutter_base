@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/theme/inputs/inputs.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/theme/inputs/inputs.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 class AnimatedSearchBar extends StatefulWidget {
   const AnimatedSearchBar(

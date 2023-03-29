@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/service/app_stream/app_stream.dart';
+import 'package:EMO/common/service/app_stream/app_stream.dart';
 import 'package:tcp_socket_flutter/tcp_socket_flutter.dart';
 
 class SSInfoServerState extends AppState<SocketServerInfo> {

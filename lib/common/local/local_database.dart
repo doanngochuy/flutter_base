@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/entities/entities.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/entities/entities.dart';
 
 abstract class AppLocalDatabase {
   static AppLocalDatabase get to => AppInjector.injector<AppLocalDatabase>();

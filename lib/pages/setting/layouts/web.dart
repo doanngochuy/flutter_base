@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/pages/setting/widgets/widgets.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/pages/setting/widgets/widgets.dart';
 
 class SettingWeb extends StatelessWidget {
   const SettingWeb({Key? key}) : super(key: key);

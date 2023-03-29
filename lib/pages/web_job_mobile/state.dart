@@ -4,31 +4,23 @@ import '../../common/entities/entities.dart';
 
 class GetJobState {
   Job? job;
+  int? currentId;
   StartJobResponse? startJobResponse;
 
   final keyWordHintId = 'search-key-hint';
 
-  final RxnInt _currentId = RxnInt(null);
+  final Rx<JobStatus> _statusJob = JobStatus.none.obs;
 
-  int? get currentId => _currentId.value;
+  JobStatus get jobStatus => _statusJob.value;
 
-  final RxBool _isStartJob = RxBool(false);
+  Stream<JobStatus> get statusJobStream => _statusJob.stream;
 
-  final RxBool _isFinishJob = RxBool(false);
-
-  bool get isStartJob => _isStartJob.value;
-
-  bool get isFinishJob => _isFinishJob.value && _isStartJob.value;
-
-  Stream<bool> get isFinishJobStream => _isFinishJob.stream;
-
-  setIsStartJob(bool value) => _isStartJob.value = value;
-
-  setIsFinishJob(bool value) => _isFinishJob.value = value;
+  setJobStatus(JobStatus value) => _statusJob.value = value;
 
 }
 
 enum Event {
   startJob,
+  timeOut,
   finishJob,
 }

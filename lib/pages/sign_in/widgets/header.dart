@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/common/values/values.dart';
-import 'package:flutter_base/pages/sign_in/controller.dart';
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/common/values/values.dart';
+import 'package:EMO/pages/sign_in/controller.dart';
 
 class SignInHeader extends StatelessWidget {
   SignInHeader({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class SignInHeader extends StatelessWidget {
             left: 0,
             child: CustomButton.customFullColor(
               height: _heightBtn,
-              background: AppColor.orange,
+              background: AppColor.successColor,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +77,7 @@ class SignInHeader extends StatelessWidget {
         Flexible(
           child: CustomButton.customFullColor(
             height: _heightBtn,
-            background: AppColor.orange,
+            background: AppColor.successColor,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,

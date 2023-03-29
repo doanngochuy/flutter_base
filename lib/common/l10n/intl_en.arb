@@ -766,5 +766,6 @@
   "Tao_moi": "Create new",
   "Tao_phieu_thu": "Create receipts",
   "Tao_phieu_chi": "Create payment",
-  "Chon_mau": "Select type cash flow"
+  "Chon_mau": "Select type cash flow",
+  "Dang_cho": "Pending"
 }

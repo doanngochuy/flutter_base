@@ -1,6 +1,7 @@
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:flutter_dash/flutter_dash.dart';
 
 import '../../../common/entities/entities.dart';
 
@@ -8,80 +9,111 @@ class ContentJob extends StatelessWidget {
   const ContentJob({Key? key, required this.job}) : super(key: key);
   final Job job;
 
-  Widget _textItem(List<InlineSpan> texts) {
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: Insets.xs, horizontal: Insets.sm),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Insets.med),
-        side: const BorderSide(
-          color: Colors.transparent,
-          width: 0,
+  Widget _textItem({
+    required int index,
+    required IconData iconData,
+    required List<InlineSpan> texts,
+  }) =>
+      ListTile(
+        leading: Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: AppColor.successColor,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Icon(
+            iconData,
+            color: Colors.white,
+          ),
         ),
-      ),
-      child: RichText(
-        text: TextSpan(
-          style: const TextStyle(fontSize: 16.0, color: Colors.black),
-          children: texts,
+        title: Text('Bước $index', style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: RichText(
+          text: TextSpan(
+            style: const TextStyle(fontSize: 16.0, color: AppColor.grey600),
+            children: texts,
+          ),
         ),
-      ),
-    );
-  }
+        isThreeLine: false,
+      );
+
+  Widget get _divider => Padding(
+    padding: const EdgeInsets.only(left: 56, right: 56),
+    child: Divider(
+      thickness: 1,
+      color: AppColor.grey300WithOpacity500,
+      height: 10,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
+    return Stack(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 32, top: 32),
+          child: Dash(
+            direction: Axis.vertical,
+            length: 350,
+            dashLength: 20,
+            dashColor: AppColor.successColor,
+          ),
+        ),
+        Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _textItem([
-            const TextSpan(text: 'Bước 1: Truy cập '),
-            const TextSpan(
+          _textItem(index: 1, iconData: Icons.web_stories, texts: [
+            const TextSpan(text: 'Truy cập '),
+            TextSpan(
               text: 'Google.com',
               style: TextStyle(
-                color: Colors.red,
+                color: AppColor.successColor.withOpacity(0.5),
               ),
             ),
           ]),
-          _textItem([
-            const TextSpan(text: 'Bước 2: Nhập từ khoá '),
+          _divider,
+          _textItem(index: 2, iconData: Icons.keyboard, texts: [
+            const TextSpan(text: 'Nhập từ khoá '),
             TextSpan(
               text: job.keyWord,
-              style: const TextStyle(
-                color: Colors.red,
+              style: TextStyle(
+                color: AppColor.successColor.withOpacity(0.7),
               ),
             ),
           ]),
-          _textItem([
-            const TextSpan(text: 'Bước 3: Tìm và truy cập trang web \n'),
+          _divider,
+          _textItem(index: 3, iconData: Icons.screen_search_desktop_rounded, texts: [
+            const TextSpan(text: 'Tìm và truy cập trang web \n'),
             TextSpan(
-              text: job.url,
-              style: const TextStyle(
-                color: Colors.red,
+              text: job.baseUrl,
+              style: TextStyle(
+                color: AppColor.successColor.withOpacity(0.7),
               ),
             ),
           ]),
-          _textItem([
-            const TextSpan(
-                text: 'Bước 4: Kéo xuống dưới cùng trang web và đợi đồng hồ đếm ngược hết \n'),
+          _divider,
+          _textItem(index: 4, iconData: Icons.access_time_filled, texts: [
+            const TextSpan(text: 'Kéo xuống dưới cùng trang web và đợi đồng hồ đếm ngược hết \n'),
             TextSpan(
               text: 'Thời gian chờ ${job.time} giây',
-              style: const TextStyle(
-                color: Colors.red,
+              style: TextStyle(
+                color: AppColor.successColor.withOpacity(0.7),
               ),
             ),
           ]),
-          _textItem([
-            const TextSpan(text: 'Bước 5: Hoàn thành nhận thưởng \n'),
+          _divider,
+          _textItem(index: 5, iconData: Icons.cloud_done, texts: [
+            const TextSpan(text: 'Hoàn thành nhận thưởng \n'),
             TextSpan(
-              text: 'Tiền thưởng ${job.total.toCurrencyStr} đ',
-              style: const TextStyle(
-                color: Colors.red,
+              text: 'Tiền thưởng ${job.money.toCurrencyStr} đ',
+              style: TextStyle(
+                color: AppColor.successColor.withOpacity(0.7),
               ),
             ),
           ]),
         ],
       ),
+  ],
     );
   }
 }

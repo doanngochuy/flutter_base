@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/models/models.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/values/values.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/models/models.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/values/values.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SignInController extends GetxController {

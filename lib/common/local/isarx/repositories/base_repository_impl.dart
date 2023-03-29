@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:isarx/isarx.dart';
-import 'package:flutter_base/common/entities/aggregate_root.dart';
-import 'package:flutter_base/common/local/repositories/base_repository.dart';
+import 'package:EMO/common/entities/aggregate_root.dart';
+import 'package:EMO/common/local/repositories/base_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../isarx_type_path.dart';

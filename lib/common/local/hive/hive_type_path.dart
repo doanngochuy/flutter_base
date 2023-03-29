@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:flutter_base/common/entities/entities.dart';
+import 'package:EMO/common/entities/entities.dart';
 
 import 'models/models.dart';
 

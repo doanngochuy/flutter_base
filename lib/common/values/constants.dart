@@ -49,7 +49,7 @@ const int $printToCookMobile = 15;
 
 const int $idVnpayQr = 978;
 
-const $phoneSupport = '1900 4515';
+const $phoneSupport = '097123123';
 
 class AppConstant {
   AppConstant._();

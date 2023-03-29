@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:flutter_base/common/models/models.dart';
-import 'package:flutter_base/common/router/router.dart';
-import 'package:flutter_base/common/service/service.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/models/models.dart';
+import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/service/service.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:tcp_socket_flutter/tcp_socket_flutter.dart';
 
 import 'index.dart';

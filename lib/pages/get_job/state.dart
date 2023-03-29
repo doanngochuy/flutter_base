@@ -12,6 +12,7 @@ class GetJobState {
   int? get currentId => _currentId.value;
 
   void setCurrentJob(CurrentJobResponse value) {
+    print("setCurrentJob ${value.currentId} -  ${value.job?.id}");
     _currentId.value = value.currentId;
     _job.value = value.job;
   }

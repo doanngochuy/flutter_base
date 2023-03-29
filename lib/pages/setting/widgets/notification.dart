@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/values/values.dart';
-import 'package:flutter_base/pages/setting/index.dart';
-import 'package:flutter_base/pages/setting/widgets/widgets.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/values/values.dart';
+import 'package:EMO/pages/setting/index.dart';
+import 'package:EMO/pages/setting/widgets/widgets.dart';
 
 import 'setting_fragment/setting_fragment.dart';
 

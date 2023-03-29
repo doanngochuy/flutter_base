@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/values/storage.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/values/storage.dart';
 
 import 'controller.dart';
 import 'view.dart';

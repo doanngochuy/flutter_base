@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 enum ScreenWidth {
   MOBILE,

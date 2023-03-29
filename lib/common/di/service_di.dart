@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:flutter_base/common/remote/remote.dart';
-import 'package:flutter_base/common/service/service.dart';
+import 'package:EMO/common/remote/remote.dart';
+import 'package:EMO/common/service/service.dart';
 
 class ServiceDI {
   ServiceDI._();

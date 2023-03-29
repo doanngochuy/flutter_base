@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/theme/button_switch/button_switch_mulitchoice_builder.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
+import 'package:EMO/common/theme/button_switch/button_switch_mulitchoice_builder.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
 
 part 'button_switch_builder.dart';
 

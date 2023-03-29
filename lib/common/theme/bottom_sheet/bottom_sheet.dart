@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/main_styles.dart';
+import 'package:EMO/common/styles/main_styles.dart';
 
 typedef ButtonSheetBuilder = Widget Function(
   BuildContext context,

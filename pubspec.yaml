@@ -1,4 +1,4 @@
-name: flutter_base
+name: EMO
 description: Rebuild project with multi-flatform mobile, web app.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -10,7 +10,6 @@ environment:
 
 isar_version: &isar_version "3.0.0" # define the version to be used
 isarx_url: &isarx_url https://isarx-pull:x_fUiEun59E1AadMfr1M@git.teko.vn/phong.ht1/pos365.isar.git
-excel: &excel https://pos365.excel:Kv44kkD2sckeSWgUmmx2@git.teko.vn/tien.nq/pos365.excel
 
 dependencies:
   flutter:
@@ -89,10 +88,6 @@ dependencies:
   scrollable_positioned_list: ^0.3.5
   equatable: ^2.0.5
   pull_to_refresh: ^2.0.0
-  # export excel file and read excel file
-  excel:
-    git:
-      url: *excel
   open_file:
     git:
       url: https://github.com/crazecoder/open_file
@@ -102,8 +97,6 @@ dependencies:
   flutter_flavor: ^3.1.1
   mask_text_input_formatter: ^2.4.0
   webview_flutter: ^3.0.4
-  html_editor_enhanced:
-    git: https://github.com/altotunchitoo/html-editor-enhanced.git
   mobile_scanner: ^2.1.0
   kt_dart: any
   qr_flutter: ^4.0.0
@@ -117,6 +110,7 @@ dependencies:
   youtube_player_iframe: ^3.1.0
   timezone: ^0.9.1
   flutter_inappwebview: 5.7.2+3
+  flutter_dash: 1.0.0
 
 dev_dependencies:
   integration_test:

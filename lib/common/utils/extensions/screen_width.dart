@@ -1,5 +1,5 @@
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/utils/extensions/platform.dart';
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/utils/extensions/platform.dart';
 
 
 extension ScreenWidthExtension on ScreenWidth {

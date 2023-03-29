@@ -1,10 +1,10 @@
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/pages/main/menu/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/pages/main/menu/index.dart';
 
 class CustomMenuBar extends StatefulWidget {
   const CustomMenuBar({
@@ -24,7 +24,7 @@ class _CustomMenuBarState extends State<CustomMenuBar> {
   @override
   void initState() {
     super.initState();
-    Get.put(MenuController());
+    Get.put(MenuXController());
   }
 
   Widget appBarForWeb() {
@@ -43,9 +43,25 @@ class _CustomMenuBarState extends State<CustomMenuBar> {
       appBar: CustomAppBarWidget(
         customAppBar: widget.customNavBar,
       ),
-      key: MenuController.to.keyDrawer,
+      key: MenuXController.to.keyDrawer,
       drawer: DrawerBarWidget(),
       body: widget.appBody,
+    );
+  }
+
+  Widget appBarForMobile() {
+    return Container(
+      color: AppColor.successColor,
+      child: SafeArea(
+      left: false,
+      right: false,
+      bottom: false,
+      child: Scaffold(
+        key: MenuXController.to.keyDrawer,
+        bottomNavigationBar: const BottomNavigationBarWidget(),
+        body: widget.appBody,
+      ),
+        ),
     );
   }
 
@@ -55,11 +71,12 @@ class _CustomMenuBarState extends State<CustomMenuBar> {
         case ScreenWidth.DESKTOP:
           return appBarForWeb();
         case ScreenWidth.MOBILE:
+          return appBarForMobile();
         case ScreenWidth.TABLET:
           return appBarForApp();
       }
     }
-    return appBarForApp();
+    return appBarForMobile();
   }
 
   @override

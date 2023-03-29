@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/store/config_store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/common/values/values.dart';
-import 'package:flutter_base/pages/sign_in/controller.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/store/config_store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/common/values/values.dart';
+import 'package:EMO/pages/sign_in/controller.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
@@ -23,7 +23,7 @@ class _SignInFormState extends State<SignInForm> {
   final FocusNode passwordFocusNode = FocusNode();
 
   /// constants only in widgets
-  static const Color mainInputColor = AppColor.orange;
+  static const Color mainInputColor = AppColor.blueLight;
   static final EdgeInsets paddingTextEditor = EdgeInsets.fromLTRB(
     Insets.lg / 2,
     Insets.lg,
@@ -108,7 +108,7 @@ class _SignInFormState extends State<SignInForm> {
           CustomButton.fullColor(
             text: S.current.Quen_mat_khau,
             background: Colors.transparent,
-            textColor: AppColor.orange,
+            textColor: AppColor.blueLight,
             padding: EdgeInsets.zero,
             height: heightBtnForgetPassword,
             onPressed: signInController.handleForgotPassword,

@@ -1,4 +1,4 @@
-package vn.pos365.cashier.pos365_cashier
+package vn.emo.emo_job
 
 import io.flutter.embedding.android.FlutterActivity
 

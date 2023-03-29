@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/config/config.dart';
+import 'package:EMO/common/config/config.dart';
 
 enum WebDataTableSortType { none, asc, desc }
 
