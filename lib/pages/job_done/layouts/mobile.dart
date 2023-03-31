@@ -40,11 +40,6 @@ class JobDoneMobile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    // CircleAvatar(
-                    //   radius: 50.0,
-                    //   backgroundImage: NetworkImage('https://via.placeholder.com/150'),
-                    // ),
-                    // const SizedBox(height: 16.0),
                     Text(
                       "Xin chào, ${user.fullName}!",
                       style: const TextStyle(

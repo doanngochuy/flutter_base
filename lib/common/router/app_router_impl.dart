@@ -11,7 +11,7 @@ class AppRouterImpl implements AppRouter {
 
   final _router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: "/job-done",
+    initialLocation: ScreenRouter.main.path,
     redirect: (context, state) {
       final UserStore userStore = UserStore.to;
 

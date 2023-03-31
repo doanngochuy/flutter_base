@@ -51,10 +51,11 @@ class _JobListState extends State<JobList> {
   Widget _renderItem(BuildContext context, int index) => Obx(
         () {
           if (index >= _controller.state.mapJobs.length) return const SizedBox.shrink();
-          DateTime? currentDate = DateTime.now();
+          final itemData = _controller.state.mapJobs[index];
+          DateTime? currentDate = itemData.createdAt;
           final Widget item = JobItem(
             isSelected: false,
-            mapJob: _controller.state.mapJobs[index],
+            mapJob: itemData,
             index: index,
             onTap: (MapJob job) => _handleTapMapJob(context, mapJob: job),
           );
@@ -63,6 +64,10 @@ class _JobListState extends State<JobList> {
               child: item,
               currentDate: currentDate,
             );
+          }
+          DateTime previousItemDate = _controller.state.mapJobs[index-1].createdAt;
+          if (DateUtils.isSameDay(currentDate, previousItemDate)) {
+            return item;
           }
           return _wrapItemWithDivider(
             child: item,
