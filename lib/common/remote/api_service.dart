@@ -17,6 +17,11 @@ abstract class ApiService {
     @Body() Map<String, dynamic> request,
   );
 
+  @POST("/register")
+  Future<SignUpResponse> signup(
+    @Body() Map<String, dynamic> request,
+  );
+
   @POST("/logout")
   Future logout();
 
@@ -25,7 +30,7 @@ abstract class ApiService {
 
   //job
   @GET("/jobs/current")
-  Future<CurrentJobResponse> getCurrentJob();
+  Future<CurrentJobResponse> getCurrentJob({@Query("device_id") required String deviceId});
 
   @GET("/jobs/start")
   Future<StartJobResponse> startJob({
@@ -33,10 +38,9 @@ abstract class ApiService {
     @Query("current_id") required int currentId,
   });
 
-  @GET("/jobs/finish")
+  @POST("/jobs/finish")
   Future finishJob({
-    @Query("token") required String token,
-    @Query("value_page") required String valuePage,
+    @Body() required Map<String, dynamic> request,
   });
 
   @GET("jobs/done")
@@ -56,7 +60,7 @@ abstract class ApiService {
   });
 
   @POST("/withdraws")
-  Future<Withdraw> postWithdraws(
+  Future postWithdraws(
     @Body() Map<String, dynamic> request,
   );
 

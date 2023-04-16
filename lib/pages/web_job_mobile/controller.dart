@@ -1,3 +1,4 @@
+import 'package:EMO/common/theme/theme.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +18,7 @@ class WebJobMobileController extends GetxController {
   void initState(Job? job, int? currentId) {
     state.job = job;
     state.currentId = currentId;
+    state.setTip('Nhập từ khoá \'${state.job?.keyWord ?? ""}\' vào ô tìm kiếm');
   }
 
   void setWebViewController(InAppWebViewController controller) => _webViewController = controller;
@@ -57,6 +59,8 @@ class WebJobMobileController extends GetxController {
           }
         }  
       """);
+
+    state.setTip("Vào trang '${state.job?.baseUrl ?? ""}...'(Tô vàng)");
   }
 
   void setCountTargetWeb() {
@@ -77,12 +81,13 @@ class WebJobMobileController extends GetxController {
             countdownDiv.id = "countdown";
             countdownDiv.style.position = "fixed";
             countdownDiv.style.bottom = "10px";
-            countdownDiv.style.right = "10px";
-            countdownDiv.style.backgroundColor = "#fff";
+            countdownDiv.style.left = "10px";
+            countdownDiv.style.backgroundColor = "#FFD700";
             countdownDiv.style.padding = "10px";
-            countdownDiv.style.borderRadius = "5px";
+            countdownDiv.style.borderRadius = "50%";
             countdownDiv.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
             countdownDiv.style.zIndex = "9999";
+            countdownDiv.style.fontWeight = "bold";
             document.body.appendChild(countdownDiv);
 
             var startTime = ${state.job?.time ?? 0};
@@ -116,6 +121,7 @@ class WebJobMobileController extends GetxController {
             window.flutter_inappwebview.callHandler('${Event.startJob.name}');
           """;
     _webViewController?.evaluateJavascript(source: js);
+    state.setTip("Kéo xuống cuối trang web và chờ khi đếm ngược hết");
   }
 
   void setFinishJob() {
@@ -123,11 +129,12 @@ class WebJobMobileController extends GetxController {
     _webViewController?.addJavaScriptHandler(
         handlerName: Event.finishJob.name,
         callback: (args) {
-          finishJob(args[0].toString());
+          final valuePage = args[0].toString();
+          Loading.openAndDismissLoading(() => finishJob(valuePage));
         });
 
     final js = """
-              countdownDiv.innerHTML = "Hoàn thành, vui lòng quay lại!";
+              countdownDiv.innerHTML = "Waiting!";
               const htmlElement = document.querySelector('${state.startJobResponse?.key ?? '#####'}');
               window.flutter_inappwebview.callHandler('${Event.finishJob.name}', htmlElement.id);
           """;
@@ -145,16 +152,12 @@ class WebJobMobileController extends GetxController {
     ).catchError(print);
   }
 
-  void finishJob(String valuePage) {
-    JobStore.to.finishJob(state.startJobResponse!.token, valuePage).then(
-      (value) {
-        print("Finish job ${value}");
-        state.setJobStatus(JobStatus.done);
-      },
-    ).catchError((e) {
-      print("Finish job e ${e}");
-
-      state.setJobStatus(JobStatus.error);
-    });
-  }
+  Future finishJob(String valuePage) =>
+      JobStore.to.finishJob(state.startJobResponse!.token, valuePage).then(
+        (value) {
+          state.setJobStatus(JobStatus.done);
+        },
+      ).catchError((e) {
+        state.setJobStatus(JobStatus.error);
+      });
 }

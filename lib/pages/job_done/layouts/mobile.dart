@@ -16,7 +16,7 @@ class JobDoneMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColor.grey300WithOpacity500,
+        color: AppColor.primaryBackgroundSuperLight,
         border: const Border(
           right: BorderSide(
             color: AppColor.grey300,
@@ -53,6 +53,7 @@ class JobDoneMobile extends StatelessWidget {
                       () => JobListHeaderWidget(
                         countItem: _controller.state.count,
                         totalMoney: _controller.state.totalMoney,
+                        totalWithdraw: _controller.state.totalWithdraw,
                       ),
                     ),
                   ],
@@ -72,11 +73,7 @@ class JobDoneMobile extends StatelessWidget {
             snap: true,
             actions: <Widget>[
               IconButton(
-                icon: const Icon(Icons.notifications),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.settings),
+                icon: const Icon(Icons.notifications, color: Colors.white),
                 onPressed: () {},
               ),
             ],

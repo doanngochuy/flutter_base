@@ -1,4 +1,5 @@
 import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/store/store.dart';
 
 import '../entities/entities.dart';
 import '../remote/remote.dart';
@@ -22,15 +23,25 @@ abstract class JobStore {
 
 class JobStoreImpl implements JobStore {
   @override
-  Future<CurrentJobResponse> getCurrentJob() => ApiService.create().getCurrentJob();
+  Future<CurrentJobResponse> getCurrentJob() async {
+    final deviceId = await UserStore.to.getDeviceId();
+    return ApiService.create().getCurrentJob(deviceId: deviceId ?? "");
+  }
 
   @override
   Future<StartJobResponse> startJob(int jobId, int currentId) =>
       ApiService.create().startJob(jobId: jobId, currentId: currentId);
 
   @override
-  Future finishJob(String token, String valuePage) =>
-      ApiService.create().finishJob(token: token, valuePage: valuePage);
+  Future finishJob(String token, String valuePage) async {
+    final request = {
+      "token": token,
+      "value_page": valuePage,
+      "imei": (await UserStore.to.getDeviceId()) ?? "",
+    };
+
+    return ApiService.create().finishJob(request: request);
+  }
 
   @override
   Future<ResponseJob> getDoneJobs({

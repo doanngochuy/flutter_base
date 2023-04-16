@@ -9,10 +9,12 @@ class ResponseJob {
   String code;
   String message;
   int totalMoney;
+  int totalWithdraw;
   List<MapJob> data;
   Metadata metadata;
 
-  ResponseJob(this.code, this.message, this.totalMoney, this.data, this.metadata);
+  ResponseJob(
+      this.code, this.message, this.totalMoney, this.totalWithdraw, this.data, this.metadata);
 
   factory ResponseJob.fromJson(Map<String, dynamic> json) => _$ResponseJobFromJson(json);
 

@@ -29,13 +29,6 @@ class _SettingTabletState extends State<SettingTablet> {
 
   final listSetting = [
     SettingWithSectionData(
-      title: S.current.Thiet_lap_ip,
-      icon: Icons.flag,
-      widget: const IpSetupPage(
-        isShowDetail: true,
-      ),
-    ),
-    SettingWithSectionData(
       title: S.current.Thiet_lap_thanh_toan,
       icon: Icons.payment,
       widget: const PaymentSetupDetailWidget(),
@@ -44,21 +37,6 @@ class _SettingTabletState extends State<SettingTablet> {
       title: S.current.Thong_bao,
       icon: Icons.notifications,
       widget: const NotificationWidget(),
-    ),
-    SettingWithSectionData(
-      title: S.current.Ket_noi_may_in,
-      icon: Icons.settings,
-      widget: const PrinterConnectionWidget(),
-    ),
-    SettingWithSectionData(
-      title: S.current.Thiet_lap_tinh_nang,
-      icon: Icons.tune,
-      widget: const FeatureConfigurationWidget(),
-    ),
-    SettingWithSectionData(
-      title: S.current.Thiet_lap_he_thong,
-      icon: Icons.settings_applications_outlined,
-      widget: const SystemConfigurationWidget(),
     ),
   ];
 

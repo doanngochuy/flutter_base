@@ -1,1 +1,0 @@
-Document: https://pub.dev/packages/tcp_socket_flutter

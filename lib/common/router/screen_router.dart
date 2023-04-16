@@ -14,6 +14,7 @@ enum ScreenRouter {
   signUp('/sign-up'),
   setting('/setting'),
   withdraw('/withdraw'),
+  createWithdraw('/create-withdraw'),
   test('/test');
 
   final String path;
@@ -46,6 +47,8 @@ enum ScreenRouter {
         return S.current.Dang_ky;
       case withdraw:
         return "Rút tiền";
+      case createWithdraw:
+        return "Yêu cầu rút tiền";
       case test:
         return "Test";
     }

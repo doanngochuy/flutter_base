@@ -54,12 +54,14 @@ class WithdrawItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        withdraw.accountName,
+                        withdraw.withdrawMethod == 'Ngân hàng'
+                            ? withdraw.bankName
+                            : withdraw.withdrawMethod,
                         style: TextStyles.title1.copyWith(
                           color: AppColor.black800,
                         ),
                       ),
-                      _renderStatus(),
+                      _renderStatus(status: withdraw.status),
                     ],
                   ),
                   Row(

@@ -34,6 +34,7 @@ class JobDoneTablet extends StatelessWidget {
                     () => JobListHeaderWidget(
                       countItem: _controller.state.count,
                       totalMoney: _controller.state.totalMoney,
+                      totalWithdraw: _controller.state.totalWithdraw,
                     ),
                   ),
                   const Expanded(

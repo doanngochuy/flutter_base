@@ -42,7 +42,7 @@ class Loading {
     EasyLoading.dismiss();
   }
 
-  static Future<T?> openAndDismissLoading<T>(AsyncValueGetter<T?> callback) async {
+  static Future<T?> openAndDismissLoading<T>(AsyncValueGetter<T?> callback, {Function? onError}) async {
     try {
       show();
       final T? result = await callback();
@@ -50,6 +50,7 @@ class Loading {
       return result;
     } catch (e) {
       debugConsoleLog('openAndDismissLoading: $e}');
+      onError?.call(e);
       dismiss();
     }
     return null;

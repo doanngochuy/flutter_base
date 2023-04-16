@@ -10,9 +10,9 @@ import '../controller.dart';
 import 'withdraw_item.dart';
 
 class WithdrawList extends StatefulWidget {
-  const WithdrawList({this.status, Key? key}) : super(key: key);
+  const WithdrawList({this.statusFilter, Key? key}) : super(key: key);
 
-  final WithdrawStatus? status;
+  final WithdrawStatus? statusFilter;
 
   @override
   State<WithdrawList> createState() => _WithdrawListState();
@@ -20,6 +20,10 @@ class WithdrawList extends StatefulWidget {
 
 class _WithdrawListState extends State<WithdrawList> {
   final WithdrawController _controller = WithdrawController.to;
+
+  List<Withdraw> get withdraws => _controller.state.withdraws
+      .where((e) => e.status == widget.statusFilter || widget.statusFilter == null)
+      .toList();
 
   @override
   void initState() {
@@ -43,7 +47,7 @@ class _WithdrawListState extends State<WithdrawList> {
           physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.only(top: Insets.med),
           key: Key(AppKey.$scrollViewKey),
-          itemCount: _controller.state.withdraws.length,
+          itemCount: withdraws.length,
           itemBuilder: _renderItem,
         ),
       ),
@@ -52,11 +56,11 @@ class _WithdrawListState extends State<WithdrawList> {
 
   Widget _renderItem(BuildContext context, int index) => Obx(
         () {
-          if (index >= _controller.state.withdraws.length) return const SizedBox.shrink();
-          final itemData = _controller.state.withdraws[index];
+          if (index >= withdraws.length) return const SizedBox.shrink();
+          final itemData = withdraws[index];
           final Widget item = WithdrawItem(
             isSelected: false,
-            withdraw: _controller.state.withdraws[index],
+            withdraw: withdraws[index],
             index: index,
             onTap: (withdraw) => _handleTapWithdraw(context, withdraw: withdraw),
           );
@@ -65,6 +69,10 @@ class _WithdrawListState extends State<WithdrawList> {
               child: item,
               currentDate: itemData.updatedAt,
             );
+          }
+          DateTime? previousItemDate = withdraws[index-1].updatedAt;
+          if (DateUtils.isSameDay(itemData.updatedAt, previousItemDate)) {
+            return item;
           }
           return _wrapItemWithDivider(
             child: item,

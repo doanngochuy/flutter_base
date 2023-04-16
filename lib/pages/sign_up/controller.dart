@@ -1,38 +1,39 @@
 import 'package:EMO/common/generated/l10n.dart';
 import 'package:EMO/common/store/store.dart';
 import 'package:EMO/common/theme/theme.dart';
-import 'package:EMO/common/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class SignInController extends GetxController {
-  static SignInController get to => Get.find();
+class SignUpController extends GetxController {
+  static SignUpController get to => Get.find();
 
-  SignInController();
+  SignUpController();
 
-  final TextEditingController userController = TextEditingController();
-  final TextEditingController passController = TextEditingController();
+  final fullNameController = TextEditingController();
+  final emailController = TextEditingController();
+  final userController = TextEditingController();
+  final passController = TextEditingController();
+  final rePassController = TextEditingController();
   final fbKey = GlobalKey<FormBuilderState>();
 
   @override
   void dispose() {
     userController.dispose();
     passController.dispose();
+    fullNameController.dispose();
+    emailController.dispose();
     super.dispose();
   }
 
-  // TODO forgot password
-  Future<void> handleForgotPassword() async {
-    CustomToast.info(msg: 'Forgot pass');
-  }
-
-  Future<bool> handleSignIn() async =>
+  Future<bool> handleSignUp() async =>
       await Loading.openAndDismissLoading<bool>(
         () async {
           try {
-            await UserStore.to.onLogin(
+            //Get serial device
+            await UserStore.to.onSignUp(
+              fullName: fullNameController.text,
+              email: emailController.text,
               userName: userController.text,
               passwords: passController.text,
             );
@@ -42,24 +43,9 @@ class SignInController extends GetxController {
             );
             return true;
           } catch (e) {
-            CustomSnackBar.error(
-              title: S.current.That_bai,
-              message: e.toString(),
-            );
             return false;
           }
         },
       ) ??
       false;
-
-  Future<void> handleSignUp() async {
-    CustomToast.info(msg: 'Sign up');
-  }
-
-  void handleCallSupport() => launchUrl(
-        Uri(
-          scheme: 'tel',
-          path: $phoneSupport,
-        ),
-      );
 }

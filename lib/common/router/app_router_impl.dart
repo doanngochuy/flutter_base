@@ -11,7 +11,7 @@ class AppRouterImpl implements AppRouter {
 
   final _router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: ScreenRouter.main.path,
+    initialLocation: ScreenRouter.jobDone.path,
     redirect: (context, state) {
       final UserStore userStore = UserStore.to;
 
@@ -23,7 +23,7 @@ class AppRouterImpl implements AppRouter {
 
       if (state.location == ScreenRouter.signIn.path ||
           state.location == ScreenRouter.signUp.path) {
-        return ScreenRouter.main.path;
+        return ScreenRouter.jobDone.path;
       }
 
       return null;

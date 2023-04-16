@@ -31,7 +31,11 @@ class SettingMobile extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.only(
-                    right: Insets.xs, left: Insets.med, top: Insets.med, bottom: Insets.sm,),
+                  right: Insets.xs,
+                  left: Insets.med,
+                  top: Insets.med,
+                  bottom: Insets.sm,
+                ),
                 color: Colors.white,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,8 +47,7 @@ class SettingMobile extends StatelessWidget {
                           backgroundColor: AppColor.successColor,
                           child: Text(
                             user.fullName.substring(0, 1).toUpperCase(),
-                            style: TextStyle(
-                                fontSize: 32.scaleSize, color: Colors.white),
+                            style: TextStyle(fontSize: 32.scaleSize, color: Colors.white),
                           ),
                         ),
                         SizedBox(width: Insets.med),
@@ -53,9 +56,7 @@ class SettingMobile extends StatelessWidget {
                           children: [
                             Text(
                               user.fullName,
-                              style: TextStyle(
-                                  fontSize: 18.scaleSize,
-                                  color: AppColor.black800),
+                              style: TextStyle(fontSize: 18.scaleSize, color: AppColor.black800),
                             ),
                             Text(
                               user.email,
@@ -70,25 +71,26 @@ class SettingMobile extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        Loading.openAndDismissLoading(() =>  UserStore.to.onLogout().whenComplete(() {
-                          context.go(ScreenRouter.signUp.path);
-                        }));
+                        Loading.openAndDismissLoading(
+                          () => UserStore.to
+                              .onLogout()
+                              .whenComplete(() => context.go(ScreenRouter.signUp.path)),
+                        );
                       },
-                      icon:
-                      Icon(Icons.logout, color: AppColor.successColor, size: IconSizes.med,),
+                      icon: Icon(
+                        Icons.logout,
+                        color: AppColor.successColor,
+                        size: IconSizes.med,
+                      ),
                     )
                   ],
                 ),
               ),
-              SettingTitleWidget(
-                  title: S.current.Thanh_toan.toUpperCase(),
-                  icon: Icons.payment),
+              SettingTitleWidget(title: S.current.Thanh_toan.toUpperCase(), icon: Icons.payment),
               const PaymentSetupWidget(),
               SettingTitleWidget(
-                  title: S.current.Thong_bao.toUpperCase(),
-                  icon: Icons.notifications),
+                  title: S.current.Thong_bao.toUpperCase(), icon: Icons.notifications),
               const NotificationWidget(),
-              const FeatureConfigurationWidget(),
               VSpace(Insets.med),
             ],
           ),

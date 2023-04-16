@@ -37,34 +37,6 @@ class MerchantAttributeData<T> {
   });
 }
 
-enum PrintMethod {
-  // Không in
-  none,
-  // In Sunmi
-  sunmi,
-  // In qua bluetooth
-  bluetooth,
-  // in qua usb
-  usb,
-  // in qua mạng lan
-  network;
-}
-
-final printMethodMap = {
-  PrintMethod.none: S.current.Khong_in,
-  PrintMethod.sunmi: S.current.In_sunmi,
-  PrintMethod.bluetooth: S.current.In_bluetooth,
-  PrintMethod.usb: S.current.In_usb,
-  PrintMethod.network: S.current.In_qua_mang_lan,
-};
-
-enum PrinterType {
-  // Máy in giấy
-  paper,
-  // Máy in tem
-  stamp,
-}
-
 enum VATType {
   // VAT tính theo tổng giá trị đơn hàng
   total,
@@ -117,24 +89,6 @@ class StoreInfoData {
   String toString() {
     return 'StoreInfoData{storeName: $storeName, storeAddress: $storeAddress, storePhone: $storePhone, footer: $footer, banners: $banners, slideshows: $slideshows}';
   }
-}
-
-@JsonSerializable(explicitToJson: true)
-class PrinterConfigData {
-  final String? pageWidth;
-  final String? ipAddress;
-  final PrintMethod printMethod;
-
-  const PrinterConfigData({
-    required this.pageWidth,
-    required this.ipAddress,
-    required this.printMethod,
-  });
-
-  factory PrinterConfigData.fromJson(Map<String, dynamic> json) =>
-      _$PrinterConfigDataFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PrinterConfigDataToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)

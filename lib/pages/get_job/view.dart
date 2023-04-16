@@ -3,6 +3,7 @@ import 'package:EMO/common/styles/styles.dart';
 import 'package:EMO/common/theme/theme.dart';
 import 'package:EMO/pages/pages.dart';
 import 'package:EMO/pages/web_job_mobile/index.dart';
+import 'package:empty_widget/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -35,6 +36,10 @@ class _GetJobPageState extends State<GetJobPage> {
   }
 
   void _onTapStartJob() {
+    if (_controller.state.job == null) {
+      CustomToast.noty(msg: 'Chưa nhận nhiệm vụ');
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => WebJobMobilePage(
@@ -46,7 +51,30 @@ class _GetJobPageState extends State<GetJobPage> {
   }
 
   void _onTapRemoveJob() {
+    if (_controller.state.job == null) {
+      CustomToast.noty(msg: 'Chưa nhận nhiệm vụ');
+      return;
+    }
     // _controller.removeJob().then((value) => setState(() {}));
+  }
+
+  Widget _emptyJob({required bool missionOver}) {
+    return Expanded(
+      child: EmptyWidget(
+        packageImage: missionOver ? PackageImage.Image_1 : PackageImage.Image_3,
+        title: missionOver ? 'Hết nhiệm vụ' : 'Chưa nhận nhiệm vụ',
+        subTitle: missionOver ? 'Vui lòng chờ, hoặc tải lại' : 'Vui lòng ấn nút "Nhận nhiệm vụ"',
+        titleTextStyle: TextStyle(
+          fontSize: 18,
+          color: AppColor.successColor.withOpacity(0.8),
+          fontWeight: FontWeight.w500,
+        ),
+        subtitleTextStyle: TextStyle(
+          fontSize: 14,
+          color: AppColor.successColor.withOpacity(0.5),
+        ),
+      ),
+    );
   }
 
   @override
@@ -56,20 +84,22 @@ class _GetJobPageState extends State<GetJobPage> {
         title: const Text('Làm nhiệm vụ', style: TextStyle(color: Colors.white)),
         backgroundColor: AppColor.successColor,
       ),
-      body: SingleChildScrollView(
-        child: Obx(
-          () => Column(
-            children: [
-              TabletHeader(
-                isHaveJob: _currentId != null && _currentId != -1,
-                clickGetJob: _onTapGetJob,
-                startJob: _onTapStartJob,
-                removeJob: _onTapRemoveJob,
+      backgroundColor: AppColor.primaryBackgroundSuperLight,
+      body: Obx(
+        () => Column(
+          children: [
+            TabletHeader(
+              isHaveJob: _currentId != null && _currentId != -1,
+              clickGetJob: _onTapGetJob,
+              startJob: _onTapStartJob,
+              removeJob: _onTapRemoveJob,
+            ),
+            if (_currentId == -1 || _currentId == null) _emptyJob(missionOver: _job == null),
+            if (_job != null && _currentId != null && _currentId != -1)
+              SingleChildScrollView(
+                child: ContentJob(job: _job!),
               ),
-              if (_currentId == -1) const Text('Tạm thời hết nhiệm vụ, quay lại sau!'),
-              if (_job != null && _currentId != null && _currentId != -1) ContentJob(job: _job!)
-            ],
-          ),
+          ],
         ),
       ),
     );

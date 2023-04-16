@@ -75,10 +75,10 @@ class TabletHeader extends StatelessWidget {
             HSpace.sm,
             Expanded(
               child: _renderButton(
-                title: "Nhận nhiệm vụ",
-                iconData: Icons.attach_money,
+                title: isHaveJob ? "Refresh" : "Nhận nhiệm vụ",
+                iconData: isHaveJob ? Icons.refresh : Icons.add_circle_outline,
                 onTap: clickGetJob,
-                color: isHaveJob ? AppColor.grey600 : AppColor.successColor,
+                color: AppColor.successColor,
               ),
             ),
             HSpace.sm,

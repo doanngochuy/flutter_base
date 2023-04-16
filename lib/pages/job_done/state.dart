@@ -18,6 +18,10 @@ class JobState {
   int get totalMoney => _totalMoney.value;
   void setTotalMoney(int value) => _totalMoney.value = value;
 
+  final _totalWithdraw = RxInt(0);
+  int get totalWithdraw => _totalWithdraw.value;
+  void setTotalWithdraw(int value) => _totalWithdraw.value = value;
+
   final _mapJobs = RxList<MapJob>([]);
   List<MapJob> get mapJobs => _mapJobs;
   void setJobs(List<MapJob> value) => _mapJobs.value = value;
@@ -25,6 +29,7 @@ class JobState {
   void addJobs(ResponseJob response) {
     setCount(response.metadata.totalItems);
     setTotalMoney(response.totalMoney);
+    setTotalWithdraw(response.totalWithdraw);
     _mapJobs.addAll(response.data);
     _mapJobs.refresh();
   }

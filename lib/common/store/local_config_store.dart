@@ -54,20 +54,11 @@ class AppConfigureStoreImpl implements AppConfigureStore {
 
   Map<String, dynamic> _mapRemoteToLocal(Settings settings) => {
         // Payment
-        AppStorage.$prefActiveQrCode: settings.qrCodeEnable,
-        AppStorage.$prefMerchantName: settings.merchantName,
-        AppStorage.$prefMerchantCode: settings.merchantCode,
-        AppStorage.$prefMerchantNameVT: settings.vTMerchantName,
-        AppStorage.$prefMerchantCodeVT: settings.vTMerchantCode,
-        // Printing
-        AppStorage.$prefAllowPrintPreview: settings.allowPrintPreview,
-        AppStorage.$prefPrintKitchenAfterSave: settings.printKitchenAfterSave,
-        // Feature Config
-        AppStorage.$prefAllowChangePrice: settings.allowChangePrice,
-        AppStorage.$prefStockControlWhenSelling: settings.stockControlWhenSelling,
-        AppStorage.$prefVat: settings.vat,
-        AppStorage.$prefVatMethod: settings.vatMethod,
-        // System
+        AppStorage.prefActiveQrCode: settings.qrCodeEnable,
+        AppStorage.prefWithdrawMethod: settings.withdrawMethod,
+        AppStorage.prefNameBank: settings.bankName,
+        AppStorage.prefNumberAcc: settings.accountNumber,
+        AppStorage.prefNameAcc: settings.accountName,
       };
 
   @override

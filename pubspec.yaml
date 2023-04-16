@@ -3,13 +3,12 @@ description: Rebuild project with multi-flatform mobile, web app.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+20221220
+version: 1.0.0+20230403
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
 
 isar_version: &isar_version "3.0.0" # define the version to be used
-isarx_url: &isarx_url https://isarx-pull:x_fUiEun59E1AadMfr1M@git.teko.vn/phong.ht1/pos365.isar.git
 
 dependencies:
   flutter:
@@ -50,14 +49,6 @@ dependencies:
   hive_flutter: 1.1.0
   isar: *isar_version
   isar_flutter_libs: *isar_version # contains Isar Core
-  isarx:
-    git:
-      url: *isarx_url
-      path: packages/isar
-  isar_flutter_libsx:
-    git:
-      url: *isarx_url
-      path: packages/isar_flutter_libs
   url_launcher: ^6.1.7
   package_info: ^2.0.2
   path_provider: ^2.0.11
@@ -69,8 +60,6 @@ dependencies:
   json_annotation: ^4.7.0
   freezed_annotation: ^2.2.0
   retrofit: ^3.3.1
-  esc_pos_printer: ^4.1.0
-  esc_pos_utils: ^1.1.0
   webcontent_converter: ^0.0.7+2
   jwt_decoder: ^2.0.1
   uuid: ^3.0.7
@@ -104,13 +93,16 @@ dependencies:
   math_expressions: ^2.3.1
   connectivity_plus: ^3.0.2
   dart_ipify: ^1.1.1
-  tcp_socket_flutter: ^0.0.5
+#  tcp_socket_flutter: ^0.0.5
   presentation_displays: ^0.2.3
   image_picker: ^0.8.6
-  youtube_player_iframe: ^3.1.0
+#  youtube_player_iframe: ^3.1.0
   timezone: ^0.9.1
   flutter_inappwebview: 5.7.2+3
   flutter_dash: 1.0.0
+  empty_widget: 0.0.5
+  awesome_dialog: 3.0.2
+  device_info_plus: 8.1.0
 
 dev_dependencies:
   integration_test:
@@ -126,10 +118,6 @@ dev_dependencies:
   hive_generator: any
   retrofit_generator: ^4.2.0
   isar_generator: *isar_version
-  isar_generatorx:
-    git:
-      url: *isarx_url
-      path: packages/isar_generator
 
 flutter_launcher_name:
   name: "yourNewAppLauncherName"

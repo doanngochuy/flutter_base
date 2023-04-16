@@ -9,6 +9,7 @@ import 'package:EMO/common/remote/remote.dart';
 import 'package:EMO/common/store/store.dart';
 import 'package:EMO/common/utils/logger.dart';
 import 'package:EMO/common/values/values.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:get/get.dart';
 
 abstract class UserStore {
@@ -30,6 +31,15 @@ abstract class UserStore {
     required String userName,
     required String passwords,
   });
+
+  Future onSignUp({
+    required String userName,
+    required String passwords,
+    required String fullName,
+    required String email,
+  });
+
+  Future<String?> getDeviceId();
 }
 
 class UserStoreImpl implements UserStore {
@@ -39,7 +49,7 @@ class UserStoreImpl implements UserStore {
     final jsonString = PrefsService.to.getString(AppStorage.storageUser);
     final json = jsonString.isNotEmpty ? jsonDecode(jsonString) : null;
     print('json: $json');
-    _user = json != null? User.fromJson(json) : const User();
+    _user = json != null ? User.fromJson(json) : const User();
   }
 
   @override
@@ -75,6 +85,7 @@ class UserStoreImpl implements UserStore {
 
   @override
   Future<void> onLogout() async {
+    switchStatusLogin(false);
     if (isLogin.value) await ApiService.create().logout();
     await Future.wait([
       PrefsService.to.clear(),
@@ -83,7 +94,6 @@ class UserStoreImpl implements UserStore {
     ConfigStore.to.setTypeLogin(null);
     _accessToken = '';
     _user = const User();
-    switchStatusLogin(false);
   }
 
   @override
@@ -102,5 +112,41 @@ class UserStoreImpl implements UserStore {
     } on HttpException catch (e) {
       debugConsoleLog(e.message);
     }
+  }
+
+  @override
+  Future onSignUp({
+    required String userName,
+    required String passwords,
+    required String fullName,
+    required String email,
+  }) async {
+    try {
+      await ApiService.create().signup(
+        {
+          "user_name": userName,
+          "full_name": fullName,
+          "email": email,
+          "password": passwords,
+          "role": "guest",
+        },
+      );
+    } on HttpException catch (e) {
+      debugConsoleLog(e.message);
+    }
+  }
+
+  @override
+  Future<String?> getDeviceId() async {
+    final deviceInfo = DeviceInfoPlugin();
+    if (Platform.isIOS) {
+      final iosDeviceInfo = await deviceInfo.iosInfo;
+      return iosDeviceInfo.identifierForVendor;
+    } else if (Platform.isAndroid) {
+      final androidDeviceInfo = await deviceInfo.androidInfo;
+      return androidDeviceInfo.id;
+    }
+
+    return null;
   }
 }

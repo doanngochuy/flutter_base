@@ -29,6 +29,8 @@ class Withdraw {
   final String urlClue;
   final String imageClue;
   final int money;
+  final String withdrawMethod;
+  final String bankName;
   final String numberAccount;
   final String accountName;
   final WithdrawStatus? status;
@@ -42,6 +44,8 @@ class Withdraw {
     this.urlClue = "",
     this.imageClue = "",
     this.money = 0,
+    this.withdrawMethod = "",
+    this.bankName = "",
     this.numberAccount = "",
     this.accountName = "",
     this.status = WithdrawStatus.requested,

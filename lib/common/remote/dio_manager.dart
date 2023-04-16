@@ -93,7 +93,7 @@ class CustomInterceptor implements Interceptor {
       UserStore.to.onLogout();
       message = S.current.Het_phien_lam_viec;
     } else {
-      message = err.response?.data?["ResponseStatus"]["Message"] ?? err.message;
+      message = err.response?.data['message'] ?? err.message;
     }
     Loading.dismiss();
     if (showDefaultError && message.isNotEmpty) {

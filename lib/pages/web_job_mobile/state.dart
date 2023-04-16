@@ -17,6 +17,18 @@ class GetJobState {
 
   setJobStatus(JobStatus value) => _statusJob.value = value;
 
+  final RxString _title = ''.obs;
+
+  String get title => _title.value;
+
+  setTitle(String value) => _title.value = value;
+
+  final RxString _tip = ''.obs;
+
+  String get tip => _tip.value;
+
+  setTip(String value) => _tip.value = value;
+
 }
 
 enum Event {

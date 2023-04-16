@@ -4,7 +4,7 @@ class AppColor {
   AppColor._();
 
   static const Color scaffoldBackground = Color(0xFFFFFFFF);
-  static const Color primaryBackground = Color(0xFF5C78FF);
+  static const Color primaryBackground = Color(0xFF20B149);
   static const Color primaryText = Color(0xFF333333);
   static const Color secondaryText = Color(0xFF74788D);
   static const Color accentColor = Color(0xFF5C78FF);
@@ -34,4 +34,6 @@ class AppColor {
   static final Color grey600WithOpacity200 = grey600.withOpacity(0.2);
   static final Color grey600WithOpacity500 = grey600.withOpacity(0.5);
   static final Color blueLightWithOpacity100 = blueLight.withOpacity(0.1);
+
+  static final Color primaryBackgroundSuperLight = primaryBackground.withAlpha(5);
 }

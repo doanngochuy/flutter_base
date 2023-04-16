@@ -9,10 +9,13 @@ class JobListHeaderWidget extends StatelessWidget {
     Key? key,
     required this.countItem,
     required this.totalMoney,
+    required this.totalWithdraw,
   }) : super(key: key);
 
   final int countItem;
   final int totalMoney;
+  final int totalWithdraw;
+  int get totalRemain => totalMoney - totalWithdraw;
 
   static double _widthInfoItem(BuildContext context) {
     final double withItem = context.width - 3 * Insets.sm;
@@ -31,7 +34,7 @@ class JobListHeaderWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColor.white,
               shape: BoxShape.circle,
             ),
@@ -99,14 +102,14 @@ class JobListHeaderWidget extends StatelessWidget {
           _infoItem(
             width: _widthInfoItem(context),
             title: "Đã rút",
-            info: '500đ',
+            info: '${totalWithdraw.toCurrencyStr}đ',
             icon: Icons.star,
             colorIcon: AppColor.successColor,
           ),
           _infoItem(
             width: _widthInfoItem(context),
             title: "Số dư",
-            info: "500đ",
+            info: "${totalRemain.toCurrencyStr}đ",
             icon: Icons.account_balance_wallet_outlined,
             colorIcon: AppColor.warnColor,
           ),

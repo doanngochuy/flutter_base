@@ -21,14 +21,14 @@ class NotificationWidget extends StatelessWidget {
           title: S.current.Am_bao_thanh_toan,
           initialValue: AppConfigureStore.to.getAttribute<bool>(AppStorage.$prefLayoutNotificationRing),
           onChanged: (val) {
-            controller.setConfigureAttribute<bool>(AppStorage.$prefLayoutNotificationRing, val);
+            controller.setAttribute<bool>(AppStorage.$prefLayoutNotificationRing, val);
           },
         ),
         SettingSwitcherWidget(
           title: S.current.Nhan_tin_nhan_thong_bao,
           initialValue: true,
           onChanged: (val) {
-            controller.setConfigureAttribute<bool>(AppStorage.$prefNotificationsPay, val);
+            controller.setAttribute<bool>(AppStorage.$prefNotificationsPay, val);
           },
         ),
       ],
