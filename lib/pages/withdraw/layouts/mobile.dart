@@ -4,6 +4,7 @@ import 'package:EMO/common/store/store.dart';
 import 'package:EMO/common/styles/styles.dart';
 import 'package:EMO/pages/create_withdraw/index.dart';
 import 'package:EMO/pages/withdraw/index.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
 class WithdrawMobile extends StatelessWidget {
@@ -27,11 +28,11 @@ class WithdrawMobile extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Lịch sử rút tiền', style: TextStyle(color: Colors.white)),
-          backgroundColor: AppColor.successColor,
+          backgroundColor: AppColor.primary,
           bottom: TabBar(
             unselectedLabelColor: AppColor.white.withOpacity(0.5),
             labelColor: AppColor.white,
-            indicatorColor: AppColor.successColor,
+            indicatorColor: AppColor.primary,
             tabs: <Widget>[
               Tab(
                 text: S.current.Tat_ca,
@@ -59,7 +60,7 @@ class WithdrawMobile extends StatelessWidget {
           onPressed: () => _createWithdraw(context),
           label: const Text('Rút tiền', style: TextStyle(color: AppColor.white)),
           icon: const Icon(Icons.arrow_circle_down_rounded, color: AppColor.white),
-          backgroundColor: AppColor.successColor,
+          backgroundColor: AppColor.primary,
           elevation: 3,
           extendedIconLabelSpacing: Insets.sm,
           extendedPadding: EdgeInsets.only(left: Insets.med, right: Insets.lg),

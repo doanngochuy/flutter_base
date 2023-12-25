@@ -3,7 +3,6 @@ library widgets;
 export 'animated_search_bar.dart';
 export 'code_scanner/code_scanner.dart';
 export 'custom_checkbox.dart';
-export 'custom_checkbox.dart';
 export 'form_builder.dart';
 export 'infinite_load.dart';
 export 'input.dart';

@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:EMO/common/generated/l10n.dart';
-import 'package:EMO/common/store/config_store.dart';
 import 'package:EMO/common/styles/styles.dart';
 import 'package:EMO/common/theme/theme.dart';
 import 'package:EMO/common/utils/utils.dart';
 import 'package:EMO/pages/sign_in/controller.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
@@ -36,9 +35,6 @@ class _SignInFormState extends State<SignInForm> {
   static final TextStyle textStyle = TextStyles.title1.copyWith(
     color: AppColor.black800,
   );
-  static final heightBtnForgetPassword = 14 * ConfigStore.to.scale;
-
-  /// =========================
 
   bool isShowPassword = true;
 
@@ -58,6 +54,7 @@ class _SignInFormState extends State<SignInForm> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           CustomInput.outline(
+            backgroundColor: AppColor.grey100,
             controller: signInController.userController,
             padding: paddingTextEditor,
             prefixIcon: renderIcon(CustomIcons.user),
@@ -76,6 +73,7 @@ class _SignInFormState extends State<SignInForm> {
           ),
           VSpace.lg,
           CustomInput.outline(
+            backgroundColor: AppColor.grey100,
             controller: signInController.passController,
             padding: paddingTextEditor.copyWith(right: 0),
             prefixIcon: renderIcon(CustomIcons.lock),

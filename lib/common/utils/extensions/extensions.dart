@@ -7,3 +7,4 @@ export 'screen_width.dart';
 export 'string.dart';
 export 'time_of_day.dart';
 export 'duration.dart';
+export 'int.dart';

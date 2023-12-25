@@ -55,7 +55,7 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
           children: <Widget>[
             Expanded(
               child: Row(
-                mainAxisAlignment: ConfigStore.to.screenWidth == ScreenWidth.DESKTOP
+                mainAxisAlignment: ConfigStore.to.screenWidth == ScreenWidth.desktop
                     ? MainAxisAlignment.start
                     : MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -5,12 +5,13 @@ part 'settings.g.dart';
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.pascal)
 class Settings {
   bool qrCodeEnable;
-  String withdrawMethod, bankName, accountNumber, accountName;
+  String withdrawMethod, accountNumber, accountName;
+  int bankKey;
 
   Settings({
     this.qrCodeEnable = false,
     this.withdrawMethod = "",
-    this.bankName = "",
+    this.bankKey = 0,
     this.accountNumber = "",
     this.accountName = "",
   });

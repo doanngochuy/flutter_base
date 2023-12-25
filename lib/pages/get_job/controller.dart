@@ -11,4 +11,6 @@ class GetJobController extends GetxController {
   GetJobController();
 
   Future getJob() => JobStore.to.getCurrentJob().then(state.setCurrentJob);
+
+  Future cancelJob() => JobStore.to.cancelJob().then((_) => state.removeJob());
 }

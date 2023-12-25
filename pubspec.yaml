@@ -3,12 +3,12 @@ description: Rebuild project with multi-flatform mobile, web app.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+20230403
+version: 1.0.11+20231225
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: '>=3.1.1 <4.0.0'
 
-isar_version: &isar_version "3.0.0" # define the version to be used
+isar_version: &isar_version ^3.1.0+1 # define the version to be used
 
 dependencies:
   flutter:
@@ -18,21 +18,16 @@ dependencies:
   # Adaptive Scrollbar is a library that allows you to create one or more desktop-style scrollbars on a single
   # screen, each of which is bound only to its own object and placed in its own place on the screen.
   adaptive_scrollbar: ^2.1.2
-  # A set of cryptographic hashing functions implemented in pure Dart
-  crypto: ^3.0.2
-  # A cookie manager for http requests in Dart, by which you can deal with the complex cookie policy
-  # and persist cookies easily.
-  cookie_jar: ^3.0.1
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.6
   # A flutter library to show images from the internet and keep them in the cache directory.
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.3.0
   # A powerful Http client for Dart, which supports Interceptors, Global configuration, FormData,
   # Request Cancellation, File downloading, Timeout etc.
-  dio: ^4.0.6
-  dio_cookie_manager: ^2.0.0
-  dropdown_button2: ^1.9.2
-  flutter_svg: ^1.1.6
-  fluttertoast: ^8.1.2
+  dio: ^5.4.0
+  retrofit: ^4.0.3
+  dropdown_button2: ^2.3.9
+  flutter_svg: ^2.0.9
+  fluttertoast: ^8.2.4
   # A clean and lightweight loading/toast widget for Flutter, Easy to use without context,
   # Support iOS、Android and Web
   flutter_easyloading: ^3.0.5
@@ -40,50 +35,46 @@ dependencies:
   # Various settings on how long to keep a file can be changed.
   flutter_cache_manager: ^3.3.0
   # A powerful Flutter chart library, currently supporting Line Chart, Bar Chart and Pie Chart.
-  fl_chart: ^0.55.2
-  get: ^4.6.5
-  get_it: ^7.2.0
-  go_router: ^6.0.1
-  html: ^0.15.1
+  fl_chart: ^0.65.0
+  get: ^4.6.6
+  get_it: ^7.6.4
+  go_router: ^12.1.3
+  html: ^0.15.4
   hive: ^2.2.3
   hive_flutter: 1.1.0
   isar: *isar_version
   isar_flutter_libs: *isar_version # contains Isar Core
-  url_launcher: ^6.1.7
-  package_info: ^2.0.2
-  path_provider: ^2.0.11
+  url_launcher: ^6.2.2
+  package_info_plus: ^5.0.1
+  path_provider: ^2.1.1
   share: ^2.0.4
-  shared_preferences: ^2.0.15
-  syncfusion_flutter_charts: ^20.3.60
+  shared_preferences: ^2.2.2
+  syncfusion_flutter_charts: ^23.2.7
+  syncfusion_flutter_datepicker: ^23.2.7
   uni_links: ^0.5.1
-  custom_pop_up_menu: ^1.2.4
-  json_annotation: ^4.7.0
-  freezed_annotation: ^2.2.0
-  retrofit: ^3.3.1
-  webcontent_converter: ^0.0.7+2
+  json_annotation: ^4.8.1
   jwt_decoder: ^2.0.1
-  uuid: ^3.0.7
+  uuid: any
   #  form
-  flutter_form_builder: ^7.7.0
-  form_builder_validators: ^8.4.0
+  flutter_form_builder: ^9.1.1
+  form_builder_validators: ^9.1.0
   logger: any
   #  international
   intl: any
-  intl_utils: ^2.7.0
+  intl_utils: ^2.8.4
   #  list, map, set method
   collection: any
   rxdart: any
-  flutter_typeahead: ^4.1.1
-  scrollable_positioned_list: ^0.3.5
+  flutter_typeahead: ^4.7.0
+  scrollable_positioned_list: ^0.3.8
   equatable: ^2.0.5
   pull_to_refresh: ^2.0.0
   open_file:
     git:
       url: https://github.com/crazecoder/open_file
   # select file
-  file_picker: "5.2.1"
-  universal_html: ^2.0.8
-  flutter_flavor: ^3.1.1
+  file_picker: ^6.1.1
+  universal_html: ^2.2.4
   mask_text_input_formatter: ^2.4.0
   webview_flutter: ^3.0.4
   mobile_scanner: ^2.1.0
@@ -91,43 +82,54 @@ dependencies:
   qr_flutter: ^4.0.0
   marquee: ^2.2.3
   math_expressions: ^2.3.1
-  connectivity_plus: ^3.0.2
   dart_ipify: ^1.1.1
-#  tcp_socket_flutter: ^0.0.5
-  presentation_displays: ^0.2.3
   image_picker: ^0.8.6
-#  youtube_player_iframe: ^3.1.0
   timezone: ^0.9.1
   flutter_inappwebview: 5.7.2+3
   flutter_dash: 1.0.0
   empty_widget: 0.0.5
   awesome_dialog: 3.0.2
-  device_info_plus: 8.1.0
+  device_info_plus: ^9.1.1
+  shimmer: ^2.0.0
+  font_awesome_flutter: ^10.1.0
+  connectivity_plus: "3.0.2"
+  animated_bottom_navigation_bar: ^1.2.0
+  badges: ^2.0.3
+  firebase_core: ^2.24.2
+  firebase_analytics: ^10.7.4
+  flutter_flavor: ^3.1.3
+  flutter_flavorizr: ^2.1.5
+  firebase_crashlytics: ^3.4.8
+  platform_device_id: ^1.0.1
 
 dev_dependencies:
   integration_test:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.11.0
-  mocktail: ^0.3.0
-  freezed: any
+  flutter_launcher_icons: 0.11.0
+  mocktail: ^1.0.1
   build_runner: any
   flutter_lints: any
   json_serializable: any
   hive_generator: any
-  retrofit_generator: ^4.2.0
+  retrofit_generator: ^8.0.5
   isar_generator: *isar_version
 
+
+flutter_icons:
+    android: false
+    ios: true
+    remove_alpha_ios: true
+    image_path: "assets/logo/logo.png"
+
 flutter_launcher_name:
-  name: "yourNewAppLauncherName"
+  name: "EMO"
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/html/
-    - assets/json/
 
   fonts:
     - family: GoogleSans

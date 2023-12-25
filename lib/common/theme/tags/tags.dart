@@ -5,7 +5,7 @@ class CustomTag {
   static Widget tagSuccess(String value) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColor.successColor,
+        color: AppColor.primary,
         borderRadius: Corners.smBorder,
       ),
       padding: EdgeInsets.symmetric(

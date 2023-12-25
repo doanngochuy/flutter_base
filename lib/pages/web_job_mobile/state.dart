@@ -29,10 +29,23 @@ class GetJobState {
 
   setTip(String value) => _tip.value = value;
 
+  bool firstResultHint = true;
+
+  final RxnInt _fakeCount = RxnInt(null);
+
+  int? get fakeCount => _fakeCount.value;
+
+  setFakeCount(int? value) => _fakeCount.value = value;
+
+  final RxBool _showCopyKeyword = RxBool(true);
+
+  bool get showCopyKeyword => _showCopyKeyword.value;
+
+  setShowCopyKeyword(bool value) => _showCopyKeyword.value = value;
 }
 
 enum Event {
-  startJob,
+  startError,
   timeOut,
   finishJob,
 }

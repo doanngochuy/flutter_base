@@ -5,33 +5,35 @@ import 'entities.dart';
 part 'job.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class ResponseJob {
+class ResponseTransaction {
   String code;
   String message;
   int totalMoney;
   int totalWithdraw;
-  List<MapJob> data;
+  List<Transaction> data;
   Metadata metadata;
 
-  ResponseJob(
+  ResponseTransaction(
       this.code, this.message, this.totalMoney, this.totalWithdraw, this.data, this.metadata);
 
-  factory ResponseJob.fromJson(Map<String, dynamic> json) => _$ResponseJobFromJson(json);
+  factory ResponseTransaction.fromJson(Map<String, dynamic> json) =>
+      _$ResponseTransactionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ResponseJobToJson(this);
+  Map<String, dynamic> toJson() => _$ResponseTransactionToJson(this);
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class MapJob {
+class Transaction {
   @JsonKey(name: 'Job')
   Job job;
   DateTime createdAt;
+  int money;
 
-  MapJob(this.job, this.createdAt);
+  Transaction(this.job, this.createdAt, this.money);
 
-  factory MapJob.fromJson(Map<String, dynamic> json) => _$MapJobFromJson(json);
+  factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MapJobToJson(this);
+  Map<String, dynamic> toJson() => _$TransactionToJson(this);
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
@@ -107,4 +109,11 @@ class StartJobResponse {
   Map<String, dynamic> toJson() => _$StartJobResponseToJson(this);
 }
 
-enum JobStatus { none, start, error, done }
+enum JobStatus { none, target, start, error, finish, done }
+
+class JobKeyPage {
+  JobKeyPage._();
+
+  static const title = '99';
+  static const queryIndex = null;
+}

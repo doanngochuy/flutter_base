@@ -2,12 +2,10 @@ import 'package:EMO/common/generated/l10n.dart';
 import 'package:EMO/common/store/store.dart';
 import 'package:EMO/common/theme/theme.dart';
 import 'package:EMO/common/values/values.dart';
-import 'package:EMO/pages/setting/state.dart';
 import 'package:get/get.dart';
 
 class SettingController extends GetxController {
   static SettingController get to => Get.find<SettingController>();
-  final state = SettingState();
 
   SettingController();
 
@@ -31,7 +29,7 @@ class SettingController extends GetxController {
     AppStorage.prefActiveQrCode: "QrCodeEnable",
     AppStorage.prefNameAcc: "AccName",
     AppStorage.prefNumberAcc: "AccNumber",
-    AppStorage.prefNameBank: "BankName",
+    AppStorage.prefKeyBank: "BankKey",
   };
 
   Future<bool> handleUpdateData<T>(String key, T value) async {

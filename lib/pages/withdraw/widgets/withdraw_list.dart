@@ -64,6 +64,7 @@ class _WithdrawListState extends State<WithdrawList> {
             index: index,
             onTap: (withdraw) => _handleTapWithdraw(context, withdraw: withdraw),
           );
+          return item;
           if (index == 0) {
             return _wrapItemWithDivider(
               child: item,

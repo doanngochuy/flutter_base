@@ -28,6 +28,11 @@ abstract class ApiService {
   @GET("/users/me")
   Future<User> getUser();
 
+  @PUT("/users/me")
+  Future<User> updateUser({
+    @Body() required Map<String, dynamic> request,
+  });
+
   //job
   @GET("/jobs/current")
   Future<CurrentJobResponse> getCurrentJob({@Query("device_id") required String deviceId});
@@ -43,8 +48,13 @@ abstract class ApiService {
     @Body() required Map<String, dynamic> request,
   });
 
-  @GET("jobs/done")
-  Future<ResponseJob> getDoneJobs({
+  @POST("/jobs/cancel")
+  Future<ResponsePostBff> cancelJob({
+    @Body() required Map<String, dynamic> request,
+  });
+
+  @GET("/transactions")
+  Future<ResponseTransaction> getTransactions({
     @Query("page_size") int pageSize = 10,
     @Query("page") int page = 1,
     @Query("sort_by") String sort = "id",

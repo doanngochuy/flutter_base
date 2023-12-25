@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:EMO/common/entities/entities.dart';
 import 'package:EMO/common/styles/styles.dart';
 import 'package:EMO/common/theme/theme.dart';
@@ -28,19 +30,23 @@ class _GetJobPageState extends State<GetJobPage> {
     super.initState();
   }
 
-  void _onTapGetJob() {
-    Loading.openAndDismissLoading<bool>(() async {
-      await _controller.getJob().then((value) => setState(() {}));
-      return true;
-    });
+  Future<void> _onTapGetJob() async {
+    Loading.openAndDismissLoading(
+      () => _controller.getJob().then(
+            (_) {
+              setState(() {});
+              Future.delayed(const Duration(seconds: 15), _controller.state.removeJob);
+            },
+          ),
+    );
   }
 
-  void _onTapStartJob() {
+  Future<void> _onTapStartJob() async {
     if (_controller.state.job == null) {
       CustomToast.noty(msg: 'Chưa nhận nhiệm vụ');
       return;
     }
-    Navigator.of(context).push(
+    await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => WebJobMobilePage(
           job: _controller.state.job,
@@ -48,6 +54,7 @@ class _GetJobPageState extends State<GetJobPage> {
         ),
       ),
     );
+    _controller.state.setCurrentJob(const CurrentJobResponse());
   }
 
   void _onTapRemoveJob() {
@@ -55,25 +62,45 @@ class _GetJobPageState extends State<GetJobPage> {
       CustomToast.noty(msg: 'Chưa nhận nhiệm vụ');
       return;
     }
-    // _controller.removeJob().then((value) => setState(() {}));
+    _controller.cancelJob().then((value) => CustomToast.success(msg: 'Xoá thành công'));
   }
 
   Widget _emptyJob({required bool missionOver}) {
-    return Expanded(
-      child: EmptyWidget(
-        packageImage: missionOver ? PackageImage.Image_1 : PackageImage.Image_3,
-        title: missionOver ? 'Hết nhiệm vụ' : 'Chưa nhận nhiệm vụ',
-        subTitle: missionOver ? 'Vui lòng chờ, hoặc tải lại' : 'Vui lòng ấn nút "Nhận nhiệm vụ"',
-        titleTextStyle: TextStyle(
-          fontSize: 18,
-          color: AppColor.successColor.withOpacity(0.8),
-          fontWeight: FontWeight.w500,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        EmptyWidget(
+          // hideBackgroundAnimation: true,
+          packageImage: missionOver ? PackageImage.Image_1 : PackageImage.Image_3,
+          title: missionOver ? 'Hết nhiệm vụ' : 'Chưa nhận nhiệm vụ',
+          subTitle: missionOver ? 'Vui lòng chờ, hoặc tải lại' : 'Vui lòng ấn nút "Nhận nhiệm vụ"',
+          titleTextStyle: TextStyle(
+            fontSize: 18,
+            color: AppColor.primary.withOpacity(0.8),
+            fontWeight: FontWeight.w500,
+          ),
+          subtitleTextStyle: TextStyle(
+            fontSize: 14,
+            color: AppColor.primary.withOpacity(0.5),
+          ),
         ),
-        subtitleTextStyle: TextStyle(
-          fontSize: 14,
-          color: AppColor.successColor.withOpacity(0.5),
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: CustomButton.fullColorWithIcon(
+            onPressed: _onTapGetJob,
+            radius: 12,
+            text: missionOver ? 'Tải lại' : 'Nhận nhiệm vụ',
+            icon: missionOver ? Icons.refresh : Icons.work_history,
+            background: AppColor.primary,
+            textStyle: const TextStyle(
+              fontSize: 16,
+              color: AppColor.white,
+              fontWeight: FontWeight.w500,
+            ),
+            iconSize: 20,
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -82,19 +109,23 @@ class _GetJobPageState extends State<GetJobPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Làm nhiệm vụ', style: TextStyle(color: Colors.white)),
-        backgroundColor: AppColor.successColor,
+        backgroundColor: AppColor.primary,
       ),
       backgroundColor: AppColor.primaryBackgroundSuperLight,
       body: Obx(
         () => Column(
           children: [
-            TabletHeader(
-              isHaveJob: _currentId != null && _currentId != -1,
-              clickGetJob: _onTapGetJob,
-              startJob: _onTapStartJob,
-              removeJob: _onTapRemoveJob,
-            ),
-            if (_currentId == -1 || _currentId == null) _emptyJob(missionOver: _job == null),
+            if (_currentId != null && _currentId != -1)
+              TabletHeader(
+                isHaveJob: _currentId != null && _currentId != -1,
+                clickGetJob: _onTapGetJob,
+                startJob: _onTapStartJob,
+                removeJob: _onTapRemoveJob,
+              ),
+            if (_currentId == -1 || _currentId == null)
+              Expanded(
+                child: _emptyJob(missionOver: _job == null),
+              ),
             if (_job != null && _currentId != null && _currentId != -1)
               SingleChildScrollView(
                 child: ContentJob(job: _job!),

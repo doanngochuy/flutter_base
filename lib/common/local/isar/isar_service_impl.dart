@@ -15,7 +15,7 @@ class IsarServiceImpl implements AppLocalDatabase {
 
     final schemas = _typeToEnum.values.map((e) => e.schema).toList();
 
-    _isar = await Isar.open(schemas);
+    _isar = await Isar.open(schemas, directory: '');
 
     return this;
   }

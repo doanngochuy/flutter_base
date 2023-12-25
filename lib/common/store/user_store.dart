@@ -9,8 +9,9 @@ import 'package:EMO/common/remote/remote.dart';
 import 'package:EMO/common/store/store.dart';
 import 'package:EMO/common/utils/logger.dart';
 import 'package:EMO/common/values/values.dart';
-import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:platform_device_id/platform_device_id.dart';
 
 abstract class UserStore {
   static UserStore get to => AppInjector.injector<UserStore>();
@@ -39,6 +40,15 @@ abstract class UserStore {
     required String email,
   });
 
+  Future updateUser({
+    String? userName,
+    String? fullName,
+    String? email,
+    bool? isActive,
+  });
+
+  Future blockUser();
+
   Future<String?> getDeviceId();
 }
 
@@ -48,7 +58,6 @@ class UserStoreImpl implements UserStore {
     switchStatusLogin(hasToken);
     final jsonString = PrefsService.to.getString(AppStorage.storageUser);
     final json = jsonString.isNotEmpty ? jsonDecode(jsonString) : null;
-    print('json: $json');
     _user = json != null ? User.fromJson(json) : const User();
   }
 
@@ -101,17 +110,13 @@ class UserStoreImpl implements UserStore {
     required String userName,
     required String passwords,
   }) async {
-    try {
-      final loginResponse = await ApiService.create().login(
-        {'userName': userName, 'password': passwords},
-      );
-      await _saveAccessToken(loginResponse.accessToken);
-      final user = await ApiService.create().getUser();
-      await _saveUser(user);
-      switchStatusLogin(true);
-    } on HttpException catch (e) {
-      debugConsoleLog(e.message);
-    }
+    final loginResponse = await ApiService.create(showDefaultError: false).login(
+      {'userName': userName, 'password': passwords},
+    );
+    await _saveAccessToken(loginResponse.accessToken);
+    final user = await ApiService.create().getUser();
+    await _saveUser(user);
+    switchStatusLogin(true);
   }
 
   @override
@@ -138,15 +143,39 @@ class UserStoreImpl implements UserStore {
 
   @override
   Future<String?> getDeviceId() async {
-    final deviceInfo = DeviceInfoPlugin();
-    if (Platform.isIOS) {
-      final iosDeviceInfo = await deviceInfo.iosInfo;
-      return iosDeviceInfo.identifierForVendor;
-    } else if (Platform.isAndroid) {
-      final androidDeviceInfo = await deviceInfo.androidInfo;
-      return androidDeviceInfo.id;
+    String? deviceId;
+    try {
+      deviceId = await PlatformDeviceId.getDeviceId;
+    } on PlatformException {
+      deviceId = 'unknown';
     }
+    return deviceId;
+  }
 
-    return null;
+  @override
+  Future updateUser({
+    String? userName,
+    String? fullName,
+    String? email,
+    bool? isActive,
+  }) {
+    return ApiService.create().updateUser(
+      request: {
+        "user_name": userName,
+        "full_name": fullName,
+        "email": email,
+        "is_active": isActive,
+      },
+    );
+  }
+
+  @override
+  Future blockUser() async {
+    try {
+      await updateUser(isActive: false);
+      await onLogout();
+    } catch (e) {
+      debugConsoleLog(e);
+    }
   }
 }

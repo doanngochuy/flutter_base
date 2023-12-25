@@ -41,7 +41,7 @@ class _SettingSwitcherWidgetState extends State<SettingSwitcherWidget> {
         left: Insets.med,
         right: Insets.xs,
       ),
-      activeColor: AppColor.primaryBackground,
+      activeColor: AppColor.primary,
       subtitle: widget.subtitle != null ? Text(widget.subtitle!) : null,
       value: _value,
       onChanged: (value) {

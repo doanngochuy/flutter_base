@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 
@@ -15,10 +18,18 @@ class WebJobMobileController extends GetxController {
 
   InAppWebViewController? _webViewController;
 
+  StreamSubscription? _streamSubscription;
+
   void initState(Job? job, int? currentId) {
     state.job = job;
     state.currentId = currentId;
-    state.setTip('Nhập từ khoá \'${state.job?.keyWord ?? ""}\' vào ô tìm kiếm');
+    state.setTip(' Copy từ khóa \'${state.job?.keyWord ?? ""}\' và dán vào ô tìm kiếm');
+  }
+
+  @override
+  void onClose() {
+    _streamSubscription?.cancel();
+    super.onClose();
   }
 
   void setWebViewController(InAppWebViewController controller) => _webViewController = controller;
@@ -45,111 +56,214 @@ class WebJobMobileController extends GetxController {
   }
 
   void setSearchResultHint() {
-    _webViewController?.evaluateJavascript(source: """    
-        const searchForm = document.querySelector('form#tsf');
-          
-        const keyword = "${state.job?.keyWord}";
-        const urlToFind = "${state.job?.url}"
-        
-        const elements = document.getElementsByTagName("a");
-        
-        for (let i = 0; i < elements.length; i++) {
-          if(elements[i].href.includes(urlToFind)) {
-            elements[i].style.backgroundColor = "yellow";
-          }
-        }  
-      """);
+    state.setShowCopyKeyword(false);
+    const arrowDiv = "arrowDiv";
+    const otherButton = "otherButton";
+    const otherButtonVisible = "otherButtonVisible";
+    const linkViewStatus = "linkViewStatus";
+    const elements = "elements";
+    const styleText = "styleText";
 
-    state.setTip("Vào trang '${state.job?.baseUrl ?? ""}...'(Tô vàng)");
+    const textDownStyle =
+        '<div style="width: 30px; text-align: center; color: black; font-size: 14px;">Kéo xuống</div> <div style="position: relative; width: 0; height: 0px; margin-top: 2px; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 12px solid white;"/>';
+    const textUpStyle =
+        '<div style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 25px solid white; margin-left: 7.5px;"></div> <div style="width: 50px; text-align: center; color: black; font-size: 14px;">Kéo lên</div>';
+    const textClickStyle =
+        '<div style="width: 150px; text-align: center; color: black; font-size: 14px;">Click nút <br> Kết quả tìm kiếm khác</div>';
+    if (state.firstResultHint) {
+      // _webViewController?.addJavaScriptHandler(
+      //     handlerName: "aaaa",
+      //     callback: (args) {
+      //      debugConsoleLog("value ${args[0]} ${args[1]} ${args[2]}");
+      //     });2
+
+       const initJs = """
+            var $arrowDiv = document.createElement("div");
+            var $otherButton = null;
+            var $elements = false;
+            var $linkViewStatus = 0; //0 - not visible, 1 - visible, 2 - over
+            var $styleText = 0;
+
+            function inViewport(element) {//0 - not visible, 1 - visible, 2 - over
+                if (!element) return false;
+                const rect = element.getBoundingClientRect();
+                let viewPortBottom = window.innerHeight || document.documentElement.clientHeight;
+                                
+                if (rect.top > 0 && rect.top < viewPortBottom) return 1;
+                
+                if (rect.top < 0) return 2;
+                
+                return 0;
+            }
+            try {
+              $arrowDiv.id = "countdown";
+              $arrowDiv.style.position = "fixed";
+              $arrowDiv.style.bottom = "80px";
+              $arrowDiv.style.left = "20px";
+              $arrowDiv.style.width = "40px";
+              $arrowDiv.style.height = "36px";
+              $arrowDiv.style.backgroundColor = "#FFD700";
+              $arrowDiv.style.padding = "8px";
+              $arrowDiv.style.borderRadius = "20%";
+              $arrowDiv.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+              $arrowDiv.style.zIndex = "9000";
+              $arrowDiv.style.fontWeight = "bold";
+              $arrowDiv.innerHTML = '$textDownStyle';
+              document.body.appendChild($arrowDiv);  
+            } catch (e) {}
+          """;
+      _webViewController?.evaluateJavascript(source: initJs);
+
+      state.setTip("Vào trang '${state.job?.baseUrl ?? ""}...'(Tô vàng)");
+
+      state.firstResultHint = false;
+    }
+
+    _webViewController?.evaluateJavascript(source: """
+        $elements = document.getElementsByTagName("a");
+        $linkViewStatus = 0;
+        for (let i = 0; i < $elements.length; i++) {
+          let element = $elements[i];
+          if(element.href.includes("${state.job?.url}") && inViewport(element) != 0) {
+            element.style.backgroundColor = "yellow";
+            $linkViewStatus = inViewport(element);
+          }
+        }
+        
+        $otherButton = document.querySelector('a[aria-label="Kết quả tìm kiếm khác"]');
+        $otherButtonVisible = inViewport($otherButton) != 0;
+        
+        if ($otherButtonVisible && $linkViewStatus == 0 && $styleText != 3) {
+          $styleText = 3;
+          $otherButton.style.backgroundColor = "yellow";
+          $arrowDiv.style.display = "block";
+          $arrowDiv.style.width = "160px";
+          $arrowDiv.innerHTML = '$textClickStyle';
+        }
+        
+        if (!$otherButtonVisible && $linkViewStatus == 2 && $styleText != 2) {
+          $styleText = 2;
+          $arrowDiv.style.display = "block";
+          $arrowDiv.style.width = "40px";
+          $arrowDiv.innerHTML = '$textUpStyle';
+        }
+        
+        if (!$otherButtonVisible && $linkViewStatus == 1 && $styleText != 1) {
+          $styleText = 1;
+          $arrowDiv.style.display = "none";
+        }
+        
+        if (!$otherButtonVisible && $linkViewStatus == 0 && $styleText != 0) {
+          $styleText = 0;
+          $arrowDiv.style.display = "block";
+          $arrowDiv.style.width = "40px";
+          $arrowDiv.innerHTML = '$textDownStyle';
+        }
+        
+        """);
   }
 
-  void setCountTargetWeb() {
-    _webViewController?.addJavaScriptHandler(
-        handlerName: Event.startJob.name,
-        callback: (args) {
-          startJob();
-        });
+  Future setCountTargetWeb() async {
+    if (state.jobStatus != JobStatus.none) return;
+    state.setJobStatus(JobStatus.target);
 
-    _webViewController?.addJavaScriptHandler(
-        handlerName: Event.timeOut.name,
-        callback: (args) {
+    final startSuccessfully = await startJob();
+
+    if (!startSuccessfully) return;
+
+    _setFakeCount();
+    state.setTip(" Kéo xuống cuối trang web và chờ khi đếm ngược hết");
+  }
+
+  void _setFakeCount() {
+    state.setFakeCount(state.job?.time ?? 10);
+    _streamSubscription = Stream.periodic(const Duration(seconds: 1), (i) => i)
+        .take(state.job?.time ?? 0)
+        .where((e) => e >= 0)
+        .listen(
+      (count) {
+        state.setFakeCount(state.fakeCount! - 1);
+        if ((state.fakeCount ?? 0) <= 0) {
           setFinishJob();
-        });
-
-    final js = """
-            var countdownDiv = document.createElement("div");
-            countdownDiv.id = "countdown";
-            countdownDiv.style.position = "fixed";
-            countdownDiv.style.bottom = "10px";
-            countdownDiv.style.left = "10px";
-            countdownDiv.style.backgroundColor = "#FFD700";
-            countdownDiv.style.padding = "10px";
-            countdownDiv.style.borderRadius = "50%";
-            countdownDiv.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
-            countdownDiv.style.zIndex = "9999";
-            countdownDiv.style.fontWeight = "bold";
-            document.body.appendChild(countdownDiv);
-
-            var startTime = ${state.job?.time ?? 0};
-            var endTime = 0;
-
-            function formatTime(time) {
-              var minutes = Math.floor(time / 60);
-              var seconds = time - minutes * 60;
-
-              if (seconds < 10) {
-                seconds = "0" + seconds;
-              }
-
-              return minutes + ":" + seconds;
-            }
-
-            function updateCountdown() {
-              startTime--;
-
-              if (startTime < endTime) {
-                clearInterval(interval);
-                window.flutter_inappwebview.callHandler('${Event.timeOut.name}');
-                return;
-              }
-
-              countdownDiv.innerHTML = formatTime(startTime);
-            }
-
-            var interval = setInterval(updateCountdown, 1000);
-            
-            window.flutter_inappwebview.callHandler('${Event.startJob.name}');
-          """;
-    _webViewController?.evaluateJavascript(source: js);
-    state.setTip("Kéo xuống cuối trang web và chờ khi đếm ngược hết");
+        }
+      },
+    );
   }
 
   void setFinishJob() {
     if (state.startJobResponse == null) return;
+    if ([JobStatus.none, JobStatus.finish, JobStatus.error].contains(state.jobStatus)) return;
+    state.setJobStatus(JobStatus.finish);
+    switch (state.job?.keyPage) {
+      case JobKeyPage.title:
+        titleFinish();
+        break;
+      default:
+        queryIndexFinish();
+    }
+  }
+
+  void titleFinish() async {
+    final title = await _webViewController?.getTitle();
+
+    if (title == null) {
+      state.setJobStatus(JobStatus.error);
+      return;
+    }
+    Loading.openAndDismissLoading(() => finishJob(title));
+  }
+
+  void queryIndexFinish() {
     _webViewController?.addJavaScriptHandler(
         handlerName: Event.finishJob.name,
         callback: (args) {
           final valuePage = args[0].toString();
+          if (valuePage == 'Error') {
+            state.setJobStatus(JobStatus.error);
+            return;
+          }
           Loading.openAndDismissLoading(() => finishJob(valuePage));
         });
 
     final js = """
-              countdownDiv.innerHTML = "Waiting!";
-              const htmlElement = document.querySelector('${state.startJobResponse?.key ?? '#####'}');
+            try {
+              if (typeof countdownDiv !== 'undefined' && countdownDiv !== null) countdownDiv.innerHTML = "Waiting!";
+              const htmlElement = document.querySelector('${state.startJobResponse!.key}');
               window.flutter_inappwebview.callHandler('${Event.finishJob.name}', htmlElement.id);
+            } catch (error) {
+              window.flutter_inappwebview.callHandler('${Event.finishJob.name}', 'Error');
+            }
           """;
 
-    _webViewController?.evaluateJavascript(source: js);
+    final jsNumber = """
+              try {
+                if (typeof countdownDiv !== 'undefined' && countdownDiv !== null) countdownDiv.innerHTML = "Waiting!";
+                const styleSheets = document.styleSheets;
+                if (styleSheets) {
+                  const styleSheet = styleSheets[${state.startJobResponse!.key}];
+                  const cssRules = styleSheet.cssRules;
+                  window.flutter_inappwebview.callHandler('${Event.finishJob.name}', cssRules[0].selectorText);
+                }
+              } catch (error) {
+                window.flutter_inappwebview.callHandler('${Event.finishJob.name}', 'Error');
+              }
+          """;
+
+    _webViewController?.evaluateJavascript(
+        source: state.startJobResponse!.key.isNum ? jsNumber : js);
   }
 
-  void startJob() {
-    if (state.jobStatus != JobStatus.none) return;
-    state.setJobStatus(JobStatus.start);
-    JobStore.to.startJob(state.job?.id ?? 0, state.currentId ?? 0).then(
-      (value) {
-        state.startJobResponse = value;
-      },
-    ).catchError(print);
+  Future<bool> startJob() async {
+    if (state.jobStatus != JobStatus.target) return false;
+    try {
+      state.setJobStatus(JobStatus.start);
+      final result = await JobStore.to.startJob(state.job?.id ?? 0, state.currentId ?? 0);
+      state.startJobResponse = result;
+      return true;
+    } catch (e) {
+      Logger.write(e.toString());
+    }
+    return false;
   }
 
   Future finishJob(String valuePage) =>

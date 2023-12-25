@@ -4,7 +4,9 @@ class AppColor {
   AppColor._();
 
   static const Color scaffoldBackground = Color(0xFFFFFFFF);
-  static const Color primaryBackground = Color(0xFF20B149);
+  static const Color primaryDark = Color(0xFF117F30);
+  static const Color primary = Color(0xFF20B149);
+  static const Color primaryLight = Color(0xFF75E569);
   static const Color primaryText = Color(0xFF333333);
   static const Color secondaryText = Color(0xFF74788D);
   static const Color accentColor = Color(0xFF5C78FF);
@@ -16,6 +18,7 @@ class AppColor {
   static const Color borderColor = Color(0xFFDEE3FF);
   static const Color pinkColor = Color(0xFFF77866);
   static const Color yellowColor = Color(0xFFFFB822);
+  static const Color yellowLight = Color(0xFFFCEC40);
   static const Color whiteColor = Color(0xFFFFFFFF);
 
   /// ===============================================
@@ -35,5 +38,5 @@ class AppColor {
   static final Color grey600WithOpacity500 = grey600.withOpacity(0.5);
   static final Color blueLightWithOpacity100 = blueLight.withOpacity(0.1);
 
-  static final Color primaryBackgroundSuperLight = primaryBackground.withAlpha(5);
+  static final Color primaryBackgroundSuperLight = primary.withAlpha(5);
 }

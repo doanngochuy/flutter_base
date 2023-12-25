@@ -48,7 +48,7 @@ class CustomImage {
           borderRadius: borderRadius,
         ),
         child: ClipRRect(
-          borderRadius: borderRadius,
+          borderRadius: borderRadius ?? BorderRadius.zero,
           child: Image.asset(
             path,
             fit: fit ?? BoxFit.cover,

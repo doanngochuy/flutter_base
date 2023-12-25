@@ -20,7 +20,7 @@ class TabletHeader extends StatelessWidget {
   Widget _renderButton({
     required String title,
     required IconData iconData,
-    Color color = AppColor.successColor,
+    Color color = AppColor.primary,
     required Function() onTap,
     Key? key,
   }) {
@@ -78,7 +78,7 @@ class TabletHeader extends StatelessWidget {
                 title: isHaveJob ? "Refresh" : "Nhận nhiệm vụ",
                 iconData: isHaveJob ? Icons.refresh : Icons.add_circle_outline,
                 onTap: clickGetJob,
-                color: AppColor.successColor,
+                color: AppColor.primary,
               ),
             ),
             HSpace.sm,
@@ -87,7 +87,7 @@ class TabletHeader extends StatelessWidget {
                 title: "Bắt đầu làm",
                 iconData: Icons.start_rounded,
                 onTap: startJob,
-                color: isHaveJob ? AppColor.successColor : AppColor.grey600,
+                color: isHaveJob ? AppColor.primary : AppColor.grey600,
               ),
             ),
             HSpace.sm,

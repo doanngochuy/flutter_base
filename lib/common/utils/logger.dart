@@ -4,7 +4,7 @@ import 'package:logger/logger.dart' as l;
 
 class Logger {
   // Sample of abstract logging function
-  static void write(String text) => log(text, name: "POS365.CASHIER");
+  static void write(String text) => log(text, name: "EMO.APP");
 }
 
 final _logi = l.Logger(

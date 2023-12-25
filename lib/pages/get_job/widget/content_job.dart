@@ -19,7 +19,7 @@ class ContentJob extends StatelessWidget {
           width: 32,
           height: 32,
           decoration: BoxDecoration(
-            color: AppColor.successColor,
+            color: AppColor.primary,
             borderRadius: BorderRadius.circular(24),
           ),
           child: Icon(
@@ -56,18 +56,18 @@ class ContentJob extends StatelessWidget {
             direction: Axis.vertical,
             length: 350,
             dashLength: 20,
-            dashColor: AppColor.successColor,
+            dashColor: AppColor.primary,
           ),
         ),
         Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _textItem(index: 1, iconData: Icons.web_stories, texts: [
-            const TextSpan(text: 'Truy cập '),
+            const TextSpan(text: 'Ấn nút  '),
             TextSpan(
-              text: 'Google.com',
+              text: 'Bắt đầu làm ⬆',
               style: TextStyle(
-                color: AppColor.successColor.withOpacity(0.5),
+                color: AppColor.primary.withOpacity(0.5),
               ),
             ),
           ]),
@@ -77,7 +77,7 @@ class ContentJob extends StatelessWidget {
             TextSpan(
               text: job.keyWord,
               style: TextStyle(
-                color: AppColor.successColor.withOpacity(0.7),
+                color: AppColor.primary.withOpacity(0.7),
               ),
             ),
           ]),
@@ -87,7 +87,7 @@ class ContentJob extends StatelessWidget {
             TextSpan(
               text: job.baseUrl,
               style: TextStyle(
-                color: AppColor.successColor.withOpacity(0.7),
+                color: AppColor.primary.withOpacity(0.7),
               ),
             ),
           ]),
@@ -97,7 +97,7 @@ class ContentJob extends StatelessWidget {
             TextSpan(
               text: 'Thời gian chờ ${job.time} giây',
               style: TextStyle(
-                color: AppColor.successColor.withOpacity(0.7),
+                color: AppColor.primary.withOpacity(0.7),
               ),
             ),
           ]),
@@ -107,7 +107,7 @@ class ContentJob extends StatelessWidget {
             TextSpan(
               text: 'Tiền thưởng ${job.money.toCurrencyStr} đ',
               style: TextStyle(
-                color: AppColor.successColor.withOpacity(0.7),
+                color: AppColor.primary.withOpacity(0.7),
               ),
             ),
           ]),

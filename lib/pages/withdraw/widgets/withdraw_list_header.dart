@@ -31,7 +31,7 @@ class JobListHeaderWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColor.white,
               shape: BoxShape.circle,
             ),
@@ -76,7 +76,7 @@ class JobListHeaderWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(Insets.sm),
       decoration: const BoxDecoration(
-        color: AppColor.successColor,
+        color: AppColor.primary,
         borderRadius: Corners.medBorder,
       ),
       child: Wrap(
@@ -87,7 +87,7 @@ class JobListHeaderWidget extends StatelessWidget {
             title: "Nhiệm vụ đã làm",
             info: countItem.toCurrencyStr,
             icon: Icons.inventory_outlined,
-            colorIcon: AppColor.successColor,
+            colorIcon: AppColor.primary,
           ),
           _infoItem(
             width: _widthInfoItem(context),
@@ -101,7 +101,7 @@ class JobListHeaderWidget extends StatelessWidget {
             title: "Đã rút",
             info: '500đ',
             icon: Icons.star,
-            colorIcon: AppColor.successColor,
+            colorIcon: AppColor.primary,
           ),
         ],
       ),

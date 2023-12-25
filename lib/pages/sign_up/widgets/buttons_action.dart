@@ -20,7 +20,7 @@ class SignUpButtonsAction extends StatelessWidget {
           text: S.current.Dang_ky.toUpperCase(),
           width: size.width,
           padding: EdgeInsets.all(Insets.lg),
-          background: AppColor.successColor,
+          background: AppColor.primaryDark,
           boxShadow: Shadows.universal,
           onPressed: () {
             if (!_controller.fbKey.currentState!.saveAndValidate()) {

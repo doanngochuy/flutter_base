@@ -6,7 +6,7 @@ typedef AppBarBuilder = Function(Widget, ScreenRouter);
 
 enum ScreenRouter {
   main('/'),
-  jobDone('/job-done'),
+  home('/home'),
   getJob('/get-job'),
   webJob('/web-job'),
   notFound('/not-found'),
@@ -14,8 +14,7 @@ enum ScreenRouter {
   signUp('/sign-up'),
   setting('/setting'),
   withdraw('/withdraw'),
-  createWithdraw('/create-withdraw'),
-  test('/test');
+  createWithdraw('/create-withdraw');
 
   final String path;
 
@@ -33,7 +32,7 @@ enum ScreenRouter {
         return S.current.Trang_chu;
       case getJob:
         return "Nhiệm vụ";
-      case jobDone:
+      case home:
         return "Trang chủ";
       case webJob:
         return S.current.Nhan_hang;
@@ -49,8 +48,6 @@ enum ScreenRouter {
         return "Rút tiền";
       case createWithdraw:
         return "Yêu cầu rút tiền";
-      case test:
-        return "Test";
     }
   }
 }

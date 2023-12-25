@@ -12,6 +12,20 @@ import '../spaces/spaces.dart';
 class CustomDialog {
   const CustomDialog._();
 
+  static Future<T?> show<T>({
+    required BuildContext context,
+    required WidgetBuilder builder,
+    bool barrierDismissible = true,
+  }) =>
+      showDialog<T>(
+        context: context,
+        barrierDismissible: barrierDismissible,
+        builder: builder,
+        routeSettings: RouteSettings(
+          name: builder(context).runtimeType.toString(),
+        ),
+      );
+
   static Future<bool?> defaultDialog(
     BuildContext context, {
     double? width,

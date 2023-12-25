@@ -30,9 +30,9 @@ class _SignInPageState extends State<SignInPage> {
 
   Widget renderUI() {
     switch (ConfigStore.to.screenWidth) {
-      case ScreenWidth.DESKTOP:
+      case ScreenWidth.desktop:
         return const SignInWeb();
-      case ScreenWidth.TABLET:
+      case ScreenWidth.tablet:
         return const SignInWeb();
       default:
         return const SignInMobile();

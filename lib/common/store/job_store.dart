@@ -13,7 +13,9 @@ abstract class JobStore {
 
   Future finishJob(String token, String valuePage);
 
-  Future<ResponseJob> getDoneJobs({
+  Future cancelJob();
+
+  Future<ResponseTransaction> getTransactions({
     int pageSize,
     int page,
     String sort,
@@ -44,13 +46,22 @@ class JobStoreImpl implements JobStore {
   }
 
   @override
-  Future<ResponseJob> getDoneJobs({
+  Future cancelJob() async {
+    final request = {
+      "imei": (await UserStore.to.getDeviceId()) ?? "",
+    };
+
+    return ApiService.create().cancelJob(request: request);
+  }
+
+  @override
+  Future<ResponseTransaction> getTransactions({
     int pageSize = 10,
     int page = 1,
     String sort = "id",
     String order = "desc",
   }) =>
-      ApiService.create().getDoneJobs(
+      ApiService.create().getTransactions(
         pageSize: pageSize,
         page: page,
         sort: sort,

@@ -26,26 +26,6 @@ abstract class AppRouter {
     );
   }
 
-  // static GoRoute goRouteMain(
-  //   ScreenRouter screenRouter, {
-  //   List<GoRoute>? routes,
-  // }) {
-  //   return ShellRoute(
-  //     name: screenRouter.name,
-  //     path: screenRouter.path,
-  //     pageBuilder: (context, state) {
-  //       return MaterialPage<void>(
-  //         key: ValueKey(ScreenRouter.main.name),
-  //         child: MainPage(
-  //           key: Key(screenRouter.name),
-  //           initPageName: screenRouter,
-  //         ),
-  //       );
-  //     },
-  //     routes: routes ?? [],
-  //   );
-  // }
-
   static ShellRoute goRouteMain(
     ScreenRouter screenRouter, {
     List<GoRoute>? routes,

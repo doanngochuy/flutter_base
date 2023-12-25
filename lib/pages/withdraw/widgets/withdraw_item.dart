@@ -22,68 +22,182 @@ class WithdrawItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Insets.med,
-      ).copyWith(
-        bottom: Insets.med,
-      ),
-      child: CustomButton.customFullColor(
-        onPressed: () => onTap(withdraw),
-        clickColor: AppColor.grey300,
-        background: _backgroundColorBtn(),
-        padding: EdgeInsets.only(
-          left: 0,
-          right: Insets.sm,
-          bottom: Insets.sm,
-          top: Insets.sm,
-        ),
-        width: double.infinity,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              width: 60.scaleSize,
-              child: _renderIconData(index),
-            ),
-            Expanded(
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        withdraw.withdrawMethod == 'Ngân hàng'
-                            ? withdraw.bankName
-                            : withdraw.withdrawMethod,
-                        style: TextStyles.title1.copyWith(
-                          color: AppColor.black800,
-                        ),
-                      ),
-                      _renderStatus(status: withdraw.status),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        DateTime.now().fullDateAndTimeStr,
-                        style: TextStyles.body1.copyWith(
-                          color: AppColor.black800,
-                        ),
-                      ),
-                      _renderTotalPayment(
-                        withdraw.money,
-                        JobState.done,
-                      ),
-                    ],
-                  ),
-                ],
+    // return InkWell(
+    //   onTap: () {
+    //     onTap(withdraw);
+    //   },
+    //   child: Padding(
+    //     padding: const EdgeInsets.all(10),
+    //     child: Container(
+    //       decoration: BoxDecoration(
+    //         borderRadius: BorderRadius.circular(12),
+    //         color: Colors.white,
+    //         boxShadow: [
+    //           BoxShadow(
+    //             color: Colors.grey.withOpacity(0.5),
+    //             spreadRadius: 1,
+    //             blurRadius: 1,
+    //             offset: const Offset(0, 3),
+    //           ),
+    //         ],
+    //       ),
+    //       child: Column(
+    //         children: [
+    //           Container(
+    //             decoration: BoxDecoration(
+    //               color: withdraw.status == WithdrawStatus.requested
+    //                   ? Colors.deepOrange
+    //                   : Colors.green,
+    //             ),
+    //             width: double.infinity,
+    //             child: Row(
+    //               mainAxisAlignment: MainAxisAlignment.center,
+    //               children: [
+    //                 const Text(
+    //                   "Trạng thái yêu cầu : ",
+    //                   style:
+    //                       TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+    //                 ),
+    //                 _renderStatus(status: withdraw.status),
+    //               ],
+    //             ),
+    //           ),
+    //           const Divider(),
+    //           Padding(
+    //             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+    //             child: Row(
+    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //               children: [
+    //                 const Text('Số tiền yêu cầu thanh toán :'),
+    //                 Text('${withdraw.money} đ')
+    //               ],
+    //             ),
+    //           ),
+    //           Padding(
+    //             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+    //             child: Row(
+    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //               children: [
+    //                 const Text('Ngày yêu cầu :'),
+    //                 Text(withdraw.createdAt.fullDateAndTimeStr),
+    //               ],
+    //             ),
+    //           ),
+    //           if (withdraw.updatedAt != null)
+    //             Padding(
+    //               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+    //               child: Row(
+    //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                 children: [
+    //                   const Text('Ngày xác nhận :'),
+    //                   Text(withdraw.updatedAt!.fullDateAndTimeStr),
+    //                 ],
+    //               ),
+    //             ),
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    // );
+
+    return InkWell(
+      onTap: () {
+        onTap(withdraw);
+      },
+      child: Padding(
+        padding: EdgeInsets.all(Insets.sm),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.scaleSize),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: const Offset(0, 3),
               ),
-            )
-          ],
+            ],
+          ),
+          child: CustomButton.customFullColor(
+            onPressed: () => onTap(withdraw),
+            clickColor: AppColor.grey300,
+            background: _backgroundColorBtn(),
+            padding: EdgeInsets.only(
+              left: 0,
+              right: Insets.sm,
+              bottom: Insets.sm,
+              top: Insets.sm,
+            ),
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  width: 60.scaleSize,
+                  child: _renderIconData(index),
+                ),
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            withdraw.withdrawMethod == 'Ngân hàng'
+                                ? withdraw.bankShortName
+                                : withdraw.withdrawMethod,
+                            style: TextStyles.title1.copyWith(
+                              color: AppColor.black800,
+                            ),
+                          ),
+                          _renderStatus(status: withdraw.status),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            withdraw.createdAt?.shortDateAndTimeStr ?? '',
+                            style: TextStyles.body1.copyWith(
+                              color: AppColor.black800,
+                            ),
+                          ),
+                          _renderTotalPayment(
+                            withdraw.money,
+                            JobState.done,
+                          ),
+                        ],
+                      ),
+                      if (withdraw.status == WithdrawStatus.transferred)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "ND: ${withdraw.reply}",
+                              style: TextStyles.body1.copyWith(
+                                color: AppColor.grey600,
+                                fontStyle: FontStyle.italic,
+                                fontSize: 12.scaleSize,
+                              ),
+                            ),
+                            Text(
+                              withdraw.updatedAt?.shortDateAndTimeStr ?? '',
+                              style: TextStyles.body1.copyWith(
+                                color: AppColor.grey600,
+                              ),
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -126,7 +240,7 @@ class WithdrawItem extends StatelessWidget {
         height: 40,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColor.successColor,
+          color: AppColor.primary,
           // borderRadius: Corners.lgBorder,
         ),
         alignment: Alignment.center,

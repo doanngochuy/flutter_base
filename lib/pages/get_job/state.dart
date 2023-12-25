@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../common/entities/entities.dart';
 
 class GetJobState {
-  final Rx<Job?> _job = Rx<Job?>(null);
+  final Rx<Job?> _job = Rx<Job?>(const Job());
 
   Job? get job => _job.value;
 
@@ -14,5 +14,10 @@ class GetJobState {
   void setCurrentJob(CurrentJobResponse value) {
     _currentId.value = value.currentId;
     _job.value = value.job;
+  }
+
+  void removeJob() {
+    _job.value = const Job();
+    _currentId.value = null;
   }
 }

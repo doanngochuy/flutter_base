@@ -14,7 +14,6 @@ class SignUpController extends GetxController {
   final emailController = TextEditingController();
   final userController = TextEditingController();
   final passController = TextEditingController();
-  final rePassController = TextEditingController();
   final fbKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -29,22 +28,18 @@ class SignUpController extends GetxController {
   Future<bool> handleSignUp() async =>
       await Loading.openAndDismissLoading<bool>(
         () async {
-          try {
-            //Get serial device
-            await UserStore.to.onSignUp(
-              fullName: fullNameController.text,
-              email: emailController.text,
-              userName: userController.text,
-              passwords: passController.text,
-            );
-            CustomSnackBar.success(
-              title: S.current.Thanh_cong,
-              message: S.current.Dang_nhap_thanh_cong,
-            );
-            return true;
-          } catch (e) {
-            return false;
-          }
+          //Get serial device
+          await UserStore.to.onSignUp(
+            fullName: fullNameController.text,
+            email: emailController.text,
+            userName: userController.text,
+            passwords: passController.text,
+          );
+          CustomSnackBar.success(
+            title: S.current.Thanh_cong,
+            message: S.current.Dang_ky_thanh_cong,
+          );
+          return true;
         },
       ) ??
       false;

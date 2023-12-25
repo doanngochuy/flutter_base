@@ -56,7 +56,7 @@ class AppConfigureStoreImpl implements AppConfigureStore {
         // Payment
         AppStorage.prefActiveQrCode: settings.qrCodeEnable,
         AppStorage.prefWithdrawMethod: settings.withdrawMethod,
-        AppStorage.prefNameBank: settings.bankName,
+        AppStorage.prefKeyBank: settings.bankKey,
         AppStorage.prefNumberAcc: settings.accountNumber,
         AppStorage.prefNameAcc: settings.accountName,
       };

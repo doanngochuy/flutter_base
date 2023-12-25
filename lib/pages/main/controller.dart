@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/service/service.dart';
 import 'package:EMO/common/utils/utils.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,10 @@ import 'index.dart';
 
 class MainController extends GetxController {
   static MainController get to => Get.find<MainController>();
+
+  List<BaseService> get services => [
+        AnalyticsService.to,
+      ];
 
   final state = MainState();
 
@@ -24,14 +29,18 @@ class MainController extends GetxController {
   Future _syncAllData() => Future.wait([]);
 
   void _initService() async {
-    await _initListener();
+    for (final e in services) {
+      e.initService();
+    }
   }
 
   void disposeService() {
-    // NetworkConnectionService.to.disposeListener();
-  }
-
-  Future _initListener() async {
-    // await NetworkConnectionService.to.initListener();
+    try {
+      for (final e in services) {
+        e.disposeService();
+      }
+    } catch (e) {
+      Logger.write(e.toString());
+    }
   }
 }

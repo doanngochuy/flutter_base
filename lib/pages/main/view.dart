@@ -2,11 +2,14 @@ import 'dart:async';
 
 import 'package:EMO/common/router/router.dart';
 import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/styles/styles.dart';
 import 'package:EMO/common/utils/utils.dart';
 import 'package:EMO/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+
+import 'menu/bottom_navigation_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -23,13 +26,14 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final MainController controller = Get.put(MainController());
-  late final StreamSubscription streamSubscription2; // listen login
+  final _menuController = Get.put(MenuXController());
+  late final StreamSubscription streamSubscription; // listen login
 
   @override
   void initState() {
     super.initState();
     if (isMobile) {
-      streamSubscription2 = UserStore.to.isLogin.listen((event) {
+      streamSubscription = UserStore.to.isLogin.listen((event) {
         if (!event) {
           context.goNamed(ScreenRouter.signIn.name);
         }
@@ -42,28 +46,25 @@ class _MainPageState extends State<MainPage> {
   void dispose() {
     super.dispose();
     if (isMobile) {
-      streamSubscription2.cancel();
+      streamSubscription.cancel();
     }
     controller.disposeService();
   }
 
-  Widget renderPage() {
-    return Obx(
-      () {
-        switch (controller.state.currentPage) {
-          case ScreenRouter.main:
-            return const JobDonePage();
-          case ScreenRouter.setting:
-            return const SettingPage();
-          default:
-            return Container();
-        }
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return CustomMenuBar(appBody: widget.child);
+    return Container(
+      color: AppColor.primary,
+      child: SafeArea(
+        left: false,
+        right: false,
+        bottom: false,
+        child: Scaffold(
+          key: _menuController.keyDrawer,
+          bottomNavigationBar: const BottomNavigationBarWidget(),
+          body: widget.child,
+        ),
+      ),
+    );
   }
 }

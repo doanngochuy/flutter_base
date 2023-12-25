@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:EMO/common/entities/entities.dart';
 import 'package:EMO/common/router/router.dart';
 import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -49,6 +51,7 @@ class _WebJobMobilePageState extends State<WebJobMobilePage> {
 
   @override
   void dispose() {
+    Get.delete<WebJobMobileController>();
     _subscription.cancel();
     super.dispose();
   }
@@ -61,7 +64,7 @@ class _WebJobMobilePageState extends State<WebJobMobilePage> {
         showCloseIcon: true,
         title: 'Thành công',
         desc: 'Bạn đã hoàn thành công việc này, trở lại màn hình chính?',
-        btnOkOnPress: () => context.goNamed(ScreenRouter.jobDone.name),
+        btnOkOnPress: () => context.goNamed(ScreenRouter.home.name),
         btnOkIcon: Icons.check_circle,
         onDismissCallback: (type) => context.pop(),
       ).show();
@@ -80,7 +83,7 @@ class _WebJobMobilePageState extends State<WebJobMobilePage> {
 
   AppBar _appBar() => AppBar(
         title: const Text("Nhiệm vụ", style: TextStyle(color: Colors.white)),
-        backgroundColor: AppColor.primaryBackground,
+        backgroundColor: AppColor.primary,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: context.pop,
@@ -107,35 +110,90 @@ class _WebJobMobilePageState extends State<WebJobMobilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(
-          url: Uri.parse("https://www.google.com/"),
-        ),
-        initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-            javaScriptEnabled: true,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: Obx(
+        () => Visibility(
+          visible: _state.fakeCount != null,
+          child: FloatingActionButton.small(
+            backgroundColor: AppColor.yellowColor,
+            onPressed: () {},
+            child: Text(
+              (_state.fakeCount ?? 0) > 0 ? _state.fakeCount.toString() : 'Wait',
+              style: const TextStyle(
+                fontSize: 12.0,
+                color: AppColor.black800,
+              ),
+            ),
           ),
         ),
-        onUpdateVisitedHistory: (controller, url, androidIsReload) {
-          if (url.toString().contains(_controller.state.job?.url ?? '#####')) {
-            _controller.setCountTargetWeb();
-          }
-        },
-        onWebViewCreated: _controller.setWebViewController,
-        onLoadStop: (InAppWebViewController controller, Uri? url) async {
-          if (url == null) return;
-          if (url.toString().contains(_controller.state.job?.url ?? '#####')) {
-            _controller.setCountTargetWeb();
-            return;
-          }
-          if (url.host == 'www.google.com') {
-            if (url.path == '/search') {
-              _controller.setSearchResultHint();
-            } else {
-              _controller.setSearchKeyHint();
-            }
-          }
-        },
+      ),
+      body: Column(
+        children: [
+          VSpace.xs,
+          Obx(
+            () => Visibility(
+              visible: _state.job != null && _state.showCopyKeyword,
+              child: CustomButton.outlineWithIcon(
+                clickColor: AppColor.errorColor,
+                textColor: AppColor.errorColor,
+                iconColor: AppColor.errorColor,
+                borderColor: AppColor.errorColor,
+                background: AppColor.errorColor.withOpacity(0.05),
+                height: 36.0,
+                width: 280.0,
+                radius: 16.0,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                onPressed: () => Clipboard.setData(ClipboardData(text: _state.job?.keyWord ?? '')),
+                text: "Nhấn vào đây để Copy từ khóa",
+                textStyle: const TextStyle(
+                  fontSize: 14.0,
+                  color: AppColor.errorColor,
+                  fontWeight: FontWeight.bold,
+                ),
+                icon: Icons.copy,
+              ),
+            ),
+          ),
+          Expanded(
+            child: InAppWebView(
+              initialUrlRequest: URLRequest(
+                url: Uri.parse("https://www.google.com/"),
+              ),
+              initialOptions: InAppWebViewGroupOptions(
+                crossPlatform: InAppWebViewOptions(
+                  javaScriptEnabled: true,
+                ),
+              ),
+              onUpdateVisitedHistory: (controller, url, androidIsReload) {
+                // if (url.toString().contains(_state.job?.url ?? '#####')) {
+                //   _controller.setCountTargetWeb();
+                // }
+              },
+              onWebViewCreated: _controller.setWebViewController,
+              onScrollChanged: (controller, x, y) async {
+                final url = await controller.getUrl();
+                if (url == null || url.toString().contains(_state.job?.url ?? '#####')) {
+                  return;
+                }
+                if (url.host == 'www.google.com' && url.path == '/search') {
+                  _controller.setSearchResultHint();
+                }
+              },
+              onLoadStop: (InAppWebViewController controller, Uri? url) async {
+                if (url == null) return;
+                if (url.toString().contains(_state.job?.url ?? '#####')) {
+                  _controller.setCountTargetWeb();
+                  return;
+                }
+                if (url.host == 'www.google.com') {
+                  url.path == '/search'
+                      ? _controller.setSearchResultHint()
+                      : _controller.setSearchKeyHint();
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -92,7 +92,7 @@ class AppStorage {
   static const $prefLayoutQrCode = "pref_setting_pay_qr_code";
   static const prefActiveQrCode = "pref_active_qr_code";
   static const prefWithdrawMethod = "pref_withdraw_method";
-  static const prefNameBank = "pref_name_bank";
+  static const prefKeyBank = "pref_key_bank";
   static const prefNameAcc = "pref_name_acc";
   static const prefNumberAcc = "pref_number_acc";
   static const $prefMerchantCategoryCode = "pref_merchant_category_code";

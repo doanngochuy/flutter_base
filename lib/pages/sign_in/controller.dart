@@ -44,7 +44,7 @@ class SignInController extends GetxController {
           } catch (e) {
             CustomSnackBar.error(
               title: S.current.That_bai,
-              message: e.toString(),
+              message: "Kiểm tra lại tài khoản hoặc mật khẩu, kết nối mạng",
             );
             return false;
           }

@@ -1,5 +1,5 @@
-import 'package:intl/intl.dart';
 import 'package:EMO/common/generated/l10n.dart';
+import 'package:intl/intl.dart';
 
 extension DateTimeExtension on DateTime {
   String differenceFrom(DateTime from, {bool isCompact = true}) {
@@ -55,5 +55,12 @@ extension DateTimeOrNullExtention on DateTime? {
     }
 
     return "DD/MM/YYYY HH:mm";
+  }
+
+  int get timeIntDay {
+    if (this != null) {
+      return int.parse(DateFormat('yyMMdd').format(this!));
+    }
+    return DateTime.now().year * 10000;
   }
 }

@@ -8,5 +8,6 @@ class ServiceDI {
     injector.registerSingleton<AppStream>(AppStreamImpl());
     injector.registerLazySingleton<SearchStream>(SearchStreamImpl.init);
     injector.registerSingleton<NetworkConnectionService>(NetworkConnectionServiceImpl());
+    injector.registerSingleton<AnalyticsService>(FireBaseAnalyticsService());
   }
 }

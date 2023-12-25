@@ -33,7 +33,7 @@ class SignInHeader extends StatelessWidget {
             left: 0,
             child: CustomButton.customFullColor(
               height: _heightBtn,
-              background: AppColor.successColor,
+              background: AppColor.primaryDark,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,18 +42,18 @@ class SignInHeader extends StatelessWidget {
                   Icon(
                     CustomIcons.phone,
                     size: IconSizes.sm,
-                    color: AppColor.white,
+                    color: AppColor.yellowLight,
                   ),
-                  HSpace(Insets.xs),
-                  Flexible(
-                    child: Text(
-                      $phoneSupport,
-                      style: TextStyles.body2.copyWith(
-                        color: AppColor.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
+                  // HSpace(Insets.xs),
+                  // Flexible(
+                  //   child: Text(
+                  //     $phoneSupport,
+                  //     style: TextStyles.body2.copyWith(
+                  //       color: AppColor.yellowLight,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
               padding: EdgeInsets.all(Insets.xs),
@@ -67,50 +67,50 @@ class SignInHeader extends StatelessWidget {
 
   Widget _portraitUI() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Image.asset(
           AppImages.$appIcon,
           width: 85 * ConfigStore.to.scale,
         ),
-        Flexible(
-          child: CustomButton.customFullColor(
-            height: _heightBtn,
-            background: AppColor.successColor,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  CustomIcons.phone,
-                  size: IconSizes.sm,
-                  color: AppColor.white,
-                ),
-                HSpace(Insets.xs),
-                Flexible(
-                  child: Text(
-                    $phoneSupport,
-                    style: TextStyles.body2.copyWith(
-                      color: AppColor.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            padding: EdgeInsets.all(Insets.xs),
-            onPressed: _signInController.handleCallSupport,
-          ),
-        ),
+        // Flexible(
+        //   child: CustomButton.customFullColor(
+        //     height: _heightBtn,
+        //     background: AppColor.primaryDark,
+        //     child: Row(
+        //       mainAxisSize: MainAxisSize.min,
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       children: <Widget>[
+        //         Icon(
+        //           CustomIcons.phone,
+        //           size: IconSizes.sm,
+        //           color: AppColor.white,
+        //         ),
+        //         HSpace(Insets.xs),
+        //         Flexible(
+        //           child: Text(
+        //             $phoneSupport,
+        //             style: TextStyles.body2.copyWith(
+        //               color: AppColor.white,
+        //               fontWeight: FontWeight.bold,
+        //             ),
+        //           ),
+        //         )
+        //       ],
+        //     ),
+        //     padding: EdgeInsets.all(Insets.xs),
+        //     onPressed: _signInController.handleCallSupport,
+        //   ),
+        // ),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return ConfigStore.to.screenWidth != ScreenWidth.MOBILE
+    return ConfigStore.to.screenWidth != ScreenWidth.mobile
         ? _landscapeUI(context)
         : _portraitUI();
   }

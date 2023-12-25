@@ -1,6 +1,6 @@
 import 'package:EMO/common/entities/setting_model.dart';
-import 'package:EMO/common/generated/l10n.dart';
 import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/values/constants.dart';
 import 'package:EMO/common/values/storage.dart';
 import 'package:EMO/pages/setting/index.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,6 @@ class PaymentSetupDetailWidget extends StatelessWidget {
 
   SettingController get controller => Get.find<SettingController>();
 
-  final $paymentMethod = "Phương thức thanh toán";
-  final $bankName = "Tên ngân hàng";
   final $accName = "Tên tài khoản";
   final $accNumber = "Số tài khoản";
 
@@ -23,17 +21,6 @@ class PaymentSetupDetailWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SettingTileWidget(
-            children: [
-              SettingSwitcherWidget(
-                initialValue: AppConfigureStore.to.getAttribute(AppStorage.prefActiveQrCode),
-                onChanged: (value) {
-                  controller.setAttribute(AppStorage.prefActiveQrCode, value);
-                },
-                title: S.current.Kich_hoat_thanh_toan_qua_QR,
-              ),
-            ],
-          ),
           const SettingTitleWidget(
             title: "TÀI KHOẢN MẶC ĐỊNH",
             icon: Icons.account_balance_wallet_outlined,
@@ -42,7 +29,7 @@ class PaymentSetupDetailWidget extends StatelessWidget {
             children: [
               SettingBuilder(
                 builder: (rebuild) => SettingNavigatorWidget(
-                  title: $paymentMethod,
+                  title: "Phương thức thanh toán",
                   subtitle:
                       AppConfigureStore.to.getAttribute<String>(AppStorage.prefWithdrawMethod),
                   icon: Icons.arrow_forward_ios_outlined,
@@ -63,19 +50,18 @@ class PaymentSetupDetailWidget extends StatelessWidget {
               ),
               SettingBuilder(
                 builder: (rebuild) => SettingNavigatorWidget(
-                  title: $bankName,
-                  subtitle: AppConfigureStore.to.getAttribute<String>(AppStorage.prefNameBank),
+                  title: "Tên ngân hàng",
+                  subtitle: AppConstant.mapBankBIN[AppConfigureStore.to.getAttribute<int>(AppStorage.prefKeyBank)],
                   icon: Icons.arrow_forward_ios_outlined,
                   onTap: () async {
-                    showBankDialog(
+                    showConfigBankDialog(
                       context,
                       onSelect: (value) async {
-                        await controller.setAttribute(AppStorage.prefNameBank, value);
+                        await controller.setAttribute(AppStorage.prefKeyBank, value);
                         rebuild();
                       },
-                      paymentMethods: WithdrawStore.to.bankNames,
-                      initPaymentMethod:
-                          AppConfigureStore.to.getAttribute<String>(AppStorage.prefNameBank) ?? '',
+                      initBankKey:
+                          AppConfigureStore.to.getAttribute<int>(AppStorage.prefKeyBank) ?? 0,
                     );
                   },
                 ),

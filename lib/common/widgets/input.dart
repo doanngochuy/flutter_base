@@ -1,10 +1,8 @@
-import 'dart:async';
-
+import 'package:EMO/common/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
-import 'package:EMO/common/styles/styles.dart';
+
 //
 // @Deprecated(
 //   "Use CustomInput instead, It will delete in the future",
@@ -425,8 +423,7 @@ InputDecoration outlineInputDecoration({
       contentPadding: padding,
       floatingLabelBehavior: FloatingLabelBehavior.always,
       focusedBorder: OutlineInputBorder(
-        borderSide:
-            BorderSide(color: colorBorderFocus, width: widthBorderFocus),
+        borderSide: BorderSide(color: colorBorderFocus, width: widthBorderFocus),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       hintText: hintText,
@@ -446,8 +443,7 @@ InputDecoration outlineInputDecoration({
         borderSide: BorderSide(color: colorError, width: widthBorder),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      hintStyle:
-          hintTextStyle ?? TextStyles.input1.copyWith(color: colorHintText),
+      hintStyle: hintTextStyle ?? TextStyles.input1.copyWith(color: colorHintText),
     );
 
 String getRequiredLabel(String fieldName, {bool isRequired = false}) {

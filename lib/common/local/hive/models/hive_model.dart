@@ -1,8 +1,6 @@
 import 'package:EMO/common/entities/entities.dart';
 import 'package:EMO/common/utils/utils.dart';
 
-import 'models.dart';
-
 abstract class HiveModel<T> {
   T get hiveKey;
 

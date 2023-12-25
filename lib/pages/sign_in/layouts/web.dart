@@ -23,7 +23,7 @@ class SignInWeb extends StatelessWidget {
                   VSpace.lg,
                   SignInButtonsAction(),
                   VSpace.lg,
-                  SignInFooter(),
+                  const SignInFooter(),
                 ],
               ),
             )

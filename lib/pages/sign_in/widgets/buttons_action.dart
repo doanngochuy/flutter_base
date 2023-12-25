@@ -20,7 +20,12 @@ class SignInButtonsAction extends StatelessWidget {
           text: S.current.Dang_nhap.toUpperCase(),
           width: size.width,
           padding: EdgeInsets.all(Insets.lg),
-          background: AppColor.successColor,
+          background: AppColor.primaryDark,
+          textColor: AppColor.white,
+          textStyle: TextStyles.title1.copyWith(
+            fontSize: 14,
+            color: AppColor.white,
+          ),
           boxShadow: Shadows.universal,
           onPressed: () {
             if (!_signInController.fbKey.currentState!.saveAndValidate()) {
@@ -28,7 +33,7 @@ class SignInButtonsAction extends StatelessWidget {
             }
             _signInController.handleSignIn().then((value) {
               if (value) {
-                context.goNamed(ScreenRouter.jobDone.name);
+                context.goNamed(ScreenRouter.home.name);
               }
             });
           },

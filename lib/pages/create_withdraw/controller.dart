@@ -17,14 +17,14 @@ class CreateWithdrawController extends GetxController {
     required String account,
     required int numberAccount,
     required String withdrawMethod,
-    required String bankName,
+    required int bankKey,
     required String description,
   }) async {
     final body = {
       "description": description,
       "money": money,
       "withdraw_method": withdrawMethod,
-      "bank_name": bankName,
+      "bank_key": bankKey,
       "number_account": numberAccount,
       "account_name": account,
     };

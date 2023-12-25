@@ -17,6 +17,8 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _controller = SignUpController.to;
+
+  String get passText => _controller.passController.text;
   final fullNameFocusNode = FocusNode();
   final emailFocusNode = FocusNode();
   final userFocusNode = FocusNode();
@@ -121,6 +123,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           VSpace.lg,
           CustomInput.outline(
+            name: 'password',
             controller: _controller.passController,
             padding: paddingTextEditor.copyWith(right: 0),
             prefixIcon: renderIcon(Icons.lock),
@@ -155,7 +158,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           VSpace.lg,
           CustomInput.outline(
-            controller: _controller.rePassController,
+            name: 'confirmPassword',
             padding: paddingTextEditor.copyWith(right: 0),
             prefixIcon: renderIcon(Icons.lock_reset_rounded, size: IconSizes.lg),
             suffixIcon: IconButton(
@@ -176,11 +179,15 @@ class _SignUpFormState extends State<SignUpForm> {
             colorBorderFocus: mainInputColor,
             type: TextInputType.visiblePassword,
             isShow: isShowPassword,
-            validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(errorText: S.current.Vui_long_khong_de_trong),
-              FormBuilderValidators.equal(_controller.passController.text,
-                  errorText: 'Mật khẩu không khớp')
-            ]),
+            validator: FormBuilderValidators.compose(
+              [
+                FormBuilderValidators.required(errorText: S.current.Vui_long_khong_de_trong),
+                (val) {
+                  final pass = _controller.fbKey.currentState?.fields['password']?.value ?? '';
+                  return pass != val ? 'Mật khẩu không khớp' : null;
+                },
+              ],
+            ),
             focusNode: rePasswordFocusNode,
           ),
           VSpace.lg,

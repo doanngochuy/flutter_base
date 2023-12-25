@@ -26,16 +26,14 @@ class CreateWithdrawPage extends StatefulWidget {
 class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
   final _controller = Get.put(CreateWithdrawController());
 
-  CreateWithdrawState get _state => _controller.state;
-
-  final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _accNameController = TextEditingController(
+  final _descriptionController = TextEditingController();
+  final _accNameController = TextEditingController(
     text: AppConfigureStore.to.getAttribute<String>(AppStorage.prefNameAcc),
   );
-  final TextEditingController _accNumberController = TextEditingController(
+  final _accNumberController = TextEditingController(
     text: AppConfigureStore.to.getAttribute<String>(AppStorage.prefNumberAcc),
   );
-  final TextEditingController _amountController = TextEditingController();
+  final _amountController = TextEditingController();
 
   late StreamSubscription _subscription;
 
@@ -43,8 +41,8 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
       AppConfigureStore.to.getAttribute<String>(AppStorage.prefWithdrawMethod) ??
           WithdrawStore.to.withdrawMethods.first;
 
-  String _bankName = AppConfigureStore.to.getAttribute<String>(AppStorage.prefNameBank) ??
-      WithdrawStore.to.bankNames.first;
+  int _bankKey = AppConfigureStore.to.getAttribute<int>(AppStorage.prefKeyBank) ??
+      AppConstant.mapBankBIN.keys.first;
 
   @override
   void initState() {
@@ -64,22 +62,20 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
         final money = _amountController.text.parseSafeInt;
         final account = _accNameController.text;
         final numberAccount = int.parse(_accNumberController.text);
-        final withdrawMethod = _withdrawMethod;
-        final bankName = _bankName;
         final description = _descriptionController.text;
 
         await _controller.createWithdraw(
           money: money,
           account: account,
           numberAccount: numberAccount,
-          withdrawMethod: withdrawMethod,
-          bankName: bankName,
+          withdrawMethod: _withdrawMethod,
+          bankKey: _bankKey,
           description: description,
         );
 
         _showConfirmFinish();
       },
-      onError: (e) => _showConfirmError(e is DioError ? e.message : "Unknown"),
+      onError: (e) => _showConfirmError(e is DioException ? (e.message ?? "Unknown") : "Unknown"),
     );
   }
 
@@ -91,7 +87,7 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
         showCloseIcon: true,
         title: 'Thành công',
         desc: 'Bạn đã hoàn thành công việc này, trở lại màn hình chính?',
-        btnOkOnPress: () => context.goNamed(ScreenRouter.jobDone.name),
+        btnOkOnPress: () => context.goNamed(ScreenRouter.home.name),
         btnOkIcon: Icons.check_circle,
         onDismissCallback: (type) => context.pop(),
       ).show();
@@ -110,7 +106,7 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
 
   AppBar _appBar() => AppBar(
         title: const Text("Yêu cầu rút tiền", style: TextStyle(color: Colors.white)),
-        backgroundColor: AppColor.primaryBackground,
+        backgroundColor: AppColor.primary,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: context.pop,
@@ -200,17 +196,16 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
                         alignment: Alignment.centerLeft,
                         children: <Widget>[
                           CustomButton.outline(
-                            onPressed: () => showBankDialog(
+                            onPressed: () => showConfigBankDialog(
                               context,
-                              paymentMethods: WithdrawStore.to.bankNames,
-                              initPaymentMethod: _bankName,
-                              onSelect: (value) => setState(() => _bankName = value),
+                              initBankKey: _bankKey,
+                              onSelect: (value) => setState(() => _bankKey = value),
                             ),
                             height: 48.scaleSize,
                             width: double.infinity,
                             background: AppColor.white,
                             padding: EdgeInsets.all(14.scaleSize),
-                            text: _bankName,
+                            text: AppConstant.mapBankBIN[_bankKey] ?? "Chọn ngân hàng",
                             clickColor: AppColor.grey300,
                             textAlign: TextAlign.start,
                           ),
@@ -357,7 +352,7 @@ class _CreateWithdrawPageState extends State<CreateWithdrawPage> {
                   onPressed: _postWithdraw,
                   width: double.infinity,
                   text: S.current.Xac_nhan,
-                  background: AppColor.successColor,
+                  background: AppColor.primary,
                 )),
           ],
         ),
