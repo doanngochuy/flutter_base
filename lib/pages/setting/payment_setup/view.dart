@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/store/config_store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/pages/setting/widgets/payment_setup_detail.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/store/config_store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/pages/setting/widgets/payment_setup_detail.dart';
 
 class PaymentSetupPage extends StatelessWidget {
   const PaymentSetupPage({Key? key}) : super(key: key);

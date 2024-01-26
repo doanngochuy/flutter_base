@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:flutter_base/common/router/router.dart';
+import 'package:EMO/common/router/router.dart';
 
 class MainState {
   final _currentPage = Rx(ScreenRouter.main);

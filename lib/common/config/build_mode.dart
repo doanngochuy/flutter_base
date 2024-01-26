@@ -1,5 +1,5 @@
 import 'package:flutter_flavor/flutter_flavor.dart';
-import 'package:flutter_base/common/values/values.dart';
+import 'package:EMO/common/values/values.dart';
 
 const String _current = "current";
 

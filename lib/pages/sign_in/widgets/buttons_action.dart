@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/router/router.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/pages/sign_in/controller.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/router/router.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/pages/sign_in/controller.dart';
 import 'package:go_router/go_router.dart';
 
 class SignInButtonsAction extends StatelessWidget {
@@ -20,7 +20,12 @@ class SignInButtonsAction extends StatelessWidget {
           text: S.current.Dang_nhap.toUpperCase(),
           width: size.width,
           padding: EdgeInsets.all(Insets.lg),
-          background: AppColor.orange,
+          background: AppColor.primaryDark,
+          textColor: AppColor.white,
+          textStyle: TextStyles.title1.copyWith(
+            fontSize: 14,
+            color: AppColor.white,
+          ),
           boxShadow: Shadows.universal,
           onPressed: () {
             if (!_signInController.fbKey.currentState!.saveAndValidate()) {
@@ -28,7 +33,7 @@ class SignInButtonsAction extends StatelessWidget {
             }
             _signInController.handleSignIn().then((value) {
               if (value) {
-                context.goNamed(ScreenRouter.main.name);
+                context.goNamed(ScreenRouter.home.name);
               }
             });
           },

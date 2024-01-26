@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
+import 'package:EMO/common/styles/styles.dart';
 
 class SettingTileWidget<T> extends StatelessWidget {
   final List<Widget> children;

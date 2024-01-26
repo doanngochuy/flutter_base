@@ -43,6 +43,8 @@ class IconSizes {
 
   static double get med => 24 * scale;
 
+  static double get mid => 28 * scale;
+
   static double get lg => 32 * scale;
 
   static double get xl => 40 * scale;

@@ -5,4 +5,3 @@ export 'common.dart';
 export 'controller.dart';
 export 'type_defined.dart';
 export 'view.dart';
-export 'widgets/widgets.dart';

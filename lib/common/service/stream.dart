@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:flutter_base/common/di/injector.dart';
+import 'package:EMO/common/di/injector.dart';
 
 abstract class SearchStream {
   static SearchStream get to => AppInjector.injector<SearchStream>();

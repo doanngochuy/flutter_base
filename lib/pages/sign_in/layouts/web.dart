@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/extensions/extensions.dart';
-import 'package:flutter_base/pages/sign_in/widgets/widgets.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/extensions/extensions.dart';
+import 'package:EMO/pages/sign_in/widgets/widgets.dart';
 
 class SignInWeb extends StatelessWidget {
   const SignInWeb({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class SignInWeb extends StatelessWidget {
                   VSpace.lg,
                   SignInButtonsAction(),
                   VSpace.lg,
-                  SignInFooter(),
+                  const SignInFooter(),
                 ],
               ),
             )

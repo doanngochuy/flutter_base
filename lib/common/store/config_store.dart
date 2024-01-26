@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:package_info/package_info.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/local/prefs/prefs_sevice.dart';
-import 'package:flutter_base/common/models/models.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/values/values.dart';
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/local/prefs/prefs_sevice.dart';
+import 'package:EMO/common/models/models.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/values/values.dart';
 
 class ConfigStore {
   static ConfigStore get to => AppInjector.injector<ConfigStore>();
@@ -17,9 +16,6 @@ class ConfigStore {
 
   /// Version
   bool isFirstOpen = false;
-  PackageInfo? _platform;
-
-  String get version => _platform?.version ?? '-';
 
   bool get isRelease => const bool.fromEnvironment("dart.vm.product_item");
 
@@ -29,10 +25,6 @@ class ConfigStore {
     Locale('vi', 'VN'),
   ];
   Locale locale = const Locale('vi', 'VN');
-
-  Future<void> getPlatform() async {
-    _platform = await PackageInfo.fromPlatform();
-  }
 
   Future<bool> saveAlreadyOpen() {
     return PrefsService.to.setBool(AppStorage.storageDeviceFirstOpen, false);
@@ -72,7 +64,7 @@ class ConfigStore {
 
   double deviceHeight = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height;
 
-  ScreenWidth screenWidth = ScreenWidth.DESKTOP;
+  ScreenWidth screenWidth = ScreenWidth.desktop;
 
   void onChangeScreen(double width) {
     final ScreenWidth oldScreenWidth = screenWidth;
@@ -81,10 +73,10 @@ class ConfigStore {
     deviceHeight = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height;
     if (oldScreenWidth != screenWidth) {
       switch (screenWidth) {
-        case ScreenWidth.DESKTOP:
+        case ScreenWidth.desktop:
           scale = _scales[2];
           break;
-        case ScreenWidth.TABLET:
+        case ScreenWidth.tablet:
           scale = _scales[1];
           break;
         default:

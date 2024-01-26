@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_base/common/entities/entities.dart';
-import 'package:flutter_base/common/local/local.dart';
+import 'package:EMO/common/entities/entities.dart';
+import 'package:EMO/common/local/local.dart';
 
 import 'hive_type_path.dart';
 import 'models/models.dart';

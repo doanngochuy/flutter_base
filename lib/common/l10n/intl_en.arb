@@ -148,6 +148,8 @@
   "Dang_nhap": "Sign In",
   "Dang_nhap_thanh_cong": "Login success",
   "Dang_nhap_that_bai": "Login fail",
+  "Dang_ky_thanh_cong": "Signup success",
+  "Dang_ky_that_bai": "Signup fail",
   "Dang_tai": "Loading",
   "Dang_trong": "Empty",
   "Dang_xuat": "Log out",
@@ -766,5 +768,6 @@
   "Tao_moi": "Create new",
   "Tao_phieu_thu": "Create receipts",
   "Tao_phieu_chi": "Create payment",
-  "Chon_mau": "Select type cash flow"
+  "Chon_mau": "Select type cash flow",
+  "Dang_cho": "Pending"
 }

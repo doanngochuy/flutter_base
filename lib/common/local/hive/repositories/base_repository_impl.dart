@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:flutter_base/common/entities/aggregate_root.dart';
-import 'package:flutter_base/common/local/repositories/base_repository.dart';
+import 'package:EMO/common/entities/aggregate_root.dart';
+import 'package:EMO/common/local/repositories/base_repository.dart';
 
 import '../hive_service_impl.dart' as hive_service;
 import '../models/models.dart';

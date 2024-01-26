@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
-import 'package:flutter_base/common/di/local_db_di.dart';
-import 'package:flutter_base/common/di/route_di.dart';
-import 'package:flutter_base/common/di/service_di.dart';
-import 'package:flutter_base/common/di/store_di.dart';
+import 'package:EMO/common/di/local_db_di.dart';
+import 'package:EMO/common/di/route_di.dart';
+import 'package:EMO/common/di/service_di.dart';
+import 'package:EMO/common/di/store_di.dart';
 
 class AppInjector {
   AppInjector._();

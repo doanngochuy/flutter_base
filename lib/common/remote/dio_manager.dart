@@ -1,9 +1,10 @@
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/service/service.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
 
 import '../store/store.dart';
 
@@ -14,8 +15,8 @@ class DioManager {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       headers: getAuthorizationHeader(),
-      connectTimeout: 30000,
-      receiveTimeout: 30000,
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout:  const Duration(seconds: 20),
     );
 
     Dio dio = Dio(options);
@@ -50,7 +51,22 @@ class CustomInterceptor implements Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    if(response.data['data'] != null) {
+    Logger.write('onResponse ${response.requestOptions.uri} - ${response.data}');
+    if (response.data['code'] != null && !['200', '000'].contains(response.data['code'])) {
+      Logger.write('onError ${response.data['code']} - ${response.data['message']}');
+      handler.reject(DioException(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioExceptionType.badResponse,
+        error: response.data['message'],
+      ));
+      return;
+    }
+    AnalyticsService.to.logApiResponse(
+      response.requestOptions.uri.toString(),
+      response.toString(),
+    );
+    if (response.data['data'] != null && response.data['data'] is! List) {
       response.data = response.data['data'];
       handler.next(response);
     } else {
@@ -74,18 +90,23 @@ class CustomInterceptor implements Interceptor {
   }
 
   void handleError(DioError err) {
+    AnalyticsService.to.logApiError(
+      err.requestOptions.uri.toString(),
+      err.message ?? "unknown",
+    );
     int? statusCode = err.response?.statusCode;
     String title = "${S.current.Loi} ${statusCode ?? ""}";
     String message = "";
-    if (statusCode == 401 && !err.requestOptions.path.contains("credentials")) {
+    if (statusCode == 403 && !err.requestOptions.path.contains("login")) {
       UserStore.to.switchStatusLogin(false);
       UserStore.to.onLogout();
       message = S.current.Het_phien_lam_viec;
     } else {
-      message = err.response?.data?["ResponseStatus"]["Message"] ?? err.message;
+      message = err.response?.data['message'] ?? err.message;
     }
     Loading.dismiss();
     if (showDefaultError && message.isNotEmpty) {
+      debugConsoleLog("showDefaultError ${err.response} $message");
       CustomSnackBar.error(title: title, message: message);
     }
   }

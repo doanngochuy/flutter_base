@@ -1,17 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
+import 'package:EMO/common/generated/l10n.dart';
 
-enum OrderStatus {
-  @JsonValue(0)
-  pending,
+enum JobState {
   @JsonValue(1)
-  order,
+  pending,
   @JsonValue(2)
   done,
   @JsonValue(3)
   cancel;
 
-  const OrderStatus();
+  const JobState();
 
   String get getNameStatus {
     switch (this) {
@@ -21,28 +19,23 @@ enum OrderStatus {
         return S.current.Hoan_thanh;
       case cancel:
         return S.current.Huy;
-      case order:
-        return S.current.Dat_hang;
     }
   }
 
   int get getValueStatus {
     switch (this) {
       case pending:
-        return 0;
+        return 1;
       case done:
         return 2;
       case cancel:
         return 3;
-      case order:
-        return 1;
     }
   }
 
-  static List<OrderStatus> get allStatus => [
-        OrderStatus.order,
-        OrderStatus.done,
-        OrderStatus.cancel,
-        OrderStatus.pending,
+  static List<JobState> get allStatus => [
+        JobState.done,
+        JobState.cancel,
+        JobState.pending,
       ];
 }

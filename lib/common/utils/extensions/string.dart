@@ -61,6 +61,16 @@ extension StringExtension on String {
     }
   }
 
+  String buildNumberToDateStr() {
+    if (length != 8) return '';
+
+    String year = substring(0, 4);
+    String month = substring(4, 6);
+    String day = substring(6, 8);
+
+    return '$day/$month/$year';
+  }
+
   double get parseSafeDouble => double.tryParse(replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0;
 
   int get parseSafeInt => int.tryParse(replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;

@@ -1,63 +1,66 @@
-const String $appName = 'POS365';
-
-const String $typeTransaction7777 = '7777777';
-const String $typeTransaction5464646465 = '5464646465';
-const String $atmVietTin = 'ATM VIETTIN';
-const String $chuyenKhoan1 = 'CHUYỂN KHOẢN 1';
-const String $chuyenKhoanABC = 'CHUYỂN KHOẢN ABC';
-const String $dfs = 'DFS';
-const String $goJet = 'GOJET';
-const String $payoo = 'PAYOO';
-const String $payooPos = 'PAYOO-POS';
-const String $techCom = 'TECHCOM';
-const String $techComBank = 'TECHCOMBANK';
-const String $tienPhongBank = 'TIENPHONGBANK';
-const String $theVCB = 'Thẻ vcb';
-const String $vietComBank190066656557 = 'VIETCOMBANK - 190066656557';
-const String $viettelPay = 'VIETTEL-PAY';
-const String $vnPayTinh = 'VNPAY - TĨNH';
-const String $vnPayQRTinh = 'VNPAY-QR TĨNH';
-const String $zaloPay = 'ZALO-PAY';
-const String $dongA = 'ĐÔNG Á';
-const int $printOrderTemplate = 10;
-const int $printCookTemplate = 15;
-const int $printPartnerTemplate = 16;
-const int $printVoucherTemplate = 17;
-const int? $directSaleId = null;
-const int $saleByPhoneId = 2;
-const int $saleByGrabFood = 3;
-const int $saleByNow = 4;
-const int $saleByPasgo = 5;
-const int $saleByGoViet = 6;
-const int $saleByFaceBook = 7;
-
-const int $orde5880 = 1;
-const int $orderA4A5 = 2;
-const int $orderMobile = 10;
-const int $temFnbMobile = 12;
-const int $temRetail = 19;
-const int $onOrder = 8;
-const int $receiptVoucher = 3;
-const int $paymentVoucher = 4;
-const int $return = 5;
-const int $orderStock = 6;
-const int $poConfirmation = 9;
-const int $returnToSuppliers = 11;
-const int $transfer = 7;
-const int $printToCook = 14;
-const int $printToCookMobile = 15;
-
-const int $idVnpayQr = 978;
-
-const $phoneSupport = '1900 4515';
+const $phoneSupport = '097123123';
 
 class AppConstant {
   AppConstant._();
 
-  static const int $numberOfDecimalRound = 3;
-  static const String $vat = 'VAT';
-  static const String $vnPayQR = 'VNPAY-QR';
-  static const String $vnPay = 'VNPAY';
-  static const String $vnPayPos = 'VNPAY-POS';
+  static const Map<int, String> mapBankBIN = {
+    970400: "(SAIGONBANK) Ngân hàng TMCP Sài Gòn Công Thương",
+    970403: "(SACOMBANK) Ngân hàng TMCP Sài Gòn Thương Tín",
+    970405: "(AGRIBANK) Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam",
+    970406: "(DONG A BANK) Ngân hàng TMCP Đông Á",
+    970407: "(TECHCOMBANK) Ngân hàng TMCP Kỹ Thương Việt Nam",
+    970408: "(GP Bank) Ngân hàng TNHH Một Thành Viên Dầu Khí Toàn Cầu",
+    970409: "(BAC A BANK) Ngân hàng TMCP Bắc Á",
+    970410: "(Standard Chartered) Ngân hàng TNHH Một Thành Viên Standard Chartered",
+    970412: "(PVcomBank) Ngân hàng TMCP Đại Chúng Việt Nam",
+    970414: "(OceanBank) Ngân hàng TNHH Một Thành Viên Đại Dương",
+    970415: "(VietinBank) Ngân hàng TMCP Công Thương Việt Nam",
+    970416: "(ACB) Ngân hàng TMCP Á Châu",
+    970418: "(BIDV) Ngân hàng Đầu tư và Phát triển Việt Nam",
+    970419: "(NCB) Ngân hàng TMCP Quốc Dân",
+    970421: "(VRB) Ngân hàng Liên doanh Việt Nga",
+    970422: "(MB BANK) Ngân hàng TMCP Quân Đội",
+    970423: "(TPBank) Ngân hàng TMCP Tiên Phong",
+    970424: "(Shinhan Bank) Ngân hàng TNHH Một Thành Viên Shinhan Việt Nam",
+    970425: "(ABBANK) Ngân hàng TMCP An Bình",
+    970426: "(MSB) Ngân hàng TMCP Hàng Hải",
+    970427: "(VietABank) Ngân hàng TMCP Việt Á",
+    970428: "(Nam A Bank) Ngân hàng TMCP Nam Á",
+    970429: "(SCB) Ngân hàng TMCP Sài Gòn",
+    970430: "(PG Bank) Ngân hàng TMCP Xăng dầu Petrolimex",
+    970431: "(Eximbank) Ngân hàng TMCP Xuất Nhập khẩu Việt Nam",
+    970432: "(VPBank) Ngân hàng TMCP Việt Nam Thịnh Vượng",
+    970433: "(VietBank) Ngân hàng TMCP Việt Nam Thương Tín",
+    970434: "(Indovina) Ngân hàng TNHH Indovina",
+    970436: "(Vietcombank) Ngân hàng TMCP Ngoại thương Việt Nam",
+    970437: "(HDBank) Ngân hàng TMCP Phát triển TP.HCM",
+    970438: "(BaoVietBank) Ngân hàng TMCP Bảo Việt",
+    970439: "(PublicBank) Ngân hàng TNHH Một Thành Viên Public Việt Nam",
+    970440: "(SeABank) Ngân hàng TMCP Đông Nam Á",
+    970441: "(VIB) Ngân hàng TMCP Quốc Tế Việt Nam",
+    970442: "(Hong Leong) Ngân hàng TNHH Một Thành Viên Hong Leong Việt Nam",
+    970443: "(SHB) Ngân hàng TMCP Sài Gòn – Hà Nội",
+    970444: "(CBBank) Ngân hàng TNHH Một Thành Viên Xây Dựng Việt Nam",
+    970446: "(Co-opBank) Ngân hàng Hợp Tác Xã Việt Nam",
+    970448: "(OCB) Ngân hàng TMCP Phương Đông",
+    970449: "(LPBank) Ngân hàng TMCP Bưu Điện Liên Việt",
+    970452: "(KienLongBank) Ngân hàng TMCP Kiên Long",
+    970454: "(Viet Capital Bank) Ngân hàng TMCP Bản Việt",
+    970455: "(IBK Hanoi Branch) Ngân hàng Công nghiệp Hàn Quốc - Chi nhánh Hà Nội",
+    970456: "(Industrial Bank of Korea) Ngân hàng Industrial Bank of Korea - Chi nhánh Hồ Chí Minh",
+    970457: "(Woori Bank) Ngân hàng TNHH Một Thành Viên Woori Bank Việt Nam",
+    970458: "(United Overseas Bank) Ngân hàng TNHH Một Thành Viên UOB Việt Nam",
+    970459: "(CIMB) Ngân hàng TNHH Một Thành Viên CIMB Việt Nam",
+    970460: "(CFC) Công ty Tài chính cổ phần Xi Măng",
+    970462: "(Kookmin Hà Nội) Ngân hàng Kookmin - Chi nhánh Hà Nội",
+    970463: "(Kookmin Hồ Chí Minh) Ngân hàng Kookmin - Chi nhánh Tp. Hồ Chí Minh",
+    970464: "(TFC) Công ty Tài chính TNHH MTV CỘNG ĐỒNG",
+    970465: "(SINOPAC) Ngân hàng SINOPAC - Chi nhánh Tp. Hồ Chí Minh",
+    970466: "(KEB HANA Hồ Chí Minh) Ngân hàng KEB HANA - Chi nhánh Tp. Hồ Chí Minh",
+    970467: "(KEB HANA Hà Nội) Ngân hàng KEB HANA - Chi nhánh Hà Nội",
+    970468: "(Mirae Asset) Công ty Tài chính TNHH MTV Mirae Asset (Việt Nam)",
+    970469: "(EVF) Công ty Cổ phần Tài chính Điện lực",
+    970470: "(Mcredit) Công ty Tài chính TNHH MB SHINSEI"
+  };
 
 }

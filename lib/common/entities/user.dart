@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
@@ -22,9 +24,8 @@ class User {
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
-  static User cloneInstance(User user) {
-    return User.fromJson(user.toJson());
-  }
+  @override
+  String toString() => jsonEncode(this).toString();
 }
 
 @JsonSerializable()
@@ -38,4 +39,23 @@ class LoginResponse {
   factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
+}
+
+@JsonSerializable()
+class SignUpResponse {
+  final String fullName;
+  final String email;
+  final bool isActive;
+  final DateTime? lastLogin;
+
+  const SignUpResponse({
+    this.fullName = '',
+    this.email = '',
+    this.isActive = false,
+    this.lastLogin,
+  });
+
+  factory SignUpResponse.fromJson(Map<String, dynamic> json) => _$SignUpResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SignUpResponseToJson(this);
 }

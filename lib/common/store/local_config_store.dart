@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:flutter_base/common/di/injector.dart';
-import 'package:flutter_base/common/local/prefs/prefs_sevice.dart';
-import 'package:flutter_base/common/values/storage.dart';
+import 'package:EMO/common/di/injector.dart';
+import 'package:EMO/common/local/prefs/prefs_sevice.dart';
+import 'package:EMO/common/values/storage.dart';
 
 import '../entities/entities.dart';
 
@@ -34,7 +34,6 @@ class AppConfigureStoreImpl implements AppConfigureStore {
 
   AppConfigureStoreImpl() {
     final value = PrefsService.to.getString(AppStorage.$prefLocalConfigStore);
-    final val = PrefsService.to.getString(AppStorage.storageVendorSession);
     if (value.isNotEmpty) {
       _configure = {
         ...jsonDecode(value),
@@ -55,20 +54,11 @@ class AppConfigureStoreImpl implements AppConfigureStore {
 
   Map<String, dynamic> _mapRemoteToLocal(Settings settings) => {
         // Payment
-        AppStorage.$prefActiveQrCode: settings.qrCodeEnable,
-        AppStorage.$prefMerchantName: settings.merchantName,
-        AppStorage.$prefMerchantCode: settings.merchantCode,
-        AppStorage.$prefMerchantNameVT: settings.vTMerchantName,
-        AppStorage.$prefMerchantCodeVT: settings.vTMerchantCode,
-        // Printing
-        AppStorage.$prefAllowPrintPreview: settings.allowPrintPreview,
-        AppStorage.$prefPrintKitchenAfterSave: settings.printKitchenAfterSave,
-        // Feature Config
-        AppStorage.$prefAllowChangePrice: settings.allowChangePrice,
-        AppStorage.$prefStockControlWhenSelling: settings.stockControlWhenSelling,
-        AppStorage.$prefVat: settings.vat,
-        AppStorage.$prefVatMethod: settings.vatMethod,
-        // System
+        AppStorage.prefActiveQrCode: settings.qrCodeEnable,
+        AppStorage.prefWithdrawMethod: settings.withdrawMethod,
+        AppStorage.prefKeyBank: settings.bankKey,
+        AppStorage.prefNumberAcc: settings.accountNumber,
+        AppStorage.prefNameAcc: settings.accountName,
       };
 
   @override

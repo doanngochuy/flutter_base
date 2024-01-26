@@ -1,9 +1,9 @@
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 enum ScreenWidth {
-  MOBILE,
-  TABLET,
-  DESKTOP,
+  mobile,
+  tablet,
+  desktop,
 }
 
 class Screen {
@@ -17,11 +17,11 @@ class Screen {
 
   static ScreenWidth getCurrentScreen(double width) {
     if(width > _desktop) {
-      if (isWeb) return ScreenWidth.DESKTOP;
-      return ScreenWidth.TABLET;
+      if (isWeb) return ScreenWidth.desktop;
+      return ScreenWidth.tablet;
     } else if(width > _tablet){
-      return ScreenWidth.TABLET;
+      return ScreenWidth.tablet;
     }
-    return ScreenWidth.MOBILE;
+    return ScreenWidth.mobile;
   }
 }

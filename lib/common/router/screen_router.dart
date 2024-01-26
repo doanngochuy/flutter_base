@@ -1,19 +1,20 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
+import 'package:EMO/common/generated/l10n.dart';
 
 typedef AppBarBuilder = Function(Widget, ScreenRouter);
 
 enum ScreenRouter {
-  root('/'),
   main('/'),
-  // invoices('/invoices'),
-  // invoicesDetail(':invoiceId'),
+  home('/home'),
+  getJob('/get-job'),
+  webJob('/web-job'),
   notFound('/not-found'),
   signIn('/sign-in'),
   signUp('/sign-up'),
   setting('/setting'),
-  test('/test');
+  withdraw('/withdraw'),
+  createWithdraw('/create-withdraw');
 
   final String path;
 
@@ -29,6 +30,12 @@ enum ScreenRouter {
     switch (this) {
       case main:
         return S.current.Trang_chu;
+      case getJob:
+        return "Nhiệm vụ";
+      case home:
+        return "Trang chủ";
+      case webJob:
+        return S.current.Nhan_hang;
       case setting:
         return S.current.Cai_dat;
       case notFound:
@@ -37,10 +44,10 @@ enum ScreenRouter {
         return S.current.Dang_nhap;
       case signUp:
         return S.current.Dang_ky;
-      case test:
-        return "Test";
-      case root:
-        return "Root";
+      case withdraw:
+        return "Rút tiền";
+      case createWithdraw:
+        return "Yêu cầu rút tiền";
     }
   }
 }

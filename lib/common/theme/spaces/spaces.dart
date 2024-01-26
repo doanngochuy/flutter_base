@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_base/common/styles/styles.dart';
+import 'package:EMO/common/styles/styles.dart';
 
 class VSpace extends StatelessWidget {
   final double size;

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/values/storage.dart';
 
 import 'controller.dart';
 import 'view.dart';
@@ -15,11 +13,6 @@ Future<T?> _showOverlay<T>(BuildContext context, {required WidgetBuilder builder
 
 Future<void> showCodeScanner(BuildContext context, {ScannerMode? mode}) async {
   if (mode == null) return;
-
-  AppConfigureStore.to.setAttribute(
-    AppStorage.$prefUseFullScreenScanner,
-    mode == ScannerMode.fullscreen,
-  );
 
   final nextMode = await _showOverlay<ScannerMode>(
     context,

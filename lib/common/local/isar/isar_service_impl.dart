@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:flutter_base/common/entities/entities.dart';
+import 'package:EMO/common/entities/entities.dart';
 
 import '../local_database.dart';
 import 'isar_type_path.dart';
@@ -15,7 +15,7 @@ class IsarServiceImpl implements AppLocalDatabase {
 
     final schemas = _typeToEnum.values.map((e) => e.schema).toList();
 
-    _isar = await Isar.open(schemas);
+    _isar = await Isar.open(schemas, directory: '');
 
     return this;
   }

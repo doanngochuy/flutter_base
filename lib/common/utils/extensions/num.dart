@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:flutter_base/common/store/config_store.dart';
+import 'package:EMO/common/store/config_store.dart';
 
 import '../utils.dart';
 

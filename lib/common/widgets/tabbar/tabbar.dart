@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/common/values/values.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/utils.dart';
+import 'package:EMO/common/values/values.dart';
 
 class CustomTabBar extends StatefulWidget {
   final List<String> tabTitles;
@@ -29,7 +29,7 @@ class CustomTabBarState extends State<CustomTabBar> {
 
   @override
   void didChangeDependencies() {
-    _controller = widget.controller ?? DefaultTabController.of(context)!;
+    _controller = widget.controller ?? DefaultTabController.of(context);
     _controller.addListener(_onTabChanged);
     super.didChangeDependencies();
   }

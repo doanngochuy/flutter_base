@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
+import 'package:EMO/common/styles/styles.dart';
 
 class SettingSwitcherWidget extends StatefulWidget {
   final bool? initialValue;
@@ -41,6 +41,7 @@ class _SettingSwitcherWidgetState extends State<SettingSwitcherWidget> {
         left: Insets.med,
         right: Insets.xs,
       ),
+      activeColor: AppColor.primary,
       subtitle: widget.subtitle != null ? Text(widget.subtitle!) : null,
       value: _value,
       onChanged: (value) {

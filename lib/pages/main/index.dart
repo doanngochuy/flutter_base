@@ -1,6 +1,6 @@
 library main;
 
-export 'menu/index.dart';
+export 'menu/menu.dart';
 export 'controller.dart';
 export 'type.dart';
 export 'state.dart';

@@ -40,23 +40,7 @@ class AppKey {
 
   static String get $menuModelVouchersKey => 'MENU_MODEL_VOUCHERS_KEY';
 
-  /// Sign in
-  static String get $signInButtonKey => 'SIGN_IN_BUTTON_KEY';
-
-  static String get $inputNameShopKey => 'INPUT_NAME_SHOP_KEY';
-
-  static String get $inputUserKey => 'INPUT_USER_KEY';
-
-  static String get $inputPasswordKey => 'INPUT_PASSWORD_KEY';
-
   /// cash flow
-  static String get $cashFlowListScrollKey => 'CASH_FLOW_LIST_SCROLL_KEY';
-
-  static String get $cashFlowFormInputCodeKey => 'CASH_FLOW_FORM_INPUT_CODE_KEY';
-
-  static String get $cashFlowFormInputAmountKey => 'CASH_FLOW_FORM_INPUT_AMOUNT_KEY';
-
-  static String get $cashFlowFormInputDescriptionKey => 'CASH_FLOW_FORM_INPUT_DESCRIPTION_KEY';
 
   static String $cashFlowItemKey(int id) => 'CASH_FLOW_ITEM_GEN_KEY_$id';
 
@@ -68,32 +52,10 @@ class AppKey {
   /// Employees
   static String $employeesItemKey(int id) => 'EMPLOYEE_ITEM_GEN_KEY_$id';
 
-  /// Price book
-  // static String get $createPriceBookInputDialogKey =>
-  //     'CREATE_PRICE_BOOK_INPUT_DIALOG_KEY';
-  //
-  // static String get $createPriceBookSelectBranchBtnKey =>
-  //     'CREATE_PRICE_BOOK_SELECT_BRANCH_BTN_KEY';
-  //
-  // static String get $createPriceBookSelectCustomerGroupBtnKey =>
-  //     'CREATE_PRICE_BOOK_SELECT_CUSTOMER_GROUP_BTN_KEY';
-  //
-  // static String get $selectPriceBookBtnKey => 'SELECT_PRICE_BOOK_BTN_KEY';
 
   static String $priceBookProductItemKey(int id) =>
       'PRICE_BOOK_PRODUCT_ITEM_KEY_$id';
 
-  // static String get $priceBookListItemScrollKey =>
-  //     'PRICE_BOOK_LIST_ITEM_SCROLL_KEY';
-  //
-  // static String get $openUpdatePriceBookMobileBtnKey =>
-  //     'OPEN_UPDATE_PRICE_BOOK_MOBILE_BTN_KEY';
-  //
-  // static String get $updatePriceBookMobileBtnKey =>
-  //     'UPDATE_PRICE_BOOK_MOBILE_BTN_KEY';
-  //
-  // static String get $addPriceBookMobileBtnKey =>
-  //     'ADD_PRICE_BOOK_MOBILE_BTN_KEY';
 
   /// Settings
   static String get $printTemplateSaveButtonKey =>

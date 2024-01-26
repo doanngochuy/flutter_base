@@ -2,15 +2,29 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/utils.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/utils.dart';
 
 import '../buttons/buttons.dart';
 import '../spaces/spaces.dart';
 
 class CustomDialog {
   const CustomDialog._();
+
+  static Future<T?> show<T>({
+    required BuildContext context,
+    required WidgetBuilder builder,
+    bool barrierDismissible = true,
+  }) =>
+      showDialog<T>(
+        context: context,
+        barrierDismissible: barrierDismissible,
+        builder: builder,
+        routeSettings: RouteSettings(
+          name: builder(context).runtimeType.toString(),
+        ),
+      );
 
   static Future<bool?> defaultDialog(
     BuildContext context, {

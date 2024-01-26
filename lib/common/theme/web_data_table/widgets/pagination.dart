@@ -1,11 +1,10 @@
+import 'package:EMO/common/config/config.dart';
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/config/config.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/utils/utils.dart';
-import 'package:flutter_base/common/widgets/widgets.dart';
 
 class WebDataTablePagination<T> extends StatefulWidget {
   const WebDataTablePagination({
@@ -30,15 +29,13 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
   /// default
   static const int numberMore = 0;
 
-  TablePaginationData get _tablePaginationData =>
-      widget.controller.paginationData;
+  TablePaginationData get _tablePaginationData => widget.controller.paginationData;
 
   @override
   void initState() {
     _tablePaginationData.listItemsPerPage =
         widget.listItemsPerPage ?? _tablePaginationData.listItemsPerPage;
-    _tablePaginationData.currentItemsPerPage =
-        _tablePaginationData.listItemsPerPage[0];
+    _tablePaginationData.currentItemsPerPage = _tablePaginationData.listItemsPerPage[0];
     widget.controller.handleInitData();
     widget.controller.handleArrangeStartToEnd();
     super.initState();
@@ -51,18 +48,16 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
       builder: (_, constrains) => Container(
         padding: EdgeInsets.symmetric(horizontal: Insets.med),
         width: double.infinity,
-        decoration:
-            BoxDecoration(color: AppColor.white, boxShadow: Shadows.universal),
+        decoration: BoxDecoration(color: AppColor.white, boxShadow: Shadows.universal),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Expanded(
               child: Row(
-                mainAxisAlignment:
-                    ConfigStore.to.screenWidth == ScreenWidth.DESKTOP
-                        ? MainAxisAlignment.start
-                        : MainAxisAlignment.center,
+                mainAxisAlignment: ConfigStore.to.screenWidth == ScreenWidth.desktop
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   nextPageLeft(),
@@ -93,8 +88,7 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
       children: <Widget>[
         IconButton(
           onPressed: () {
-            if (_tablePaginationData.currentPage <
-                _tablePaginationData.pageNumber) {
+            if (_tablePaginationData.currentPage < _tablePaginationData.pageNumber) {
               setState(
                 () => _tablePaginationData.currentPage++,
               );
@@ -109,8 +103,7 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
         IconButton(
           onPressed: () {
             setState(
-              () => _tablePaginationData.currentPage =
-                  _tablePaginationData.pageNumber,
+              () => _tablePaginationData.currentPage = _tablePaginationData.pageNumber,
             );
             widget.handleChangeData(
               _tablePaginationData.currentPage,
@@ -171,15 +164,11 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
         padding: EdgeInsets.zero,
         text: number != 0 ? number.toString() : '...',
         textStyle: TextStyles.button1.copyWith(
-          color: number == _tablePaginationData.currentPage
-              ? AppColor.white
-              : AppColor.grey600,
+          color: number == _tablePaginationData.currentPage ? AppColor.white : AppColor.grey600,
         ),
-        borderWidth:
-            number == _tablePaginationData.currentPage ? 0 : Strokes.thin,
-        background: number == _tablePaginationData.currentPage
-            ? AppColor.blueLight
-            : AppColor.white,
+        borderWidth: number == _tablePaginationData.currentPage ? 0 : Strokes.thin,
+        background:
+            number == _tablePaginationData.currentPage ? AppColor.blueLight : AppColor.white,
       ),
     );
   }
@@ -199,11 +188,10 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
           customBtnPageNumber(
             onPressed: () {
               setState(
-                () => _tablePaginationData.currentPage =
-                    _tablePaginationData.currentPage -
-                        _tablePaginationData.numberNextPage -
-                        _tablePaginationData.excessEnd -
-                        1,
+                () => _tablePaginationData.currentPage = _tablePaginationData.currentPage -
+                    _tablePaginationData.numberNextPage -
+                    _tablePaginationData.excessEnd -
+                    1,
               );
               widget.handleChangeData(
                 _tablePaginationData.currentPage,
@@ -232,11 +220,10 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
           customBtnPageNumber(
             onPressed: () {
               setState(
-                () => _tablePaginationData.currentPage =
-                    _tablePaginationData.currentPage +
-                        _tablePaginationData.numberNextPage +
-                        _tablePaginationData.excessStart +
-                        1,
+                () => _tablePaginationData.currentPage = _tablePaginationData.currentPage +
+                    _tablePaginationData.numberNextPage +
+                    _tablePaginationData.excessStart +
+                    1,
               );
               widget.handleChangeData(
                 _tablePaginationData.currentPage,
@@ -262,8 +249,7 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
               _tablePaginationData.currentPage = 1;
               if (value != 0) _tablePaginationData.currentItemsPerPage = value;
 
-              _tablePaginationData.pageNumber =
-                  widget.controller.calculatePageNumber();
+              _tablePaginationData.pageNumber = widget.controller.calculatePageNumber();
               widget.handleChangeData(
                 _tablePaginationData.currentPage,
                 _tablePaginationData.currentItemsPerPage,
@@ -287,10 +273,9 @@ class _WebDataTablePaginationState extends State<WebDataTablePagination> {
       );
 
   Widget fromToItemsInPage() {
-    final fromItem = (_tablePaginationData.currentPage - 1) *
-        _tablePaginationData.currentItemsPerPage;
-    final toItem = _tablePaginationData.currentPage *
-        _tablePaginationData.currentItemsPerPage;
+    final fromItem =
+        (_tablePaginationData.currentPage - 1) * _tablePaginationData.currentItemsPerPage;
+    final toItem = _tablePaginationData.currentPage * _tablePaginationData.currentItemsPerPage;
     return ConfigStore.to.screenWidth.isDesktop
         ? Text(
             '$fromItem - ${toItem > widget.controller.itemCount ? widget.controller.itemCount : toItem} of ${widget.controller.itemCount} items',

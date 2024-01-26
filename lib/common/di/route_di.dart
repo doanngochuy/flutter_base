@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:flutter_base/common/router/router.dart';
+import 'package:EMO/common/router/router.dart';
 
 class RouteDI {
   RouteDI._();

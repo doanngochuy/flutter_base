@@ -1,11 +1,10 @@
+import 'package:EMO/common/generated/l10n.dart';
+import 'package:EMO/common/store/store.dart';
+import 'package:EMO/common/theme/theme.dart';
+import 'package:EMO/common/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:flutter_base/common/generated/l10n.dart';
-import 'package:flutter_base/common/models/models.dart';
-import 'package:flutter_base/common/store/store.dart';
-import 'package:flutter_base/common/theme/theme.dart';
-import 'package:flutter_base/common/values/values.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SignInController extends GetxController {
@@ -13,10 +12,8 @@ class SignInController extends GetxController {
 
   SignInController();
 
-  final TextEditingController userController =
-      TextEditingController(text: 'admin');
-  final TextEditingController passController =
-      TextEditingController(text: '123456');
+  final TextEditingController userController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
   final fbKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -47,7 +44,7 @@ class SignInController extends GetxController {
           } catch (e) {
             CustomSnackBar.error(
               title: S.current.That_bai,
-              message: e.toString(),
+              message: "Kiểm tra lại tài khoản hoặc mật khẩu, kết nối mạng",
             );
             return false;
           }
@@ -55,7 +52,6 @@ class SignInController extends GetxController {
       ) ??
       false;
 
-  // TODO sign up
   Future<void> handleSignUp() async {
     CustomToast.info(msg: 'Sign up');
   }

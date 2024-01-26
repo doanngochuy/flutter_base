@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
+import 'package:EMO/common/styles/styles.dart';
 
 class CustomTag {
   static Widget tagSuccess(String value) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColor.successColor,
+        color: AppColor.primary,
         borderRadius: Corners.smBorder,
       ),
       padding: EdgeInsets.symmetric(

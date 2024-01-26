@@ -1,4 +1,4 @@
-import 'package:flutter_base/common/store/store.dart';
+import 'package:EMO/common/store/store.dart';
 
 import 'type_defined.dart';
 

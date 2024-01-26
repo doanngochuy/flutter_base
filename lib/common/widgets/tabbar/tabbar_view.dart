@@ -1,5 +1,5 @@
+import 'package:EMO/common/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/values/values.dart';
 
 class CustomTabBarView extends StatelessWidget {
   final TabController? controller;
@@ -17,7 +17,7 @@ class CustomTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       key: Key(AppKey.$tabBarViewKey),
-      controller: controller ?? DefaultTabController.of(context)!,
+      controller: controller ?? DefaultTabController.of(context),
       children: children,
     );
   }

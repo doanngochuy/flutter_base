@@ -147,6 +147,8 @@
   "Dang_nhap": "Đăng nhập",
   "Dang_nhap_thanh_cong": "Đăng nhập thành công",
   "Dang_nhap_that_bai": "Đăng nhập thất bại",
+  "Dang_ky_thanh_cong": "Đăng ký thành công",
+  "Dang_ky_that_bai": "Đăng ký thất bại",
   "Dang_tai": "Đang tải",
   "Dang_trong": "Đang trống",
   "Dang_xu_ly": "Đang xử lý",
@@ -766,5 +768,6 @@
   "Tao_moi": "Tạo mới",
   "Tao_phieu_thu": "Tạo phiếu thu",
   "Tao_phieu_chi": "Tạo phiếu chi",
-  "Chon_mau": "Chọn mẫu"
+  "Chon_mau": "Chọn mẫu",
+  "Dang_cho": "Đang chờ"
 }

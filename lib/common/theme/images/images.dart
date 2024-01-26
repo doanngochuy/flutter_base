@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/styles/styles.dart';
-import 'package:flutter_base/common/utils/extensions/extensions.dart';
+import 'package:EMO/common/styles/styles.dart';
+import 'package:EMO/common/utils/extensions/extensions.dart';
 
 class CustomImage {
   const CustomImage._();
@@ -48,7 +48,7 @@ class CustomImage {
           borderRadius: borderRadius,
         ),
         child: ClipRRect(
-          borderRadius: borderRadius,
+          borderRadius: borderRadius ?? BorderRadius.zero,
           child: Image.asset(
             path,
             fit: fit ?? BoxFit.cover,

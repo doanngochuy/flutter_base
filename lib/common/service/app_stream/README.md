@@ -6,7 +6,7 @@ The AppStream Service is used to receive events and emit states from method to a
 Init the AppStream Service in your application with the following code:
 
 ```dart
-import 'package:flutter_base/common/service/app_stream/app_stream.dart';
+import 'package:EMO/common/service/app_stream/app_stream.dart';
 
 void main() {
   injector.registerSingleton<AppStream>(AppStreamImpl());
