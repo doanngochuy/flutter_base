@@ -3,7 +3,7 @@ description: Rebuild project with multi-flatform mobile, web app.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.11+20231225
+version: 1.0.12+20231228
 
 environment:
   sdk: '>=3.1.1 <4.0.0'

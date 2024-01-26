@@ -41,6 +41,25 @@ class _GetJobPageState extends State<GetJobPage> {
     );
   }
 
+  Future<void> _onTapStartJobFake() async {
+    final jobFake = Job(
+      id: 1,
+      url: 'https://thongnhat.com.vn/xe/xe-dap-nam',
+      money: 1,
+      image: "https://www.facebook.com/ThongNhat1960",
+      time: 5
+    );
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => WebJobMobilePage(
+          job: jobFake,
+          currentId: 0,
+        ),
+      ),
+    );
+    _controller.state.setCurrentJob(const CurrentJobResponse());
+  }
+
   Future<void> _onTapStartJob() async {
     if (_controller.state.job == null) {
       CustomToast.noty(msg: 'Chưa nhận nhiệm vụ');
@@ -87,7 +106,7 @@ class _GetJobPageState extends State<GetJobPage> {
         Padding(
           padding: const EdgeInsets.all(20),
           child: CustomButton.fullColorWithIcon(
-            onPressed: _onTapGetJob,
+            onPressed: _onTapStartJobFake,
             radius: 12,
             text: missionOver ? 'Tải lại' : 'Nhận nhiệm vụ',
             icon: missionOver ? Icons.refresh : Icons.work_history,

@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "875216074842",
+    "project_id": "emo-server-380518",
+    "storage_bucket": "emo-server-380518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875216074842:android:15ce8956c6f4fe7075c063",
+        "android_client_info": {
+          "package_name": "com.example.emo_boss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwBFwW9Omg37GAdb5zM-tfTfRbd-VfV_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875216074842-t7d13r1gsfk5mkkf8416a73vccisle7r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.emoBoss"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875216074842:android:937a7fe9db9c1bdb75c063",
+        "android_client_info": {
+          "package_name": "vn.emo.emo_job"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwBFwW9Omg37GAdb5zM-tfTfRbd-VfV_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875216074842-t7d13r1gsfk5mkkf8416a73vccisle7r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.emoBoss"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875216074842:android:269cf8415847159475c063",
+        "android_client_info": {
+          "package_name": "vn.pos365.cashier.pos365_cashier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwBFwW9Omg37GAdb5zM-tfTfRbd-VfV_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875216074842-5side0cbsngc5mucgk1iiu0bf0bh86n3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875216074842-t7d13r1gsfk5mkkf8416a73vccisle7r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.emoBoss"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

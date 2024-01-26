@@ -184,10 +184,39 @@ class WebJobMobileController extends GetxController {
       (count) {
         state.setFakeCount(state.fakeCount! - 1);
         if ((state.fakeCount ?? 0) <= 0) {
-          setFinishJob();
+          // setFinishJob();
+          setSearchResultHint1();
         }
       },
     );
+  }
+
+  void setSearchResultHint1() {
+    const arrowDiv = "arrowDiv";
+    const otherButton = "otherButton";
+    const otherButtonVisible = "otherButtonVisible";
+    const linkViewStatus = "linkViewStatus";
+    const elements = "elements";
+    const styleText = "styleText";
+
+    const textDownStyle =
+        '<div style="width: 30px; text-align: center; color: black; font-size: 14px;">Kéo xuống</div> <div style="position: relative; width: 0; height: 0px; margin-top: 2px; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 12px solid white;"/>';
+    const textUpStyle =
+        '<div style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 25px solid white; margin-left: 7.5px;"></div> <div style="width: 50px; text-align: center; color: black; font-size: 14px;">Kéo lên</div>';
+    const textClickStyle =
+        '<div style="width: 150px; text-align: center; color: black; font-size: 14px;">Click nút <br> Kết quả tìm kiếm khác</div>';
+
+    _webViewController?.evaluateJavascript(source: """
+    
+    var elements1 = document.querySelectorAll('[href*="facebook.com"]');
+
+// Bôi vàng các phần tử tìm được
+elements1.forEach(function(element1) {
+    element1.style.backgroundColor = 'yellow';
+    // Bạn có thể thay đổi các thuộc tính khác để tạo hiệu ứng bôi vàng mong muốn
+});
+        
+        """);
   }
 
   void setFinishJob() {
